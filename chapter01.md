@@ -96,8 +96,8 @@ Buscamos transformar la movilidad urbana en Lima  ofreciendo un transporte rápi
     </tr>
     <tr>
       <td style="padding: 10px; border: 1px solid #aaa;">
-        Seminario Castillo, Diego Vicente<br>
-        <span style="font-size:11px; color:#555;">(U202412591)</span>
+        Seijas Vásqiez, Diego Antonio<br>
+        <span style="font-size:11px; color:#555;">(U202210167)</span>
       </td>
       <td style="padding: 10px; border: 1px solid #aaa; text-align:center;">
         <img src="assets/Integrantes/Diego.png" alt="Foto de Diego" style="max-width:80px; border-radius:6px;">
