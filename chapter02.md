@@ -1326,7 +1326,6 @@ Cada Bounded Context se definió respetando los principios de **alta cohesión i
 
 **Mapa visual del Candidate Context Discovery:**
 
-> *Nota para el equipo: en esta sección debe insertarse la imagen resultante de la sesión de EventStorming en Miro/Figjam con los eventos agrupados por color y encerrados en cajas que representen cada Bounded Context candidato. Guardar la imagen como `assets/chapter02/candidate-context-discovery.png` y referenciarla aquí.*
 
 ![Candidate Context Discovery](assets/chapter02/candidate-context-discovery.png)
 
