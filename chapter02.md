@@ -1242,10 +1242,613 @@ Un mapa de impacto es una técnica colaborativa y visual de planificación estra
 | 22       | US-22         | Desbloqueo programado                    | Como usuario, quiero programar el desbloqueo de un vehículo para una hora específica y asegurar su disponibilidad. | 5            |
 
 ## 2.5. Strategic-Level Domain-Driven Design
+
 ### 2.5.1. EventStorming
+
+El EventStorming es una técnica colaborativa de modelado de dominio que permite descubrir, explorar y compartir el conocimiento del negocio entre los stakeholders y el equipo técnico mediante la identificación de Eventos de Dominio, Comandos, Actores, Políticas, Agregados y Sistemas Externos. Para el proyecto **WeRide**, plataforma de micromovilidad eléctrica en Lima, el EventStorming parte del Big Picture presentado en la sección 2.3.5 y se profundiza en tres niveles:
+
+1. **Candidate Context Discovery:** identificación de los Bounded Contexts candidatos a partir de los eventos y agregados descubiertos.
+2. **Domain Message Flows Modeling:** modelado de los flujos de mensajes (comandos, eventos y queries) que se intercambian entre los contextos.
+3. **Bounded Context Canvases:** especificación detallada de cada Bounded Context mediante el Canvas de Nick Tune.
+
 #### 2.5.1.1. Candidate Context Discovery
+
+El *Candidate Context Discovery* es la fase del EventStorming en la que, tras haber identificado los eventos de dominio, comandos, actores y agregados en el Big Picture, se agrupan los elementos relacionados semánticamente con el fin de descubrir **fronteras naturales del dominio**, es decir, los *candidatos a Bounded Context*. Cada agrupación representa una unidad de responsabilidad con su propio lenguaje ubicuo y sus propias reglas de negocio.
+
+A partir del análisis de los eventos identificados en el Big Picture de WeRide (registro de usuarios, verificación de identidad, gestión de flota, reserva, desbloqueo, seguimiento del viaje, pagos, notificaciones, calificaciones y soporte) se agruparon los elementos por cohesión semántica y operacional. Como resultado, se identificaron **siete (7) Bounded Contexts candidatos**:
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Bounded Context Candidato</th>
+      <th>Responsabilidad Principal</th>
+      <th>Eventos de Dominio Clave</th>
+      <th>Agregados Principales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><b>Identity and Access Management (IAM)</b></td>
+      <td>Gestionar el registro, autenticación, verificación de identidad y gestión de sesiones de los usuarios de la plataforma.</td>
+      <td>UserRegistered, PhoneNumberValidated, VerificationCodeSent, UserAuthenticated, SessionExpired, ProfileUpdated.</td>
+      <td>User, Session, VerificationCode.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><b>Fleet Management</b></td>
+      <td>Administrar la flota de vehículos eléctricos (scooters, motos, bicicletas), su disponibilidad, ubicación en tiempo real, nivel de batería y estado operativo.</td>
+      <td>VehicleRegistered, VehicleLocationUpdated, VehicleStatusChanged, MaintenanceScheduled, BatteryLevelReported, VehicleOutOfService.</td>
+      <td>Vehicle, VirtualStation, Fleet.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><b>Reservations and Trips</b></td>
+      <td>Gestionar el ciclo de vida de la reserva, el desbloqueo del vehículo, el trayecto activo, la devolución y el historial de viajes del usuario.</td>
+      <td>ReservationCreated, ReservationConfirmed, VehicleUnlocked, TripStarted, TripInProgress, TripEnded, VehicleReturned, ReservationExpired.</td>
+      <td>Reservation, Trip, UnlockRequest.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><b>Billing and Subscriptions</b></td>
+      <td>Gestionar planes de suscripción, tarifas, cálculo de costos de viaje, procesamiento de pagos (Yape, Plin, tarjeta) y penalizaciones.</td>
+      <td>PlanSelected, PaymentMethodRegistered, PaymentProcessed, PaymentFailed, InvoiceGenerated, PenaltyApplied, SubscriptionRenewed.</td>
+      <td>Plan, Subscription, Payment, Invoice.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><b>Geolocation and Map</b></td>
+      <td>Proporcionar servicios de mapa, búsqueda de vehículos cercanos, visualización de trayectos en tiempo real y gestión de estaciones virtuales.</td>
+      <td>LocationSelected, NearbyVehiclesRequested, RouteCalculated, TripRouteUpdated.</td>
+      <td>MapView, GeoLocation, Route.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><b>Notifications</b></td>
+      <td>Enviar notificaciones push y por SMS sobre estado de reservas, inicio/fin de viajes, vencimientos, promociones y alertas de seguridad.</td>
+      <td>ReservationReminderSent, TripStartNotificationSent, ReservationExpirationWarned, PaymentReceiptSent.</td>
+      <td>Notification, NotificationTemplate.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><b>Customer Support and Feedback</b></td>
+      <td>Gestionar el reporte de incidentes con vehículos, canalizar el soporte al usuario y registrar calificaciones y feedback post-viaje.</td>
+      <td>IssueReported, SupportTicketOpened, TripRated, FeedbackSubmitted, TicketResolved.</td>
+      <td>SupportTicket, Rating, Issue.</td>
+    </tr>
+  </tbody>
+</table>
+
+**Justificación de la agrupación:**
+
+Cada Bounded Context se definió respetando los principios de **alta cohesión interna y bajo acoplamiento externo**. Por ejemplo, *IAM* concentra todo lo referente a la identidad del usuario (registro, validación del celular, código de verificación, gestión de perfil — cubriendo las US-01 a US-06), mientras que *Billing and Subscriptions* encapsula toda la lógica de pagos y planes (US-09 y US-10), evitando que esta lógica se mezcle con la de reservas. *Fleet Management* se separó de *Reservations and Trips* porque el ciclo de vida del vehículo (mantenimiento, batería, estado operativo) tiene una cadencia y unos responsables (personal técnico, IoT) completamente distintos del ciclo de vida de una reserva de usuario. *Geolocation and Map* se aisló como contexto de soporte porque sus reglas dependen de proveedores externos (Google Maps, GPS) y puede evolucionar de forma independiente. Finalmente, *Notifications* y *Customer Support and Feedback* se modelaron como contextos genéricos/de soporte transversales al resto del sistema.
+
+**Mapa visual del Candidate Context Discovery:**
+
+> *Nota para el equipo: en esta sección debe insertarse la imagen resultante de la sesión de EventStorming en Miro/Figjam con los eventos agrupados por color y encerrados en cajas que representen cada Bounded Context candidato. Guardar la imagen como `assets/chapter02/candidate-context-discovery.png` y referenciarla aquí.*
+
+```
+![Candidate Context Discovery](assets/chapter02/candidate-context-discovery.png)
+```
+
+---
+
 #### 2.5.1.2. Domain Message Flows Modeling
+
+El *Domain Message Flows Modeling* consiste en identificar y documentar los **mensajes** (comandos, eventos de dominio y queries) que se intercambian entre los Bounded Contexts cuando ocurre un escenario de negocio relevante. Esto permite visualizar las dependencias entre contextos y preparar la siguiente fase: el Context Mapping.
+
+A continuación se modelan los **cinco (5) flujos de mensajes más representativos** del dominio de WeRide, cada uno correspondiente a un escenario crítico del producto.
+
+---
+
+##### Flujo 1: Registro e inicio de sesión del usuario (US-01, US-02, US-03)
+
+**Escenario:** Un nuevo usuario se registra en la aplicación WeRide, valida su número de celular mediante un código de verificación y accede a la aplicación.
+
+| # | Emisor | Tipo | Mensaje | Receptor |
+|---|--------|------|---------|----------|
+| 1 | Usuario (Actor) | Comando | `RegisterUser(phoneNumber, email)` | IAM |
+| 2 | IAM | Evento | `UserRegistered(userId, phoneNumber)` | (broadcast) |
+| 3 | IAM | Comando | `SendVerificationCode(phoneNumber)` | Notifications |
+| 4 | Notifications | Evento | `VerificationCodeSent(userId, channel)` | IAM |
+| 5 | Usuario (Actor) | Comando | `SubmitVerificationCode(code)` | IAM |
+| 6 | IAM | Evento | `PhoneNumberValidated(userId)` | (broadcast) |
+| 7 | IAM | Evento | `UserAuthenticated(userId, sessionId)` | (broadcast) |
+
+**Contextos involucrados:** IAM (principal), Notifications (soporte).
+
+---
+
+##### Flujo 2: Contratación de un plan y registro de método de pago (US-09, US-10)
+
+**Escenario:** Un usuario autenticado selecciona un plan de suscripción y lo paga con tarjeta, Yape o Plin.
+
+| # | Emisor | Tipo | Mensaje | Receptor |
+|---|--------|------|---------|----------|
+| 1 | Usuario (Actor) | Query | `GetAvailablePlans()` | Billing and Subscriptions |
+| 2 | Billing | — | (respuesta con lista de planes) | Usuario |
+| 3 | Usuario (Actor) | Comando | `SelectPlan(planId, paymentMethod)` | Billing and Subscriptions |
+| 4 | Billing | Comando | `ProcessPayment(amount, method)` | Pasarela de Pagos (Sistema Externo) |
+| 5 | Pasarela de Pagos | Evento | `PaymentProcessed(paymentId, status)` | Billing |
+| 6 | Billing | Evento | `SubscriptionActivated(userId, planId)` | (broadcast) |
+| 7 | Billing | Comando | `SendPaymentReceipt(userId, invoice)` | Notifications |
+| 8 | Notifications | Evento | `PaymentReceiptSent(userId)` | Billing |
+
+**Contextos involucrados:** Billing and Subscriptions (principal), IAM (contexto de identidad), Notifications, Pasarela de Pagos (externo).
+
+---
+
+##### Flujo 3: Búsqueda de vehículos cercanos y creación de reserva (US-11, US-17)
+
+**Escenario:** El usuario selecciona una ubicación en el mapa, visualiza los vehículos cercanos disponibles y reserva uno.
+
+| # | Emisor | Tipo | Mensaje | Receptor |
+|---|--------|------|---------|----------|
+| 1 | Usuario (Actor) | Comando | `SelectLocation(lat, lng)` | Geolocation and Map |
+| 2 | Geolocation | Query | `FindNearbyVehicles(lat, lng, radius)` | Fleet Management |
+| 3 | Fleet | — | (respuesta con vehículos disponibles) | Geolocation |
+| 4 | Geolocation | Evento | `NearbyVehiclesDisplayed(userId, vehicles)` | Usuario |
+| 5 | Usuario (Actor) | Comando | `CreateReservation(vehicleId, userId)` | Reservations and Trips |
+| 6 | Reservations | Query | `CheckVehicleAvailability(vehicleId)` | Fleet Management |
+| 7 | Fleet | Evento | `VehicleReserved(vehicleId, userId)` | Reservations |
+| 8 | Reservations | Evento | `ReservationCreated(reservationId, userId, vehicleId)` | (broadcast) |
+| 9 | Reservations | Comando | `NotifyReservationStart(userId, reservationId)` | Notifications |
+| 10 | Notifications | Evento | `TripStartNotificationSent(userId)` | Reservations |
+
+**Contextos involucrados:** Geolocation and Map, Fleet Management, Reservations and Trips, Notifications.
+
+---
+
+##### Flujo 4: Desbloqueo del vehículo e inicio del viaje (US-19, US-20, US-21)
+
+**Escenario:** El usuario con reserva activa escanea el QR (o usa la app) y el sistema desbloquea el vehículo, iniciando el viaje.
+
+| # | Emisor | Tipo | Mensaje | Receptor |
+|---|--------|------|---------|----------|
+| 1 | Usuario (Actor) | Comando | `ScanQRCode(qrToken, reservationId)` | Reservations and Trips |
+| 2 | Reservations | Query | `ValidateReservation(reservationId, userId)` | Reservations |
+| 3 | Reservations | Comando | `UnlockVehicle(vehicleId)` | Fleet Management |
+| 4 | Fleet | Comando | `SendUnlockSignal(vehicleId)` | IoT Gateway (Sistema Externo) |
+| 5 | IoT Gateway | Evento | `VehicleUnlocked(vehicleId, timestamp)` | Fleet |
+| 6 | Fleet | Evento | `VehicleStatusChanged(vehicleId, IN_USE)` | (broadcast) |
+| 7 | Reservations | Evento | `TripStarted(tripId, userId, vehicleId, startTime)` | (broadcast) |
+| 8 | Reservations | Query | `GetTripRoute(tripId)` | Geolocation and Map |
+
+**Contextos involucrados:** Reservations and Trips, Fleet Management, Geolocation and Map, IoT Gateway (externo).
+
+---
+
+##### Flujo 5: Finalización del viaje, facturación y calificación (US-12, US-13, US-14)
+
+**Escenario:** El usuario devuelve el vehículo en una estación virtual, el sistema calcula el costo, lo cobra y solicita la calificación del viaje.
+
+| # | Emisor | Tipo | Mensaje | Receptor |
+|---|--------|------|---------|----------|
+| 1 | Usuario (Actor) | Comando | `EndTrip(tripId)` | Reservations and Trips |
+| 2 | Reservations | Comando | `LockVehicle(vehicleId)` | Fleet Management |
+| 3 | Fleet | Evento | `VehicleReturned(vehicleId, location)` | (broadcast) |
+| 4 | Reservations | Evento | `TripEnded(tripId, duration, distance)` | (broadcast) |
+| 5 | Reservations | Comando | `CalculateTripCost(tripId, duration, distance)` | Billing and Subscriptions |
+| 6 | Billing | Evento | `InvoiceGenerated(invoiceId, tripId, amount)` | (broadcast) |
+| 7 | Billing | Comando | `ChargeUser(userId, amount)` | Pasarela de Pagos (externo) |
+| 8 | Pasarela | Evento | `PaymentProcessed(paymentId)` | Billing |
+| 9 | Billing | Comando | `SendInvoiceNotification(userId, invoice)` | Notifications |
+| 10 | Reservations | Comando | `RequestTripRating(userId, tripId)` | Customer Support and Feedback |
+| 11 | Usuario (Actor) | Comando | `SubmitRating(tripId, score, comment)` | Customer Support and Feedback |
+| 12 | Customer Support | Evento | `TripRated(tripId, userId, score)` | (broadcast) |
+
+**Contextos involucrados:** Reservations and Trips, Fleet Management, Billing and Subscriptions, Customer Support and Feedback, Notifications, Pasarela de Pagos (externo).
+
+---
+
+> *Nota para el equipo: cada flujo debe ser diagramado en Miro/Figjam como un **Domain Message Flow Diagram** (secuencia horizontal con swimlanes por contexto). Guardar como `assets/chapter02/message-flow-<N>.png` y referenciarlos aquí.*
+
+```
+![Flujo 1 – Registro e inicio de sesión](assets/chapter02/message-flow-1-registro.png)
+![Flujo 2 – Contratación de plan](assets/chapter02/message-flow-2-plan.png)
+![Flujo 3 – Búsqueda y reserva](assets/chapter02/message-flow-3-reserva.png)
+![Flujo 4 – Desbloqueo e inicio](assets/chapter02/message-flow-4-desbloqueo.png)
+![Flujo 5 – Fin de viaje y facturación](assets/chapter02/message-flow-5-fin-viaje.png)
+```
+
+---
+
 #### 2.5.1.3. Bounded Context Canvases
+
+El *Bounded Context Canvas* es una plantilla creada por Nick Tune que permite describir, de forma estandarizada y colaborativa, las responsabilidades, el modelo de dominio y las interacciones de un Bounded Context. A continuación se presenta el canvas para cada uno de los siete Bounded Contexts identificados en WeRide.
+
+---
+
+##### Canvas 1: Identity and Access Management (IAM)
+
+<table>
+  <thead>
+    <tr><th colspan="2">Bounded Context: <b>Identity and Access Management (IAM)</b></th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Name</b></td>
+      <td>Identity and Access Management</td>
+    </tr>
+    <tr>
+      <td><b>Description / Purpose</b></td>
+      <td>Gestionar la identidad de los usuarios, permitiendo su registro, verificación de celular, autenticación, gestión de perfil y control de sesiones, de manera segura y conforme a los requisitos regulatorios peruanos.</td>
+    </tr>
+    <tr>
+      <td><b>Strategic Classification</b></td>
+      <td>Supporting (habilitador para todos los demás contextos, pero no es el diferenciador del negocio).</td>
+    </tr>
+    <tr>
+      <td><b>Domain Role</b></td>
+      <td>Specification Model (define las reglas de identidad y sesión).</td>
+    </tr>
+    <tr>
+      <td><b>Business Model</b></td>
+      <td>Compliance Enforcer (habilita el acceso seguro al servicio y protege datos personales según Ley 29733).</td>
+    </tr>
+    <tr>
+      <td><b>Evolution Stage</b></td>
+      <td>Product (soluciones estandarizadas, maduras en el mercado).</td>
+    </tr>
+    <tr>
+      <td><b>Inbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Comandos recibidos:</i> RegisterUser, SubmitVerificationCode, Authenticate, UpdateProfile, Logout.</li>
+          <li><i>Orígenes:</i> Frontend móvil (Flutter/React Native), Frontend Admin Web.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Outbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Eventos emitidos:</i> UserRegistered, PhoneNumberValidated, UserAuthenticated, ProfileUpdated, SessionExpired.</li>
+          <li><i>Comandos emitidos:</i> SendVerificationCode → Notifications.</li>
+          <li><i>Consumidores:</i> Billing (para asociar planes), Reservations (para validar sesión), Notifications, Customer Support.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Ubiquitous Language</b></td>
+      <td>Usuario, Perfil, Sesión, Código de Verificación, Número de Celular, Autenticación, Registro.</td>
+    </tr>
+    <tr>
+      <td><b>Business Decisions / Rules</b></td>
+      <td>
+        <ul>
+          <li>Un número de celular no puede estar asociado a más de una cuenta activa.</li>
+          <li>El código de verificación expira a los 5 minutos.</li>
+          <li>Tras 3 intentos fallidos de autenticación, la cuenta se bloquea por 15 minutos.</li>
+          <li>Toda sesión caduca automáticamente tras 30 días de inactividad.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Assumptions</b></td>
+      <td>El proveedor de SMS (p. ej., Twilio) tiene cobertura en Perú para todas las operadoras.</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+##### Canvas 2: Fleet Management
+
+<table>
+  <thead>
+    <tr><th colspan="2">Bounded Context: <b>Fleet Management</b></th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Name</b></td><td>Fleet Management</td></tr>
+    <tr>
+      <td><b>Description / Purpose</b></td>
+      <td>Administrar el ciclo de vida de la flota de vehículos eléctricos (scooters, motos y bicicletas), incluyendo registro, ubicación en tiempo real (IoT/GPS), estado operativo, nivel de batería, mantenimiento y disponibilidad para reservas.</td>
+    </tr>
+    <tr><td><b>Strategic Classification</b></td><td>Core Domain (diferenciador clave de WeRide frente a competidores como Lime y Whoosh).</td></tr>
+    <tr><td><b>Domain Role</b></td><td>Core Model.</td></tr>
+    <tr><td><b>Business Model</b></td><td>Revenue Generator (la flota es el activo principal del servicio).</td></tr>
+    <tr><td><b>Evolution Stage</b></td><td>Custom-built (requiere integración propia con IoT y lógica de optimización de flota).</td></tr>
+    <tr>
+      <td><b>Inbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Comandos:</i> RegisterVehicle, UpdateVehicleLocation, UnlockVehicle, LockVehicle, ScheduleMaintenance.</li>
+          <li><i>Queries:</i> FindNearbyVehicles, CheckVehicleAvailability, GetVehicleStatus.</li>
+          <li><i>Orígenes:</i> IoT Gateway, Reservations and Trips, Geolocation and Map, Admin Web.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Outbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Eventos:</i> VehicleRegistered, VehicleLocationUpdated, VehicleStatusChanged, BatteryLevelReported, MaintenanceScheduled, VehicleOutOfService.</li>
+          <li><i>Consumidores:</i> Reservations, Geolocation, Notifications, Admin Dashboard.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Ubiquitous Language</b></td><td>Vehículo, Scooter, Moto Eléctrica, Bicicleta, Flota, Estación Virtual, Batería, Mantenimiento, Ubicación en Tiempo Real.</td></tr>
+    <tr>
+      <td><b>Business Decisions / Rules</b></td>
+      <td>
+        <ul>
+          <li>Un vehículo con batería menor al 15% no puede ser reservado.</li>
+          <li>Los vehículos solo pueden ser devueltos en estaciones virtuales permitidas.</li>
+          <li>Un vehículo en mantenimiento queda automáticamente fuera de servicio.</li>
+          <li>La ubicación del vehículo se actualiza cada 10 segundos mientras esté en uso.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Assumptions</b></td><td>Los dispositivos IoT tienen conectividad estable 4G/5G en todas las zonas de operación en Lima.</td></tr>
+  </tbody>
+</table>
+
+---
+
+##### Canvas 3: Reservations and Trips
+
+<table>
+  <thead>
+    <tr><th colspan="2">Bounded Context: <b>Reservations and Trips</b></th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Name</b></td><td>Reservations and Trips</td></tr>
+    <tr>
+      <td><b>Description / Purpose</b></td>
+      <td>Orquestar el ciclo de vida completo de la experiencia del usuario: crear reservas, desbloquear vehículos (QR o app), iniciar y seguir el trayecto, registrar la devolución y mantener el historial de viajes.</td>
+    </tr>
+    <tr><td><b>Strategic Classification</b></td><td>Core Domain.</td></tr>
+    <tr><td><b>Domain Role</b></td><td>Core Model.</td></tr>
+    <tr><td><b>Business Model</b></td><td>Revenue Generator (cada viaje genera ingresos).</td></tr>
+    <tr><td><b>Evolution Stage</b></td><td>Custom-built.</td></tr>
+    <tr>
+      <td><b>Inbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Comandos:</i> CreateReservation, ScanQRCode, UnlockFromApp, EndTrip, CancelReservation.</li>
+          <li><i>Queries:</i> GetTripHistory, GetReservationStatus, GetActiveTrip.</li>
+          <li><i>Orígenes:</i> Frontend móvil.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Outbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Eventos:</i> ReservationCreated, ReservationConfirmed, TripStarted, TripEnded, ReservationExpired, VehicleReturned.</li>
+          <li><i>Comandos:</i> UnlockVehicle, LockVehicle → Fleet; CalculateTripCost → Billing; RequestTripRating → Customer Support; Notify* → Notifications.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Ubiquitous Language</b></td><td>Reserva, Trayecto, Viaje, Desbloqueo, Devolución, Historial de Viajes, Código QR.</td></tr>
+    <tr>
+      <td><b>Business Decisions / Rules</b></td>
+      <td>
+        <ul>
+          <li>Una reserva tiene una duración máxima de 10 minutos antes de ser liberada automáticamente.</li>
+          <li>Un usuario no puede tener más de una reserva activa a la vez.</li>
+          <li>Un viaje no puede iniciarse sin una reserva confirmada.</li>
+          <li>Se envía notificación 5 minutos antes del fin de la reserva.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Assumptions</b></td><td>El usuario siempre tiene conectividad al momento del desbloqueo (con fallback offline limitado).</td></tr>
+  </tbody>
+</table>
+
+---
+
+##### Canvas 4: Billing and Subscriptions
+
+<table>
+  <thead>
+    <tr><th colspan="2">Bounded Context: <b>Billing and Subscriptions</b></th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Name</b></td><td>Billing and Subscriptions</td></tr>
+    <tr>
+      <td><b>Description / Purpose</b></td>
+      <td>Gestionar planes de suscripción, métodos de pago (tarjeta, Yape, Plin), cálculo de tarifas por viaje, emisión de facturas, penalizaciones y reconciliación financiera.</td>
+    </tr>
+    <tr><td><b>Strategic Classification</b></td><td>Core Domain (la integración con pagos locales es ventaja competitiva clave).</td></tr>
+    <tr><td><b>Domain Role</b></td><td>Core Model.</td></tr>
+    <tr><td><b>Business Model</b></td><td>Revenue Generator / Compliance Enforcer (SUNAT).</td></tr>
+    <tr><td><b>Evolution Stage</b></td><td>Custom-built + Product (integra pasarelas estandarizadas pero con lógica local).</td></tr>
+    <tr>
+      <td><b>Inbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Comandos:</i> SelectPlan, RegisterPaymentMethod, CalculateTripCost, ChargeUser, ApplyPenalty.</li>
+          <li><i>Queries:</i> GetAvailablePlans, GetInvoiceHistory.</li>
+          <li><i>Orígenes:</i> Frontend móvil, Reservations and Trips.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Outbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Eventos:</i> SubscriptionActivated, PaymentProcessed, PaymentFailed, InvoiceGenerated, PenaltyApplied.</li>
+          <li><i>Comandos:</i> ProcessPayment → Pasarela de Pagos (externo); SendPaymentReceipt → Notifications.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Ubiquitous Language</b></td><td>Plan, Suscripción, Tarifa, Pago, Factura, Yape, Plin, Método de Pago, Penalización.</td></tr>
+    <tr>
+      <td><b>Business Decisions / Rules</b></td>
+      <td>
+        <ul>
+          <li>Todo pago debe tener un comprobante electrónico conforme a SUNAT.</li>
+          <li>Si un pago falla, se bloquea al usuario de nuevas reservas hasta regularizar.</li>
+          <li>Las penalizaciones por devolución fuera de zona son 3x la tarifa mínima.</li>
+          <li>Los precios se calculan en soles peruanos (PEN) con IGV incluido.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Assumptions</b></td><td>Las APIs de Yape, Plin y la pasarela de tarjetas tienen SLA ≥ 99.5%.</td></tr>
+  </tbody>
+</table>
+
+---
+
+##### Canvas 5: Geolocation and Map
+
+<table>
+  <thead>
+    <tr><th colspan="2">Bounded Context: <b>Geolocation and Map</b></th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Name</b></td><td>Geolocation and Map</td></tr>
+    <tr>
+      <td><b>Description / Purpose</b></td>
+      <td>Proveer servicios geoespaciales: visualización del mapa, búsqueda de vehículos cercanos por coordenadas, cálculo de rutas, seguimiento del trayecto en tiempo real y gestión de estaciones virtuales.</td>
+    </tr>
+    <tr><td><b>Strategic Classification</b></td><td>Supporting.</td></tr>
+    <tr><td><b>Domain Role</b></td><td>Gateway (hacia proveedores externos de mapas).</td></tr>
+    <tr><td><b>Business Model</b></td><td>Engagement (mejora la experiencia de usuario).</td></tr>
+    <tr><td><b>Evolution Stage</b></td><td>Commodity (Google Maps, OSM, Mapbox).</td></tr>
+    <tr>
+      <td><b>Inbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Comandos:</i> SelectLocation, UpdateTripRoute.</li>
+          <li><i>Queries:</i> GetNearbyVehicles, GetRoute, GetVirtualStations.</li>
+          <li><i>Orígenes:</i> Frontend móvil, Reservations and Trips.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Outbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Eventos:</i> LocationSelected, RouteCalculated, TripRouteUpdated.</li>
+          <li><i>Consumidores:</i> Fleet (para correlacionar posiciones), Reservations (para mostrar trayecto).</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Ubiquitous Language</b></td><td>Ubicación, Coordenada, Ruta, Estación Virtual, Radio de Búsqueda, Trayecto.</td></tr>
+    <tr>
+      <td><b>Business Decisions / Rules</b></td>
+      <td>
+        <ul>
+          <li>El radio por defecto para buscar vehículos cercanos es de 500 m, configurable hasta 2 km.</li>
+          <li>Solo se muestran vehículos con estado <i>Available</i>.</li>
+          <li>Las estaciones virtuales están definidas por polígonos geo-cercados (geofencing).</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Assumptions</b></td><td>Se usará Google Maps API como proveedor principal con Mapbox como fallback.</td></tr>
+  </tbody>
+</table>
+
+---
+
+##### Canvas 6: Notifications
+
+<table>
+  <thead>
+    <tr><th colspan="2">Bounded Context: <b>Notifications</b></th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Name</b></td><td>Notifications</td></tr>
+    <tr>
+      <td><b>Description / Purpose</b></td>
+      <td>Enviar notificaciones push, SMS y por correo a los usuarios sobre eventos relevantes: códigos de verificación, inicio y fin de reservas, recordatorios, confirmaciones de pago, promociones y alertas.</td>
+    </tr>
+    <tr><td><b>Strategic Classification</b></td><td>Generic Subdomain.</td></tr>
+    <tr><td><b>Domain Role</b></td><td>Gateway.</td></tr>
+    <tr><td><b>Business Model</b></td><td>Engagement.</td></tr>
+    <tr><td><b>Evolution Stage</b></td><td>Commodity (Firebase Cloud Messaging, Twilio, SendGrid).</td></tr>
+    <tr>
+      <td><b>Inbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Comandos:</i> SendVerificationCode, SendReservationReminder, SendPaymentReceipt, SendTripStartNotification.</li>
+          <li><i>Orígenes:</i> IAM, Reservations, Billing.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Outbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Eventos:</i> NotificationSent, NotificationFailed.</li>
+          <li><i>Consumidores:</i> el contexto emisor original (para trazabilidad).</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Ubiquitous Language</b></td><td>Notificación, Push, SMS, Plantilla, Canal, Destinatario.</td></tr>
+    <tr>
+      <td><b>Business Decisions / Rules</b></td>
+      <td>
+        <ul>
+          <li>Las notificaciones críticas (fin de reserva, desbloqueo) se envían por push + SMS.</li>
+          <li>Si el envío push falla, se reintenta 3 veces con backoff exponencial.</li>
+          <li>El usuario puede desactivar notificaciones promocionales pero no las operacionales.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Assumptions</b></td><td>El usuario otorga permisos de notificación al instalar la app.</td></tr>
+  </tbody>
+</table>
+
+---
+
+##### Canvas 7: Customer Support and Feedback
+
+<table>
+  <thead>
+    <tr><th colspan="2">Bounded Context: <b>Customer Support and Feedback</b></th></tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Name</b></td><td>Customer Support and Feedback</td></tr>
+    <tr>
+      <td><b>Description / Purpose</b></td>
+      <td>Gestionar el canal de soporte al usuario: recepción de incidencias de vehículos, apertura y seguimiento de tickets, y recolección de calificaciones y feedback post-viaje para la mejora continua del servicio.</td>
+    </tr>
+    <tr><td><b>Strategic Classification</b></td><td>Supporting.</td></tr>
+    <tr><td><b>Domain Role</b></td><td>Supporting Model.</td></tr>
+    <tr><td><b>Business Model</b></td><td>Engagement / Retention.</td></tr>
+    <tr><td><b>Evolution Stage</b></td><td>Custom-built + Product (helpdesk estandarizado).</td></tr>
+    <tr>
+      <td><b>Inbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Comandos:</i> ReportIssue, SubmitRating, OpenSupportTicket, ResolveTicket.</li>
+          <li><i>Queries:</i> GetTicketStatus, GetUserRatings.</li>
+          <li><i>Orígenes:</i> Frontend móvil, Admin Web (agentes de soporte).</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Outbound Communication</b></td>
+      <td>
+        <ul>
+          <li><i>Eventos:</i> IssueReported, SupportTicketOpened, TripRated, TicketResolved, FeedbackSubmitted.</li>
+          <li><i>Consumidores:</i> Fleet (para alertas de mantenimiento), Notifications, BI/Analytics.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Ubiquitous Language</b></td><td>Ticket, Incidencia, Calificación, Feedback, Agente de Soporte, Categoría de Problema.</td></tr>
+    <tr>
+      <td><b>Business Decisions / Rules</b></td>
+      <td>
+        <ul>
+          <li>Todo reporte de incidencia crítica dispara una alerta al equipo de Fleet.</li>
+          <li>La calificación es obligatoria al finalizar un viaje (aunque puede omitirse una vez).</li>
+          <li>Los tickets tienen SLA de respuesta de 4 horas hábiles.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr><td><b>Assumptions</b></td><td>Se dispondrá de un equipo de soporte humano en horario extendido.</td></tr>
+  </tbody>
+</table>
+
+---
+
+> *Nota final: los canvases deben ser reproducidos como imágenes en Miro/Figjam siguiendo la plantilla oficial de Nick Tune (<https://github.com/ddd-crew/bounded-context-canvas>) y adjuntarse en `assets/chapter02/canvas-<nombre>.png`.*
 ### 2.5.2. Context Mapping
 ### 2.5.3. Software Architecture
 #### 2.5.3.1. Software Architecture Context Level Diagrams
