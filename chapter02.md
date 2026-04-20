@@ -1439,7 +1439,6 @@ A continuación se modelan los **cinco (5) flujos de mensajes más representativ
 
 ---
 
-> *Nota para el equipo: cada flujo debe ser diagramado en Miro/Figjam como un **Domain Message Flow Diagram** (secuencia horizontal con swimlanes por contexto). Guardar como `assets/chapter02/message-flow-<N>.png` y referenciarlos aquí.*
 
 
 ![Flujo 1 – Registro e inicio de sesión](assets/chapter02/message-flow-1-registro.png)
