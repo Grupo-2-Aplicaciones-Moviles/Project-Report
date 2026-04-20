@@ -46,7 +46,7 @@ Buscamos transformar la movilidad urbana en Lima  ofreciendo un transporte rápi
   </table>
 </div>
 
-# Perfiles de los miembros del equipo
+### 1.1.2. Perfiles de los miembros del equipo
 
 <table style="width:100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px; table-layout: fixed;">
   <thead>
@@ -201,14 +201,14 @@ El problema se presenta en **Lima Metropolitana**, especialmente en zonas con:
 
 La ausencia de un sistema de micromovilidad eléctrica inteligente afecta directamente la eficiencia del transporte urbano en Lima, generando impactos económicos, ambientales y sociales. **WeTech** plantea una solución integral basada en vehículos eléctricos compartidos, tecnología IoT y una plataforma robusta que responde a una necesidad **urgente y creciente** en la ciudad.
 
-# 1.2.2 Lean UX Process
+### 1.2.2 Lean UX Process
 
 En esta sección aplicamos el **Lean UX Process** (Gothelf & Seiden, 3rd Edition).  
 Se presenta: **Problem Statement**, **Assumptions**, **Hypothesis Statements** y el **Lean UX Canvas**, adaptados al proyecto **WeTech** (micromovilidad eléctrica compartida + IoT).
 
 ---
 
-## 1.2.2.1 Lean UX — Problem Statement
+#### 1.2.2.1 Lean UX — Problem Statement
 
 **Context (Contexto)**  
 En Lima existe alta congestión urbana, emisiones elevadas y carencia de alternativas de transporte económico y sostenible para recorridos de corta distancia. La operación de flotas (bicicletas y scooters eléctricos) requiere herramientas de monitoreo en tiempo real y gestión eficiente para reducir pérdidas, mejorar disponibilidad y aumentar seguridad.
@@ -227,7 +227,7 @@ Sin una solución integrada: pérdidas operativas por robos/fallas, baja tasa de
 
 ---
 
-## 1.2.2.2 Lean UX — Assumptions
+#### 1.2.2.2 Lean UX — Assumptions
 
 > Las assumptions se agrupan en: Business, User, Value, Feature.
 
@@ -253,7 +253,7 @@ Sin una solución integrada: pérdidas operativas por robos/fallas, baja tasa de
 
 ---
 
-## 1.2.2.3 Lean UX — Hypothesis Statements
+#### 1.2.2.3 Lean UX — Hypothesis Statements
 
 > Cada hipótesis sigue el patrón: *We believe... / We will know this is true when...*
 
@@ -275,7 +275,7 @@ We believe that implementar: (1) mapa en tiempo real, (2) reservas rápidas y (3
 
 ---
 
-## 1.2.2.4 Lean UX Canvas
+#### 1.2.2.4 Lean UX Canvas
 
 
 **Resumen:**  
