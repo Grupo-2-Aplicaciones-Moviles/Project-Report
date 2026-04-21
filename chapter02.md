@@ -1602,7 +1602,20 @@ Para nuestro sistema WeRide, los actores y sistemas externos son:
   - **Servicio de Notificaciones**: Sistema externo encargado de enviar notificaciones push y mensajes SMS relacionados con reservas, viajes, alertas y eventos importantes del sistema.
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
-#### 2.5.3.3. Software Architecture Deployment Diagrams
+
+Nuestra arquitectura está basada en microservicios donde destacan dos componentes clave: el motor de optimización y el motor de seguridad, los cuales permiten ofrecer rutas eficientes y seguras en tiempo real, siendo nuestro principal valor diferencial. 
+ 
+<img src="assets/chapter02/container-level-diagram.png" alt="context-diagram" style="width: 100%; height: auto;"/>
+
+#### 2.5.3.3. Software Architecture Deployment Diagrams  
+
+l presente Deployment Diagram describe la distribución física de la plataforma WeTech Micromobility sobre la infraestructura tecnológica. En este diagrama se representan los distintos entornos donde se ejecuta el sistema, incluyendo dispositivos de usuario (aplicaciones móviles y web), servidores en la nube y dispositivos IoT (scooters eléctricos).
+
+Asimismo, se muestra cómo los diferentes componentes del software, como el backend, los motores de optimización y seguridad de rutas, y los servicios de telemetría, se despliegan e interactúan dentro de la infraestructura. También se consideran las integraciones con servicios externos, como plataformas de pago, mapas y notificaciones.
+
+El objetivo de este diagrama es proporcionar una visión clara de cómo el sistema es implementado en el entorno físico, evidenciando su escalabilidad, disponibilidad y capacidad de procesamiento en tiempo real, aspectos fundamentales para el correcto funcionamiento de la solución de micromovilidad.
+
+<img src="assets/chapter02/deployment-diagram.png" alt="context-diagram" style="width: 100%; height: auto;"/>
 
 ---
 
