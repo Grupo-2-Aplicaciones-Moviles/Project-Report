@@ -1452,397 +1452,59 @@ A continuación se modelan los **cinco (5) flujos de mensajes más representativ
 
 #### 2.5.1.3. Bounded Context Canvases
 
-El *Bounded Context Canvas* es una plantilla creada por Nick Tune que permite describir, de forma estandarizada y colaborativa, las responsabilidades, el modelo de dominio y las interacciones de un Bounded Context. A continuación se presenta el canvas para cada uno de los siete Bounded Contexts identificados en WeRide.
+El *Bounded Context Canvas* es una plantilla creada por Nick Tune (DDD Crew) que permite describir, de forma estandarizada y colaborativa, las responsabilidades, el modelo de dominio, las comunicaciones entrantes y salientes, y los supuestos de cada Bounded Context. A continuación se presenta el canvas completo para cada uno de los siete Bounded Contexts identificados en WeRide.
+
+Cada canvas está estructurado en las siguientes secciones estándar:
+
+- **Name & Purpose:** nombre y propósito del contexto.
+- **Strategic Classification:** clasificación como Core/Supporting/Generic, Business Model (Revenue Generator, Compliance Enforcer, Engagement) y Evolution Stage (Genesis, Custom-built, Product, Commodity).
+- **Domain Roles:** roles que juega el contexto (Specification, Execution, Gateway, Audit, Analysis).
+- **Inbound Communication:** comandos y queries recibidos, colaboradores y relaciones con otros BCs.
+- **Ubiquitous Language & Business Decisions:** términos del dominio, reglas de negocio, eventos publicados y agregados.
+- **Outbound Communication:** comandos enviados, eventos emitidos, queries invocadas, consumers y sistemas externos integrados.
+- **Assumptions & Open Questions:** supuestos y preguntas abiertas a resolver con stakeholders.
 
 ---
 
 ##### Canvas 1: Identity and Access Management (IAM)
 
-<table>
-  <thead>
-    <tr><th colspan="2">Bounded Context: <b>Identity and Access Management (IAM)</b></th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Name</b></td>
-      <td>Identity and Access Management</td>
-    </tr>
-    <tr>
-      <td><b>Description / Purpose</b></td>
-      <td>Gestionar la identidad de los usuarios, permitiendo su registro, verificación de celular, autenticación, gestión de perfil y control de sesiones, de manera segura y conforme a los requisitos regulatorios peruanos.</td>
-    </tr>
-    <tr>
-      <td><b>Strategic Classification</b></td>
-      <td>Supporting (habilitador para todos los demás contextos, pero no es el diferenciador del negocio).</td>
-    </tr>
-    <tr>
-      <td><b>Domain Role</b></td>
-      <td>Specification Model (define las reglas de identidad y sesión).</td>
-    </tr>
-    <tr>
-      <td><b>Business Model</b></td>
-      <td>Compliance Enforcer (habilita el acceso seguro al servicio y protege datos personales según Ley 29733).</td>
-    </tr>
-    <tr>
-      <td><b>Evolution Stage</b></td>
-      <td>Product (soluciones estandarizadas, maduras en el mercado).</td>
-    </tr>
-    <tr>
-      <td><b>Inbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Comandos recibidos:</i> RegisterUser, SubmitVerificationCode, Authenticate, UpdateProfile, Logout.</li>
-          <li><i>Orígenes:</i> Frontend móvil (Flutter/React Native), Frontend Admin Web.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Outbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Eventos emitidos:</i> UserRegistered, PhoneNumberValidated, UserAuthenticated, ProfileUpdated, SessionExpired.</li>
-          <li><i>Comandos emitidos:</i> SendVerificationCode → Notifications.</li>
-          <li><i>Consumidores:</i> Billing (para asociar planes), Reservations (para validar sesión), Notifications, Customer Support.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Ubiquitous Language</b></td>
-      <td>Usuario, Perfil, Sesión, Código de Verificación, Número de Celular, Autenticación, Registro.</td>
-    </tr>
-    <tr>
-      <td><b>Business Decisions / Rules</b></td>
-      <td>
-        <ul>
-          <li>Un número de celular no puede estar asociado a más de una cuenta activa.</li>
-          <li>El código de verificación expira a los 5 minutos.</li>
-          <li>Tras 3 intentos fallidos de autenticación, la cuenta se bloquea por 15 minutos.</li>
-          <li>Toda sesión caduca automáticamente tras 30 días de inactividad.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Assumptions</b></td>
-      <td>El proveedor de SMS (p. ej., Twilio) tiene cobertura en Perú para todas las operadoras.</td>
-    </tr>
-  </tbody>
-</table>
+![Canvas IAM](assets/chapter02/canvas-iam.png)
 
 ---
 
-##### Canvas 2: Fleet Management
+##### Canvas 2: Fleet Management ⭐
 
-<table>
-  <thead>
-    <tr><th colspan="2">Bounded Context: <b>Fleet Management</b></th></tr>
-  </thead>
-  <tbody>
-    <tr><td><b>Name</b></td><td>Fleet Management</td></tr>
-    <tr>
-      <td><b>Description / Purpose</b></td>
-      <td>Administrar el ciclo de vida de la flota de vehículos eléctricos (scooters, motos y bicicletas), incluyendo registro, ubicación en tiempo real (IoT/GPS), estado operativo, nivel de batería, mantenimiento y disponibilidad para reservas.</td>
-    </tr>
-    <tr><td><b>Strategic Classification</b></td><td>Core Domain (diferenciador clave de WeRide frente a competidores como Lime y Whoosh).</td></tr>
-    <tr><td><b>Domain Role</b></td><td>Core Model.</td></tr>
-    <tr><td><b>Business Model</b></td><td>Revenue Generator (la flota es el activo principal del servicio).</td></tr>
-    <tr><td><b>Evolution Stage</b></td><td>Custom-built (requiere integración propia con IoT y lógica de optimización de flota).</td></tr>
-    <tr>
-      <td><b>Inbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Comandos:</i> RegisterVehicle, UpdateVehicleLocation, UnlockVehicle, LockVehicle, ScheduleMaintenance.</li>
-          <li><i>Queries:</i> FindNearbyVehicles, CheckVehicleAvailability, GetVehicleStatus.</li>
-          <li><i>Orígenes:</i> IoT Gateway, Reservations and Trips, Geolocation and Map, Admin Web.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Outbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Eventos:</i> VehicleRegistered, VehicleLocationUpdated, VehicleStatusChanged, BatteryLevelReported, MaintenanceScheduled, VehicleOutOfService.</li>
-          <li><i>Consumidores:</i> Reservations, Geolocation, Notifications, Admin Dashboard.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Ubiquitous Language</b></td><td>Vehículo, Scooter, Moto Eléctrica, Bicicleta, Flota, Estación Virtual, Batería, Mantenimiento, Ubicación en Tiempo Real.</td></tr>
-    <tr>
-      <td><b>Business Decisions / Rules</b></td>
-      <td>
-        <ul>
-          <li>Un vehículo con batería menor al 15% no puede ser reservado.</li>
-          <li>Los vehículos solo pueden ser devueltos en estaciones virtuales permitidas.</li>
-          <li>Un vehículo en mantenimiento queda automáticamente fuera de servicio.</li>
-          <li>La ubicación del vehículo se actualiza cada 10 segundos mientras esté en uso.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Assumptions</b></td><td>Los dispositivos IoT tienen conectividad estable 4G/5G en todas las zonas de operación en Lima.</td></tr>
-  </tbody>
-</table>
+![Canvas Fleet Management](assets/chapter02/canvas-fleet.png)
 
 ---
 
-##### Canvas 3: Reservations and Trips
+##### Canvas 3: Reservations and Trips ⭐
 
-<table>
-  <thead>
-    <tr><th colspan="2">Bounded Context: <b>Reservations and Trips</b></th></tr>
-  </thead>
-  <tbody>
-    <tr><td><b>Name</b></td><td>Reservations and Trips</td></tr>
-    <tr>
-      <td><b>Description / Purpose</b></td>
-      <td>Orquestar el ciclo de vida completo de la experiencia del usuario: crear reservas, desbloquear vehículos (QR o app), iniciar y seguir el trayecto, registrar la devolución y mantener el historial de viajes.</td>
-    </tr>
-    <tr><td><b>Strategic Classification</b></td><td>Core Domain.</td></tr>
-    <tr><td><b>Domain Role</b></td><td>Core Model.</td></tr>
-    <tr><td><b>Business Model</b></td><td>Revenue Generator (cada viaje genera ingresos).</td></tr>
-    <tr><td><b>Evolution Stage</b></td><td>Custom-built.</td></tr>
-    <tr>
-      <td><b>Inbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Comandos:</i> CreateReservation, ScanQRCode, UnlockFromApp, EndTrip, CancelReservation.</li>
-          <li><i>Queries:</i> GetTripHistory, GetReservationStatus, GetActiveTrip.</li>
-          <li><i>Orígenes:</i> Frontend móvil.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Outbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Eventos:</i> ReservationCreated, ReservationConfirmed, TripStarted, TripEnded, ReservationExpired, VehicleReturned.</li>
-          <li><i>Comandos:</i> UnlockVehicle, LockVehicle → Fleet; CalculateTripCost → Billing; RequestTripRating → Customer Support; Notify* → Notifications.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Ubiquitous Language</b></td><td>Reserva, Trayecto, Viaje, Desbloqueo, Devolución, Historial de Viajes, Código QR.</td></tr>
-    <tr>
-      <td><b>Business Decisions / Rules</b></td>
-      <td>
-        <ul>
-          <li>Una reserva tiene una duración máxima de 10 minutos antes de ser liberada automáticamente.</li>
-          <li>Un usuario no puede tener más de una reserva activa a la vez.</li>
-          <li>Un viaje no puede iniciarse sin una reserva confirmada.</li>
-          <li>Se envía notificación 5 minutos antes del fin de la reserva.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Assumptions</b></td><td>El usuario siempre tiene conectividad al momento del desbloqueo (con fallback offline limitado).</td></tr>
-  </tbody>
-</table>
+![Canvas Reservations and Trips](assets/chapter02/canvas-reservations.png)
 
 ---
 
-##### Canvas 4: Billing and Subscriptions
+##### Canvas 4: Billing and Subscriptions ⭐
 
-<table>
-  <thead>
-    <tr><th colspan="2">Bounded Context: <b>Billing and Subscriptions</b></th></tr>
-  </thead>
-  <tbody>
-    <tr><td><b>Name</b></td><td>Billing and Subscriptions</td></tr>
-    <tr>
-      <td><b>Description / Purpose</b></td>
-      <td>Gestionar planes de suscripción, métodos de pago (tarjeta, Yape, Plin), cálculo de tarifas por viaje, emisión de facturas, penalizaciones y reconciliación financiera.</td>
-    </tr>
-    <tr><td><b>Strategic Classification</b></td><td>Core Domain (la integración con pagos locales es ventaja competitiva clave).</td></tr>
-    <tr><td><b>Domain Role</b></td><td>Core Model.</td></tr>
-    <tr><td><b>Business Model</b></td><td>Revenue Generator / Compliance Enforcer (SUNAT).</td></tr>
-    <tr><td><b>Evolution Stage</b></td><td>Custom-built + Product (integra pasarelas estandarizadas pero con lógica local).</td></tr>
-    <tr>
-      <td><b>Inbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Comandos:</i> SelectPlan, RegisterPaymentMethod, CalculateTripCost, ChargeUser, ApplyPenalty.</li>
-          <li><i>Queries:</i> GetAvailablePlans, GetInvoiceHistory.</li>
-          <li><i>Orígenes:</i> Frontend móvil, Reservations and Trips.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Outbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Eventos:</i> SubscriptionActivated, PaymentProcessed, PaymentFailed, InvoiceGenerated, PenaltyApplied.</li>
-          <li><i>Comandos:</i> ProcessPayment → Pasarela de Pagos (externo); SendPaymentReceipt → Notifications.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Ubiquitous Language</b></td><td>Plan, Suscripción, Tarifa, Pago, Factura, Yape, Plin, Método de Pago, Penalización.</td></tr>
-    <tr>
-      <td><b>Business Decisions / Rules</b></td>
-      <td>
-        <ul>
-          <li>Todo pago debe tener un comprobante electrónico conforme a SUNAT.</li>
-          <li>Si un pago falla, se bloquea al usuario de nuevas reservas hasta regularizar.</li>
-          <li>Las penalizaciones por devolución fuera de zona son 3x la tarifa mínima.</li>
-          <li>Los precios se calculan en soles peruanos (PEN) con IGV incluido.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Assumptions</b></td><td>Las APIs de Yape, Plin y la pasarela de tarjetas tienen SLA ≥ 99.5%.</td></tr>
-  </tbody>
-</table>
+![Canvas Billing and Subscriptions](assets/chapter02/canvas-billing.png)
 
 ---
 
 ##### Canvas 5: Geolocation and Map
 
-<table>
-  <thead>
-    <tr><th colspan="2">Bounded Context: <b>Geolocation and Map</b></th></tr>
-  </thead>
-  <tbody>
-    <tr><td><b>Name</b></td><td>Geolocation and Map</td></tr>
-    <tr>
-      <td><b>Description / Purpose</b></td>
-      <td>Proveer servicios geoespaciales: visualización del mapa, búsqueda de vehículos cercanos por coordenadas, cálculo de rutas, seguimiento del trayecto en tiempo real y gestión de estaciones virtuales.</td>
-    </tr>
-    <tr><td><b>Strategic Classification</b></td><td>Supporting.</td></tr>
-    <tr><td><b>Domain Role</b></td><td>Gateway (hacia proveedores externos de mapas).</td></tr>
-    <tr><td><b>Business Model</b></td><td>Engagement (mejora la experiencia de usuario).</td></tr>
-    <tr><td><b>Evolution Stage</b></td><td>Commodity (Google Maps, OSM, Mapbox).</td></tr>
-    <tr>
-      <td><b>Inbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Comandos:</i> SelectLocation, UpdateTripRoute.</li>
-          <li><i>Queries:</i> GetNearbyVehicles, GetRoute, GetVirtualStations.</li>
-          <li><i>Orígenes:</i> Frontend móvil, Reservations and Trips.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Outbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Eventos:</i> LocationSelected, RouteCalculated, TripRouteUpdated.</li>
-          <li><i>Consumidores:</i> Fleet (para correlacionar posiciones), Reservations (para mostrar trayecto).</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Ubiquitous Language</b></td><td>Ubicación, Coordenada, Ruta, Estación Virtual, Radio de Búsqueda, Trayecto.</td></tr>
-    <tr>
-      <td><b>Business Decisions / Rules</b></td>
-      <td>
-        <ul>
-          <li>El radio por defecto para buscar vehículos cercanos es de 500 m, configurable hasta 2 km.</li>
-          <li>Solo se muestran vehículos con estado <i>Available</i>.</li>
-          <li>Las estaciones virtuales están definidas por polígonos geo-cercados (geofencing).</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Assumptions</b></td><td>Se usará Google Maps API como proveedor principal con Mapbox como fallback.</td></tr>
-  </tbody>
-</table>
+![Canvas Geolocation and Map](assets/chapter02/canvas-geolocation.png)
 
 ---
 
 ##### Canvas 6: Notifications
 
-<table>
-  <thead>
-    <tr><th colspan="2">Bounded Context: <b>Notifications</b></th></tr>
-  </thead>
-  <tbody>
-    <tr><td><b>Name</b></td><td>Notifications</td></tr>
-    <tr>
-      <td><b>Description / Purpose</b></td>
-      <td>Enviar notificaciones push, SMS y por correo a los usuarios sobre eventos relevantes: códigos de verificación, inicio y fin de reservas, recordatorios, confirmaciones de pago, promociones y alertas.</td>
-    </tr>
-    <tr><td><b>Strategic Classification</b></td><td>Generic Subdomain.</td></tr>
-    <tr><td><b>Domain Role</b></td><td>Gateway.</td></tr>
-    <tr><td><b>Business Model</b></td><td>Engagement.</td></tr>
-    <tr><td><b>Evolution Stage</b></td><td>Commodity (Firebase Cloud Messaging, Twilio, SendGrid).</td></tr>
-    <tr>
-      <td><b>Inbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Comandos:</i> SendVerificationCode, SendReservationReminder, SendPaymentReceipt, SendTripStartNotification.</li>
-          <li><i>Orígenes:</i> IAM, Reservations, Billing.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Outbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Eventos:</i> NotificationSent, NotificationFailed.</li>
-          <li><i>Consumidores:</i> el contexto emisor original (para trazabilidad).</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Ubiquitous Language</b></td><td>Notificación, Push, SMS, Plantilla, Canal, Destinatario.</td></tr>
-    <tr>
-      <td><b>Business Decisions / Rules</b></td>
-      <td>
-        <ul>
-          <li>Las notificaciones críticas (fin de reserva, desbloqueo) se envían por push + SMS.</li>
-          <li>Si el envío push falla, se reintenta 3 veces con backoff exponencial.</li>
-          <li>El usuario puede desactivar notificaciones promocionales pero no las operacionales.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Assumptions</b></td><td>El usuario otorga permisos de notificación al instalar la app.</td></tr>
-  </tbody>
-</table>
+![Canvas Notifications](assets/chapter02/canvas-notifications.png)
 
 ---
 
 ##### Canvas 7: Customer Support and Feedback
 
-<table>
-  <thead>
-    <tr><th colspan="2">Bounded Context: <b>Customer Support and Feedback</b></th></tr>
-  </thead>
-  <tbody>
-    <tr><td><b>Name</b></td><td>Customer Support and Feedback</td></tr>
-    <tr>
-      <td><b>Description / Purpose</b></td>
-      <td>Gestionar el canal de soporte al usuario: recepción de incidencias de vehículos, apertura y seguimiento de tickets, y recolección de calificaciones y feedback post-viaje para la mejora continua del servicio.</td>
-    </tr>
-    <tr><td><b>Strategic Classification</b></td><td>Supporting.</td></tr>
-    <tr><td><b>Domain Role</b></td><td>Supporting Model.</td></tr>
-    <tr><td><b>Business Model</b></td><td>Engagement / Retention.</td></tr>
-    <tr><td><b>Evolution Stage</b></td><td>Custom-built + Product (helpdesk estandarizado).</td></tr>
-    <tr>
-      <td><b>Inbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Comandos:</i> ReportIssue, SubmitRating, OpenSupportTicket, ResolveTicket.</li>
-          <li><i>Queries:</i> GetTicketStatus, GetUserRatings.</li>
-          <li><i>Orígenes:</i> Frontend móvil, Admin Web (agentes de soporte).</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><b>Outbound Communication</b></td>
-      <td>
-        <ul>
-          <li><i>Eventos:</i> IssueReported, SupportTicketOpened, TripRated, TicketResolved, FeedbackSubmitted.</li>
-          <li><i>Consumidores:</i> Fleet (para alertas de mantenimiento), Notifications, BI/Analytics.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Ubiquitous Language</b></td><td>Ticket, Incidencia, Calificación, Feedback, Agente de Soporte, Categoría de Problema.</td></tr>
-    <tr>
-      <td><b>Business Decisions / Rules</b></td>
-      <td>
-        <ul>
-          <li>Todo reporte de incidencia crítica dispara una alerta al equipo de Fleet.</li>
-          <li>La calificación es obligatoria al finalizar un viaje (aunque puede omitirse una vez).</li>
-          <li>Los tickets tienen SLA de respuesta de 4 horas hábiles.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr><td><b>Assumptions</b></td><td>Se dispondrá de un equipo de soporte humano en horario extendido.</td></tr>
-  </tbody>
-</table>
-
----
+![Canvas Customer Support and Feedback](assets/chapter02/canvas-support.png)
 
 
 ### 2.5.2. Context Mapping
