@@ -1581,7 +1581,7 @@ El diagrama de contexto en la arquitectura de software proporciona una visión g
 
 Para el sistema WeRide Platform, el diagrama de contexto incluye los siguientes actores y sistemas externos:
 
-<img src="assets/chapter02/context_mapping.png" alt="context-mapping" style="width: 100%; height: auto;"/>
+<img src="assets/chapter02/Context_diagram.png" alt="context-diagram" style="width: 100%; height: auto;"/>
 
 Para nuestro sistema WeRide, los actores y sistemas externos son:
 
