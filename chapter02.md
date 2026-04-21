@@ -1603,13 +1603,880 @@ Para nuestro sistema WeRide, los actores y sistemas externos son:
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 #### 2.5.3.3. Software Architecture Deployment Diagrams
+
+---
+
 ## 2.6. Tactical-Level Domain-Driven Design
-### 2.6.x. Bounded Context: <Bounded Context Name>
-#### 2.6.x.1. Domain Layer
-#### 2.6.x.2. Interface Layer
-#### 2.6.x.3. Application Layer
-#### 2.6.x.4 Infrastructure Layer
-#### 2.6.x.5. Bounded Context Software Architecture Component Level Diagrams
-#### 2.6.x.6. Bounded Context Software Architecture Code Level Diagrams
-##### 2.6.x.6.1. Bounded Context Domain Layer Class Diagrams
-##### 2.6.x.6.2. Bounded Context Database Design Diagram
+
+El nivel táctico de Domain-Driven Design se enfoca en el modelado detallado dentro de cada Bounded Context, definiendo los patrones tácticos que dan estructura e implementación al dominio. A continuación, se presenta la especificación táctica para los seis Bounded Contexts identificados en WeRide.
+
+### 2.6.1. Bounded Context: Identity & Access
+
+**Propósito:** Gestionar el registro, autenticación, verificación de identidad y perfiles de usuario en la plataforma WeRide.
+
+#### 2.6.1.1. Domain Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Dominio - Identity & Access</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2" width="120"><b>Entities</b></td>
+            <td width="200"><b>User</b></td>
+            <td>Usuario registrado con credenciales, perfil y estado de verificación.</td>
+        </tr>
+        <tr>
+            <td><b>Session</b></td>
+            <td>Sesión activa con token, fecha de creación y expiración.</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><b>Value Objects</b></td>
+            <td><b>Email</b></td>
+            <td>Validación y normalización de correos electrónicos.</td>
+        </tr>
+        <tr>
+            <td><b>PhoneNumber</b></td>
+            <td>Validación de números de teléfono peruanos.</td>
+        </tr>
+        <tr>
+            <td><b>Password</b></td>
+            <td>Hash y verificación segura de contraseñas.</td>
+        </tr>
+        <tr>
+            <td><b>Aggregate Root</b></td>
+            <td colspan="2"><b>User</b> — Gestiona identidad, perfil y credenciales.</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Domain Services</b></td>
+            <td><b>AuthenticationService</b></td>
+            <td>Autenticación, verificación de credenciales y generación de tokens.</td>
+        </tr>
+        <tr>
+            <td><b>UserValidationService</b></td>
+            <td>Validación de reglas de negocio para registro y actualización.</td>
+        </tr>
+        <tr>
+            <td><b>Repositories</b></td>
+            <td colspan="2"><b>UserRepository</b>, <b>SessionRepository</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.1.2. Application Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Aplicación - Identity & Access</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" width="150"><b>Use Cases</b></td>
+            <td width="200"><b>RegisterUser</b></td>
+            <td>Registro de nuevo usuario con envío de código de verificación.</td>
+        </tr>
+        <tr>
+            <td><b>LoginUser</b></td>
+            <td>Autenticación y creación de sesión activa.</td>
+        </tr>
+        <tr>
+            <td><b>VerifyPhoneNumber</b></td>
+            <td>Validación de código SMS enviado al teléfono.</td>
+        </tr>
+        <tr>
+            <td><b>UpdateProfile</b></td>
+            <td>Actualización de información del perfil.</td>
+        </tr>
+        <tr>
+            <td><b>LogoutUser</b></td>
+            <td>Cierre de sesión e invalidación de token.</td>
+        </tr>
+        <tr>
+            <td><b>Application Services</b></td>
+            <td colspan="2"><b>AuthAppService</b>, <b>UserAppService</b></td>
+        </tr>
+        <tr>
+            <td><b>DTOs</b></td>
+            <td colspan="2"><b>UserDTO</b>, <b>AuthRequestDTO</b>, <b>AuthResponseDTO</b>, <b>VerificationCodeDTO</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.1.3. Interface Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="4">Capa de Interfaz - Identity & Access</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="4"><b>API Endpoints</b></td>
+        </tr>
+        <tr>
+            <td width="120"><b>POST</b></td>
+            <td width="200"><code>/auth/register</code></td>
+            <td width="200">Registro de nuevo usuario</td>
+            <td>—</td>
+        </tr>
+        <tr>
+            <td><b>POST</b></td>
+            <td><code>/auth/login</code></td>
+            <td>Inicio de sesión</td>
+            <td>—</td>
+        </tr>
+        <tr>
+            <td><b>POST</b></td>
+            <td><code>/auth/verify</code></td>
+            <td>Verificación de código SMS</td>
+            <td>—</td>
+        </tr>
+        <tr>
+            <td><b>GET</b></td>
+            <td><code>/users/profile</code></td>
+            <td>Obtener perfil de usuario</td>
+            <td>Requiere autenticación</td>
+        </tr>
+        <tr>
+            <td><b>PUT</b></td>
+            <td><code>/users/profile</code></td>
+            <td>Actualizar perfil</td>
+            <td>Requiere autenticación</td>
+        </tr>
+        <tr>
+            <td colspan="4"><br><b>UI Components</b></td>
+        </tr>
+        <tr>
+            <td colspan="4">Login Screen • Register Screen • Profile Screen</td>
+        </tr>
+    </tbody>
+</table>
+
+---
+
+### 2.6.2. Bounded Context: Fleet Management
+
+**Propósito:** Administrar la flota de vehículos eléctricos, su estado operativo, ubicación en tiempo real y mantenimiento.
+
+#### 2.6.2.1. Domain Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Dominio - Fleet Management</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="3" width="120"><b>Entities</b></td>
+            <td width="200"><b>Scooter</b></td>
+            <td>Vehículo eléctrico con ID único, estado, ubicación y batería.</td>
+        </tr>
+        <tr>
+            <td><b>Fleet</b></td>
+            <td>Agrupación lógica de scooters por zona o tipo.</td>
+        </tr>
+        <tr>
+            <td><b>MaintenanceRecord</b></td>
+            <td>Historial de mantenimientos realizados.</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><b>Value Objects</b></td>
+            <td><b>Location (GPS)</b></td>
+            <td>Coordenadas geográficas (latitud, longitud).</td>
+        </tr>
+        <tr>
+            <td><b>BatteryLevel</b></td>
+            <td>Nivel de carga (0-100%).</td>
+        </tr>
+        <tr>
+            <td><b>ScooterStatus</b></td>
+            <td>AVAILABLE, RESERVED, IN_USE, MAINTENANCE, OUT_OF_SERVICE.</td>
+        </tr>
+        <tr>
+            <td><b>Aggregate Root</b></td>
+            <td colspan="2"><b>Scooter</b> — Gestiona estado, ubicación y batería.</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Domain Services</b></td>
+            <td><b>FleetMonitoringService</b></td>
+            <td>Monitoreo en tiempo real del estado de la flota.</td>
+        </tr>
+        <tr>
+            <td><b>MaintenanceService</b></td>
+            <td>Determinación de necesidad de mantenimiento.</td>
+        </tr>
+        <tr>
+            <td><b>Repositories</b></td>
+            <td colspan="2"><b>ScooterRepository</b>, <b>FleetRepository</b>, <b>MaintenanceRepository</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.2.2. Application Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Aplicación - Fleet Management</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" width="150"><b>Use Cases</b></td>
+            <td width="200"><b>RegisterScooter</b></td>
+            <td>Registro de nuevo scooter en la flota.</td>
+        </tr>
+        <tr>
+            <td><b>UpdateScooterStatus</b></td>
+            <td>Actualización del estado operativo.</td>
+        </tr>
+        <tr>
+            <td><b>TrackScooterLocation</b></td>
+            <td>Actualización de ubicación GPS.</td>
+        </tr>
+        <tr>
+            <td><b>ScheduleMaintenance</b></td>
+            <td>Programación de mantenimiento.</td>
+        </tr>
+        <tr>
+            <td><b>GetNearbyScooters</b></td>
+            <td>Obtención de scooters disponibles cercanos.</td>
+        </tr>
+        <tr>
+            <td><b>Application Service</b></td>
+            <td colspan="2"><b>FleetAppService</b></td>
+        </tr>
+        <tr>
+            <td><b>DTOs</b></td>
+            <td colspan="2"><b>ScooterDTO</b>, <b>LocationDTO</b>, <b>ScooterStatusDTO</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.2.3. Interface Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="4">Capa de Interfaz - Fleet Management</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="4"><b>API Endpoints</b></td>
+        </tr>
+        <tr>
+            <td width="80"><b>GET</b></td>
+            <td width="180"><code>/scooters</code></td>
+            <td width="200">Listar todos los scooters</td>
+            <td>—</td>
+        </tr>
+        <tr>
+            <td><b>PUT</b></td>
+            <td><code>/scooters/{id}/status</code></td>
+            <td>Actualizar estado de scooter</td>
+            <td>Uso interno/IoT</td>
+        </tr>
+        <tr>
+            <td><b>GET</b></td>
+            <td><code>/scooters/map</code></td>
+            <td>Obtener scooters para mapa</td>
+            <td>Filtrado por ubicación</td>
+        </tr>
+        <tr>
+            <td><b>PUT</b></td>
+            <td><code>/scooters/{id}/location</code></td>
+            <td>Actualizar ubicación</td>
+            <td>IoT Gateway</td>
+        </tr>
+        <tr>
+            <td colspan="4"><br><b>Integraciones Externas</b></td>
+        </tr>
+        <tr>
+            <td colspan="4">IoT Sensors (GPS) — MQTT/WebSocket • IoT Sensors (Batería) — Data Stream</td>
+        </tr>
+    </tbody>
+</table>
+
+---
+
+### 2.6.3. Bounded Context: Reservation & Ride
+
+**Propósito:** Gestionar el ciclo completo de reservas y viajes, desde la creación hasta la finalización del trayecto.
+
+#### 2.6.3.1. Domain Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Dominio - Reservation & Ride</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2" width="120"><b>Entities</b></td>
+            <td width="200"><b>Reservation</b></td>
+            <td>Reserva de scooter por un periodo de tiempo.</td>
+        </tr>
+        <tr>
+            <td><b>Ride (Alquiler)</b></td>
+            <td>Viaje activo con inicio, fin, ruta y métricas.</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><b>Value Objects</b></td>
+            <td><b>ReservationStatus</b></td>
+            <td>PENDING, CONFIRMED, EXPIRED, CANCELLED, CONVERTED_TO_RIDE.</td>
+        </tr>
+        <tr>
+            <td><b>RideDuration</b></td>
+            <td>Duración del viaje (minutos/segundos).</td>
+        </tr>
+        <tr>
+            <td><b>RideRoute</b></td>
+            <td>Ruta geográfica con puntos de inicio y fin.</td>
+        </tr>
+        <tr>
+            <td><b>Aggregate Root</b></td>
+            <td colspan="2"><b>Ride</b> — Gestiona: reserva → desbloqueo → viaje → fin.</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Domain Services</b></td>
+            <td><b>ReservationService</b></td>
+            <td>Lógica de creación y expiración de reservas.</td>
+        </tr>
+        <tr>
+            <td><b>RideService</b></td>
+            <td>Cálculo de métricas y finalización del viaje.</td>
+        </tr>
+        <tr>
+            <td><b>Repositories</b></td>
+            <td colspan="2"><b>ReservationRepository</b>, <b>RideRepository</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.3.2. Application Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Aplicación - Reservation & Ride</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" width="150"><b>Use Cases</b></td>
+            <td width="200"><b>CreateReservation</b></td>
+            <td>Crear reserva para scooter disponible.</td>
+        </tr>
+        <tr>
+            <td><b>StartRide</b></td>
+            <td>Iniciar viaje tras desbloqueo del scooter.</td>
+        </tr>
+        <tr>
+            <td><b>EndRide</b></td>
+            <td>Finalizar viaje y registrar ubicación de entrega.</td>
+        </tr>
+        <tr>
+            <td><b>CancelReservation</b></td>
+            <td>Cancelar reserva activa.</td>
+        </tr>
+        <tr>
+            <td><b>GetActiveRide</b></td>
+            <td>Obtener viaje activo del usuario.</td>
+        </tr>
+        <tr>
+            <td><b>Application Service</b></td>
+            <td colspan="2"><b>RideAppService</b></td>
+        </tr>
+        <tr>
+            <td><b>DTOs</b></td>
+            <td colspan="2"><b>ReservationDTO</b>, <b>RideDTO</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.3.3. Interface Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="4">Capa de Interfaz - Reservation & Ride</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="4"><b>API Endpoints</b></td>
+        </tr>
+        <tr>
+            <td width="80"><b>POST</b></td>
+            <td width="180"><code>/reservations</code></td>
+            <td width="200">Crear nueva reserva</td>
+            <td>Requiere autenticación</td>
+        </tr>
+        <tr>
+            <td><b>DELETE</b></td>
+            <td><code>/reservations/{id}</code></td>
+            <td>Cancelar reserva</td>
+            <td>Usuario dueño de reserva</td>
+        </tr>
+        <tr>
+            <td><b>POST</b></td>
+            <td><code>/rides/start</code></td>
+            <td>Iniciar viaje (desbloqueo)</td>
+            <td>Con QR o desde app</td>
+        </tr>
+        <tr>
+            <td><b>POST</b></td>
+            <td><code>/rides/end</code></td>
+            <td>Finalizar viaje</td>
+            <td>Requiere viaje activo</td>
+        </tr>
+        <tr>
+            <td><b>GET</b></td>
+            <td><code>/rides/active</code></td>
+            <td>Obtener viaje activo</td>
+            <td>Usuario autenticado</td>
+        </tr>
+        <tr>
+            <td colspan="4"><br><b>UI Components</b></td>
+        </tr>
+        <tr>
+            <td colspan="4">Map View • Ride Tracking Screen</td>
+        </tr>
+    </tbody>
+</table>
+
+---
+
+### 2.6.4. Bounded Context: Payments & Subscriptions
+
+**Propósito:** Gestionar planes de suscripción, procesamiento de pagos, facturación y penalizaciones.
+
+#### 2.6.4.1. Domain Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Dominio - Payments & Subscriptions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="3" width="120"><b>Entities</b></td>
+            <td width="200"><b>Payment</b></td>
+            <td>Transacción de pago.</td>
+        </tr>
+        <tr>
+            <td><b>Subscription</b></td>
+            <td>Suscripción activa de usuario a un plan.</td>
+        </tr>
+        <tr>
+            <td><b>Invoice</b></td>
+            <td>Factura generada por pago o viaje.</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><b>Value Objects</b></td>
+            <td><b>Amount</b></td>
+            <td>Monto monetario con moneda y precisión.</td>
+        </tr>
+        <tr>
+            <td><b>PaymentMethod</b></td>
+            <td>YAPE, PLIN, CREDIT_CARD, DEBIT_CARD.</td>
+        </tr>
+        <tr>
+            <td><b>Currency</b></td>
+            <td>PEN, USD.</td>
+        </tr>
+        <tr>
+            <td><b>Aggregate Root</b></td>
+            <td colspan="2"><b>Payment</b> — Gestiona el ciclo de vida de un pago.</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Domain Services</b></td>
+            <td><b>PaymentProcessingService</b></td>
+            <td>Procesamiento con pasarelas externas.</td>
+        </tr>
+        <tr>
+            <td><b>SubscriptionService</b></td>
+            <td>Renovaciones y cambios de suscripción.</td>
+        </tr>
+        <tr>
+            <td><b>Repositories</b></td>
+            <td colspan="2"><b>PaymentRepository</b>, <b>SubscriptionRepository</b>, <b>InvoiceRepository</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.4.2. Application Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Aplicación - Payments & Subscriptions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" width="150"><b>Use Cases</b></td>
+            <td width="200"><b>ProcessPayment</b></td>
+            <td>Procesar pago con método seleccionado.</td>
+        </tr>
+        <tr>
+            <td><b>CreateSubscription</b></td>
+            <td>Crear suscripción a un plan.</td>
+        </tr>
+        <tr>
+            <td><b>CancelSubscription</b></td>
+            <td>Cancelar suscripción activa.</td>
+        </tr>
+        <tr>
+            <td><b>GenerateInvoice</b></td>
+            <td>Generar factura por viaje o suscripción.</td>
+        </tr>
+        <tr>
+            <td><b>CalculateRideCost</b></td>
+            <td>Calcular costo basado en tiempo/distancia.</td>
+        </tr>
+        <tr>
+            <td><b>Application Service</b></td>
+            <td colspan="2"><b>PaymentAppService</b></td>
+        </tr>
+        <tr>
+            <td><b>DTOs</b></td>
+            <td colspan="2"><b>PaymentDTO</b>, <b>SubscriptionDTO</b>, <b>InvoiceDTO</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.4.3. Interface Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="4">Capa de Interfaz - Payments & Subscriptions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="4"><b>API Endpoints</b></td>
+        </tr>
+        <tr>
+            <td width="80"><b>POST</b></td>
+            <td width="180"><code>/payments/process</code></td>
+            <td width="200">Procesar pago</td>
+            <td>Requiere autenticación</td>
+        </tr>
+        <tr>
+            <td><b>POST</b></td>
+            <td><code>/subscriptions</code></td>
+            <td>Crear suscripción</td>
+            <td>Requiere autenticación</td>
+        </tr>
+        <tr>
+            <td><b>DELETE</b></td>
+            <td><code>/subscriptions/{id}</code></td>
+            <td>Cancelar suscripción</td>
+            <td>Usuario dueño de suscripción</td>
+        </tr>
+        <tr>
+            <td><b>GET</b></td>
+            <td><code>/invoices</code></td>
+            <td>Listar facturas</td>
+            <td>Usuario autenticado</td>
+        </tr>
+        <tr>
+            <td><b>GET</b></td>
+            <td><code>/plans</code></td>
+            <td>Listar planes disponibles</td>
+            <td>Público</td>
+        </tr>
+        <tr>
+            <td colspan="4"><br><b>Integraciones Externas</b></td>
+        </tr>
+        <tr>
+            <td colspan="4">Yape/Plin — API de pagos QR • Payment Gateway — Pasarela de tarjetas (Culqi, Izipay)</td>
+        </tr>
+    </tbody>
+</table>
+
+---
+
+### 2.6.5. Bounded Context: IoT & Monitoring
+
+**Propósito:** Recibir, procesar y analizar datos telemétricos de los scooters en tiempo real.
+
+#### 2.6.5.1. Domain Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Dominio - IoT & Monitoring</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="3" width="120"><b>Entities</b></td>
+            <td width="200"><b>IoTDevice</b></td>
+            <td>Dispositivo IoT instalado en un scooter.</td>
+        </tr>
+        <tr>
+            <td><b>TelemetryData</b></td>
+            <td>Registro de datos telemétricos (GPS, batería, velocidad).</td>
+        </tr>
+        <tr>
+            <td><b>Alert</b></td>
+            <td>Alerta generada por detección de anomalías.</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Value Objects</b></td>
+            <td><b>SensorData</b></td>
+            <td>Datos brutos del sensor con validación.</td>
+        </tr>
+        <tr>
+            <td><b>Timestamp</b></td>
+            <td>Marca temporal con precisión de milisegundos.</td>
+        </tr>
+        <tr>
+            <td><b>Aggregate Root</b></td>
+            <td colspan="2"><b>IoTDevice</b> — Gestiona estado y datos del dispositivo.</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Domain Services</b></td>
+            <td><b>TelemetryService</b></td>
+            <td>Procesamiento de streams de datos telemétricos.</td>
+        </tr>
+        <tr>
+            <td><b>AlertService</b></td>
+            <td>Detección de anomalías y generación de alertas.</td>
+        </tr>
+        <tr>
+            <td><b>Repositories</b></td>
+            <td colspan="2"><b>IoTRepository</b>, <b>TelemetryRepository</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.5.2. Application Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Aplicación - IoT & Monitoring</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="4" width="150"><b>Use Cases</b></td>
+            <td width="200"><b>ReceiveTelemetry</b></td>
+            <td>Recibir y procesar datos de sensores.</td>
+        </tr>
+        <tr>
+            <td><b>DetectAnomalies</b></td>
+            <td>Detectar comportamientos anómalos.</td>
+        </tr>
+        <tr>
+            <td><b>SendAlerts</b></td>
+            <td>Enviar alertas a operadores o usuarios.</td>
+        </tr>
+        <tr>
+            <td><b>GetDeviceStatus</b></td>
+            <td>Obtener estado actual de un dispositivo.</td>
+        </tr>
+        <tr>
+            <td><b>Application Service</b></td>
+            <td colspan="2"><b>IoTAppService</b></td>
+        </tr>
+        <tr>
+            <td><b>DTOs</b></td>
+            <td colspan="2"><b>TelemetryDTO</b>, <b>AlertDTO</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.5.3. Interface Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="4">Capa de Interfaz - IoT & Monitoring</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="4"><b>API Endpoints / Messaging</b></td>
+        </tr>
+        <tr>
+            <td width="80"><b>POST</b></td>
+            <td width="180"><code>/iot/data</code></td>
+            <td width="200">Recibir datos telemétricos</td>
+            <td>HTTP (IoT Gateway)</td>
+        </tr>
+        <tr>
+            <td><b>GET</b></td>
+            <td><code>/iot/devices/{id}</code></td>
+            <td>Obtener estado de dispositivo</td>
+            <td>Uso interno</td>
+        </tr>
+        <tr>
+            <td><b>MQTT</b></td>
+            <td><code>mqtt/scooters/{id}/telemetry</code></td>
+            <td>Suscripción a telemetría</td>
+            <td>WebSocket en tiempo real</td>
+        </tr>
+        <tr>
+            <td colspan="4"><br><b>Integraciones Externas</b></td>
+        </tr>
+        <tr>
+            <td colspan="4">Sensores GPS — Stream de ubicación • Sensores de Batería — Stream de carga • Sistema de Bloqueo — Comandos remotos</td>
+        </tr>
+    </tbody>
+</table>
+
+---
+
+### 2.6.6. Bounded Context: Admin & Operations
+
+**Propósito:** Proporcionar herramientas de administración, reportes y análisis para operadores del sistema.
+
+#### 2.6.6.1. Domain Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Dominio - Admin & Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="3" width="120"><b>Entities</b></td>
+            <td width="200"><b>Admin</b></td>
+            <td>Usuario administrador con permisos elevados.</td>
+        </tr>
+        <tr>
+            <td><b>Report</b></td>
+            <td>Reporte generado con métricas agregadas.</td>
+        </tr>
+        <tr>
+            <td><b>KPI</b></td>
+            <td>Indicador clave de rendimiento monitoreado.</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Value Objects</b></td>
+            <td><b>Metric</b></td>
+            <td>Métrica numérica con unidad y timestamp.</td>
+        </tr>
+        <tr>
+            <td><b>TimeRange</b></td>
+            <td>Rango de tiempo para consultas y reportes.</td>
+        </tr>
+        <tr>
+            <td><b>Aggregate Root</b></td>
+            <td colspan="2"><b>Report</b> — Gestiona generación y almacenamiento.</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Domain Services</b></td>
+            <td><b>AnalyticsService</b></td>
+            <td>Cálculo de métricas y KPIs del sistema.</td>
+        </tr>
+        <tr>
+            <td><b>ReportingService</b></td>
+            <td>Generación de reportes agregados.</td>
+        </tr>
+        <tr>
+            <td><b>Repositories</b></td>
+            <td colspan="2"><b>ReportRepository</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.6.2. Application Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Aplicación - Admin & Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="4" width="150"><b>Use Cases</b></td>
+            <td width="200"><b>ViewDashboard</b></td>
+            <td>Mostrar dashboard con KPIs en tiempo real.</td>
+        </tr>
+        <tr>
+            <td><b>GenerateReport</b></td>
+            <td>Generar reportes personalizados.</td>
+        </tr>
+        <tr>
+            <td><b>MonitorFleetHealth</b></td>
+            <td>Monitorear salud de la flota.</td>
+        </tr>
+        <tr>
+            <td><b>ViewRevenueMetrics</b></td>
+            <td>Visualizar métricas de ingresos.</td>
+        </tr>
+        <tr>
+            <td><b>Application Service</b></td>
+            <td colspan="2"><b>AdminAppService</b></td>
+        </tr>
+        <tr>
+            <td><b>DTOs</b></td>
+            <td colspan="2"><b>ReportDTO</b>, <b>DashboardDTO</b>, <b>KPIMetricDTO</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.6.3. Interface Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="4">Capa de Interfaz - Admin & Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="4"><b>API Endpoints</b></td>
+        </tr>
+        <tr>
+            <td width="80"><b>GET</b></td>
+            <td width="180"><code>/admin/dashboard</code></td>
+            <td width="200">Obtener datos del dashboard</td>
+            <td>Requiere rol Admin</td>
+        </tr>
+        <tr>
+            <td><b>POST</b></td>
+            <td><code>/admin/reports</code></td>
+            <td>Generar reporte personalizado</td>
+            <td>Requiere rol Admin</td>
+        </tr>
+        <tr>
+            <td><b>GET</b></td>
+            <td><code>/admin/kpis</code></td>
+            <td>Obtener KPIs del sistema</td>
+            <td>Requiere rol Admin</td>
+        </tr>
+        <tr>
+            <td><b>GET</b></td>
+            <td><code>/admin/fleet/health</code></td>
+            <td>Obtener estado de salud de la flota</td>
+            <td>Requiere rol Admin</td>
+        </tr>
+        <tr>
+            <td colspan="4"><br><b>UI Components</b></td>
+        </tr>
+        <tr>
+            <td colspan="4">Admin Dashboard • Fleet Monitoring View • Reports Generator</td>
+        </tr>
+    </tbody>
+</table>
+
+---
+
