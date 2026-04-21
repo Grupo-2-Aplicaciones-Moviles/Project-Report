@@ -1576,6 +1576,31 @@ Se han identificado y analizado las relaciones entre los bounded contexts del si
 
 ### 2.5.3. Software Architecture
 #### 2.5.3.1. Software Architecture Context Level Diagrams
+
+El diagrama de contexto en la arquitectura de software proporciona una visión general de alto nivel del sistema dentro de su entorno, mostrando cómo interactúa con los actores externos (usuarios, sistemas externos, etc.).
+
+Para el sistema WeRide Platform, el diagrama de contexto incluye los siguientes actores y sistemas externos:
+
+<img src="assets/chapter02/context_mapping.png" alt="context-mapping" style="width: 100%; height: auto;"/>
+
+Para nuestro sistema WeRide, los actores y sistemas externos son:
+
+- **Actores**:
+  - **Rider (Usuario)**: Persona que utiliza la aplicación móvil para ubicar vehículos disponibles, realizar reservas, desbloquearlos y efectuar viajes dentro de la ciudad.
+  - **Administrador / Operador**: Encargado de supervisar la flota de vehículos, monitorear su estado en tiempo real, gestionar incidencias y garantizar el correcto funcionamiento del sistema.
+  - **Cliente B2B (Empresas / Universidades)**: Organizaciones que utilizan la plataforma para gestionar flotas asignadas, analizar métricas de uso y optimizar la movilidad interna de sus colaboradores o estudiantes.
+
+
+- **Aplicación**:
+  - **WeRide**: Sistema principal que gestiona la operación de micromovilidad eléctrica, incluyendo reservas, viajes, control de flota, integración con dispositivos IoT, procesamiento de pagos y notificaciones a los usuarios.
+
+
+- **Sistemas Externos**:
+  - **Sistema de Pagos**: Plataforma externa utilizada para procesar pagos, suscripciones y transacciones generadas por los viajes realizados por los usuarios.
+  - **Servicio de Mapas**: Servicio que proporciona funcionalidades de geolocalización, cálculo de rutas y visualización de vehículos en el mapa.
+  - **Sistema IoT / Telemetría**: Infraestructura de dispositivos instalados en los vehículos que envían información en tiempo real, como ubicación, nivel de batería y estado operativo.
+  - **Servicio de Notificaciones**: Sistema externo encargado de enviar notificaciones push y mensajes SMS relacionados con reservas, viajes, alertas y eventos importantes del sistema.
+
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 ## 2.6. Tactical-Level Domain-Driven Design
