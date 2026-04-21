@@ -1907,7 +1907,7 @@ A continuación, se describe el tipo de relación existente entre estos contexto
     - Patrón: **ACL** (Support traduce eventos de fallos o estados del vehículo en incidencias reportadas por los usuarios o detectadas automáticamente)
 
 
-<img src="" alt="context-mapping" style="width: 100%; height: auto;"/>
+<img src="assets/chapter02/context_mapping.png" alt="context-mapping" style="width: 100%; height: auto;"/>
 
 Se han identificado y analizado las relaciones entre los bounded contexts del sistema de micromovilidad. Cada relación ha sido clasificada utilizando patrones de context mapping, lo que permite comprender cómo interactúan los distintos contextos y cómo se comunican entre sí.
 
