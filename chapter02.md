@@ -1844,7 +1844,7 @@ El *Bounded Context Canvas* es una plantilla creada por Nick Tune que permite de
 
 ---
 
-> *Nota final: los canvases deben ser reproducidos como imágenes en Miro/Figjam siguiendo la plantilla oficial de Nick Tune (<https://github.com/ddd-crew/bounded-context-canvas>) y adjuntarse en `assets/chapter02/canvas-<nombre>.png`.*
+
 ### 2.5.2. Context Mapping
 
 Durante la fase de modelado basado en el dominio, se han identificado los siguientes bounded contexts: Identity and Access Management (IAM), Fleet Management, Reservations and Trips, Billing and Subscriptions, Geolocation and Map, Notifications y Customer Support and Feedback.
