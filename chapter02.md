@@ -1846,6 +1846,72 @@ El *Bounded Context Canvas* es una plantilla creada por Nick Tune que permite de
 
 > *Nota final: los canvases deben ser reproducidos como imágenes en Miro/Figjam siguiendo la plantilla oficial de Nick Tune (<https://github.com/ddd-crew/bounded-context-canvas>) y adjuntarse en `assets/chapter02/canvas-<nombre>.png`.*
 ### 2.5.2. Context Mapping
+
+Durante la fase de modelado basado en el dominio, se han identificado los siguientes bounded contexts: Identity and Access Management (IAM), Fleet Management, Reservations and Trips, Billing and Subscriptions, Geolocation and Map, Notifications y Customer Support and Feedback.
+A continuación, se describe el tipo de relación existente entre estos contextos y la forma en que se comunican entre sí.
+
+**Análisis de Bounded Contexts**
+
+-  **Identity and Access Management (IAM) ↔ Reservations and Trips**
+    - Relación: Upstream (IAM) / Downstream (Reservations)
+    - Patrón: **Conformist** (IAM define el modelo de usuario y autenticación, y Reservations se adapta a este modelo para gestionar reservas y viajes)
+
+
+-  **Identity and Access Management (IAM) ↔ Billing and Subscriptions**
+    - Relación: Upstream (IAM) / Downstream (Billing)
+    - Patrón: **Conformist** (Billing utiliza la información de identidad del usuario sin modificar su estructura, garantizando consistencia en pagos y suscripciones)
+
+
+- **Geolocation and Map ↔ Fleet Management**
+    - Relación: Upstream (Geolocation) / Downstream (Fleet)
+    - Patrón: **ACL** (Fleet traduce coordenadas, rutas y datos geoespaciales a su propio modelo de ubicación de vehículos)
+
+
+- **Geolocation and Map ↔ Reservations and Trips**
+    - Relación: Upstream (Geolocation) / Downstream (Reservations)
+    - Patrón: **ACL** (Reservations utiliza servicios de mapas y rutas, traduciendo la información geográfica a su lógica de negocio para trayectos)
+
+
+- **Fleet Management ↔ Reservations and Trips**
+    - Relación: Upstream (Fleet) / Downstream (Reservations)
+    - Patrón: **PL** (Ambos contextos comparten conceptos como Vehicle, Status y Availability para garantizar consistencia en tiempo real durante las reservas)
+
+
+- **Reservations and Trips ↔ Billing and Subscriptions**
+    - Relación: Upstream (Reservations) / Downstream (Billing)
+    - Patrón: **ACL** (Billing traduce la información de viajes —duración, distancia, tiempo— en cálculos de costos, tarifas y generación de facturas)
+
+
+- **Reservations and Trips ↔ Notifications**
+    - Relación: Upstream (Reservations) / Downstream (Notifications)
+    - Patrón: **PL** (Reservations emite eventos como TripStarted, TripEnded o ReservationCreated, que Notifications consume para informar al usuario)
+
+
+- **Fleet Management ↔ Notifications**
+    - Relación: Upstream (Fleet) / Downstream (Notifications)
+    - Patrón: **PL** (Fleet genera eventos como BatteryLow o VehicleOutOfService, los cuales son utilizados para notificaciones preventivas o alertas)
+ 
+
+- **Reservations and Trips ↔ Customer Support and Feedback**
+    - Relación: Upstream (Reservations) / Downstream (Support)
+    - Patrón: **ACL** (Support traduce la información de viajes en tickets, incidentes y reportes gestionables por el sistema de atención al cliente)
+
+
+- **Fleet Management ↔ Customer Support and Feedback**
+    - Relación: Upstream (Fleet) / Downstream (Support)
+    - Patrón: **PL** (Billing emite eventos como PaymentProcessed o InvoiceGenerated, que Notifications utiliza para enviar comprobantes y alertas de pago)
+
+
+- **Reservations and Trips ↔ Notifications**
+    - Relación: Upstream (Reservations) / Downstream (Notifications)
+    - Patrón: **ACL** (Support traduce eventos de fallos o estados del vehículo en incidencias reportadas por los usuarios o detectadas automáticamente)
+
+
+<img src="" alt="context-mapping" style="width: 100%; height: auto;"/>
+
+Se han identificado y analizado las relaciones entre los bounded contexts del sistema de micromovilidad. Cada relación ha sido clasificada utilizando patrones de context mapping, lo que permite comprender cómo interactúan los distintos contextos y cómo se comunican entre sí.
+
+
 ### 2.5.3. Software Architecture
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 #### 2.5.3.2. Software Architecture Container Level Diagrams
