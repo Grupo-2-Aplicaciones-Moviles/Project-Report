@@ -60,14 +60,14 @@ Buscamos transformar la movilidad urbana en Lima  ofreciendo un transporte rápi
   <tbody>
     <tr>
       <td style="padding: 10px; border: 1px solid #aaa;">
-        Castro Pariona, Jefferson Ernesto<br>
-        <span style="font-size:11px; color:#555;">(U201822823)</span>
+        Gonzales Castillo, Angel Martin<br>
+        <span style="font-size:11px; color:#555;">(U202319724)</span>
       </td>
       <td style="padding: 10px; border: 1px solid #aaa; text-align:center;">
-        <img src="assets/Integrantes/profile.jpeg" alt="Jeff's photo" style="max-width:80px; border-radius:6px;">
+        <img src="assets/Integrantes/Foto_Martin.jpeg" alt="Jeff's photo" style="max-width:80px; border-radius:6px;">
       </td>
       <td style="padding: 10px; border: 1px solid #aaa; text-align: justify;">
-        Estudiante de Ingeniería de Software. Se caracteriza por ser un motivador dentro de los equipos y demostrar una fuerte orientación al trabajo en conjunto. Posee interés en integrarse a grandes empresas y desarrollar en el futuro un emprendimiento propio relacionado a la tecnología.
+        Mi nombre es Martin Gonzales, tengo 20 años y estoy cursando mi 7to ciclo de la carrera de Ingeniería de Software en la UPC. Me caracterizo por mi interés en la programación, la tecnología y el aprendizaje continuo. Tengo una actitud analítica y organizada, lo que me permite desarrollar proyectos académicos y prácticos con dedicación, buscando siempre aplicar los conocimientos adquiridos de manera efectiva.
       </td>
     </tr>
     <tr>
