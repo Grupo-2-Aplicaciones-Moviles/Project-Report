@@ -253,8 +253,8 @@ EAC - Student Outcome 7.
 
 **Gonzales Castillo Angel Martin:**
 
-- **Objetivo 1:**
-- **Objetivo 2:** 
+- **Objetivo 1:** Obtener al menos 2 certificaciones profesionales relacionadas a bd y frontend dentro de los primeros 12 meses después de egresar, dedicando un mínimo de 8 horas semanales al estudio y práctica
+- **Objetivo 2:** Conseguir un empleo formal en el área de desarrollo de software dentro de los 6 meses posteriores a la graduación, enviando al menos 10 postulaciones semanales, participando en 2 ferias laborales y mejorando continuamente el portafolio con mínimo 3 proyectos personales relevantes.
 
 **Lang Nassi Werner Khalil:**
 
