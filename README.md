@@ -268,9 +268,9 @@ EAC - Student Outcome 7.
 
 **Seijas Vásquez Diego Antonio:**
 
-Objetivo 1:
+**Objetivo 1:**
 Desarrollar y desplegar una aplicación web full stack funcional en un plazo de 2 meses, utilizando tecnologías como React y .NET, dedicando al menos 10 horas semanales al desarrollo, con el fin de fortalecer mis habilidades prácticas y contar con un proyecto sólido para mi portafolio profesional.
-Objetivo 2:
+**Objetivo 2:**
 Conseguir mi primer empleo como desarrollador junior en un periodo máximo de 4 meses, postulando a al menos 5 ofertas laborales por semana y mejorando continuamente mi CV y portafolio, para iniciar mi experiencia profesional en el área de desarrollo de software.
 
 
