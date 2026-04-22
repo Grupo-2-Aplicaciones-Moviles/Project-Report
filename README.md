@@ -263,8 +263,10 @@ EAC - Student Outcome 7.
 
 **Jhimy Pool Romero Meza:**
 
-- **Objetivo 1:** 
-- **Objetivo 2:** 
+- **Objetivo 1:**
+  Desarrollar y desplegar un prototipo funcional de la plataforma WeTech Micromobility en un plazo de 4 meses, implementando al menos los módulos principales (gestión de usuarios, reservas, visualización de scooters y optimización básica de rutas), dedicando un mínimo de 8 horas semanales, con el fin de validar la propuesta tecnológica y fortalecer mi portafolio profesional en desarrollo de software.
+- **Objetivo 2:**
+  Implementar un sistema de optimización y seguridad de rutas dentro de la aplicación WeTech en un plazo de 3 meses, integrando datos de geolocalización y zonas de riesgo, dedicando al menos 7 horas semanales al desarrollo, con el fin de ofrecer una experiencia de movilidad más eficiente y segura para los usuarios.
 
 **Seijas Vásquez Diego Antonio:**
 
