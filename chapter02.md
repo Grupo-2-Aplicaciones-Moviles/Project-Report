@@ -2379,57 +2379,61 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 
 ---
 
-### 2.6.5. Bounded Context: IoT & Monitoring
+### 2.6.5. Bounded Context: Geolocation and Map
 
-**Propósito:** Recibir, procesar y analizar datos telemétricos de los scooters en tiempo real.
+**Propósito:** Proveer servicios de geolocalización, búsqueda de vehículos cercanos, cálculo de rutas y visualización de mapas en tiempo real para los usuarios y operadores de WeRide.
 
 #### 2.6.5.1. Domain Layer
 
 <table>
     <thead>
         <tr>
-            <th colspan="3">Capa de Dominio - IoT & Monitoring</th>
+            <th colspan="3">Capa de Dominio - Geolocation and Map</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td rowspan="3" width="120"><b>Entities</b></td>
-            <td width="200"><b>IoTDevice</b></td>
-            <td>Dispositivo IoT instalado en un scooter.</td>
+            <td width="200"><b>GeoZone</b></td>
+            <td>Zona geográfica definida con geocercas y restricciones de operación.</td>
         </tr>
         <tr>
-            <td><b>TelemetryData</b></td>
-            <td>Registro de datos telemétricos (GPS, batería, velocidad).</td>
+            <td><b>Route</b></td>
+            <td>Ruta calculada entre un origen y destino, con distancia y duración estimada.</td>
         </tr>
         <tr>
-            <td><b>Alert</b></td>
-            <td>Alerta generada por detección de anomalías.</td>
+            <td><b>MapPoint</b></td>
+            <td>Punto de interés en el mapa (estación virtual, zona de recarga, área restringida).</td>
         </tr>
         <tr>
-            <td rowspan="2"><b>Value Objects</b></td>
-            <td><b>SensorData</b></td>
-            <td>Datos brutos del sensor con validación.</td>
+            <td rowspan="3"><b>Value Objects</b></td>
+            <td><b>Coordinates</b></td>
+            <td>Par de valores (latitud, longitud) que representa una posición geográfica.</td>
         </tr>
         <tr>
-            <td><b>Timestamp</b></td>
-            <td>Marca temporal con precisión de milisegundos.</td>
+            <td><b>RadiusDistance</b></td>
+            <td>Distancia en metros utilizada para búsquedas de proximidad.</td>
+        </tr>
+        <tr>
+            <td><b>GeoBoundary</b></td>
+            <td>Polígono geográfico que delimita una zona operativa o restringida.</td>
         </tr>
         <tr>
             <td><b>Aggregate Root</b></td>
-            <td colspan="2"><b>IoTDevice</b> — Gestiona estado y datos del dispositivo.</td>
+            <td colspan="2"><b>GeoZone</b> — Gestiona las zonas operativas, geocercas y puntos de interés asociados.</td>
         </tr>
         <tr>
             <td rowspan="2"><b>Domain Services</b></td>
-            <td><b>TelemetryService</b></td>
-            <td>Procesamiento de streams de datos telemétricos.</td>
+            <td><b>ProximitySearchService</b></td>
+            <td>Búsqueda de vehículos disponibles dentro de un radio dado desde la posición del usuario.</td>
         </tr>
         <tr>
-            <td><b>AlertService</b></td>
-            <td>Detección de anomalías y generación de alertas.</td>
+            <td><b>RouteCalculationService</b></td>
+            <td>Cálculo de rutas óptimas entre coordenadas, considerando restricciones de zonas.</td>
         </tr>
         <tr>
             <td><b>Repositories</b></td>
-            <td colspan="2"><b>IoTRepository</b>, <b>TelemetryRepository</b></td>
+            <td colspan="2"><b>GeoZoneRepository</b>, <b>RouteRepository</b>, <b>MapPointRepository</b></td>
         </tr>
     </tbody>
 </table>
@@ -2439,34 +2443,34 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 <table>
     <thead>
         <tr>
-            <th colspan="3">Capa de Aplicación - IoT & Monitoring</th>
+            <th colspan="3">Capa de Aplicación - Geolocation and Map</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td rowspan="4" width="150"><b>Use Cases</b></td>
-            <td width="200"><b>ReceiveTelemetry</b></td>
-            <td>Recibir y procesar datos de sensores.</td>
+            <td width="200"><b>FindNearbyVehicles</b></td>
+            <td>Localizar vehículos disponibles en un radio cercano a la posición del usuario.</td>
         </tr>
         <tr>
-            <td><b>DetectAnomalies</b></td>
-            <td>Detectar comportamientos anómalos.</td>
+            <td><b>CalculateRoute</b></td>
+            <td>Calcular ruta sugerida entre origen y destino para un viaje activo.</td>
         </tr>
         <tr>
-            <td><b>SendAlerts</b></td>
-            <td>Enviar alertas a operadores o usuarios.</td>
+            <td><b>CheckGeofenceCompliance</b></td>
+            <td>Verificar si una ubicación se encuentra dentro de una zona operativa válida.</td>
         </tr>
         <tr>
-            <td><b>GetDeviceStatus</b></td>
-            <td>Obtener estado actual de un dispositivo.</td>
+            <td><b>GetMapPointsOfInterest</b></td>
+            <td>Obtener estaciones virtuales y zonas de recarga visibles en el mapa.</td>
         </tr>
         <tr>
             <td><b>Application Service</b></td>
-            <td colspan="2"><b>IoTAppService</b></td>
+            <td colspan="2"><b>GeolocationAppService</b></td>
         </tr>
         <tr>
             <td><b>DTOs</b></td>
-            <td colspan="2"><b>TelemetryDTO</b>, <b>AlertDTO</b></td>
+            <td colspan="2"><b>NearbyVehiclesDTO</b>, <b>RouteDTO</b>, <b>GeoZoneDTO</b>, <b>MapPointDTO</b></td>
         </tr>
     </tbody>
 </table>
@@ -2476,36 +2480,48 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 <table>
     <thead>
         <tr>
-            <th colspan="4">Capa de Interfaz - IoT & Monitoring</th>
+            <th colspan="4">Capa de Interfaz - Geolocation and Map</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td colspan="4"><b>API Endpoints / Messaging</b></td>
+            <td colspan="4"><b>API Endpoints</b></td>
         </tr>
         <tr>
-            <td width="80"><b>POST</b></td>
-            <td width="180"><code>/iot/data</code></td>
-            <td width="200">Recibir datos telemétricos</td>
-            <td>HTTP (IoT Gateway)</td>
+            <td width="80"><b>GET</b></td>
+            <td width="180"><code>/geo/vehicles/nearby</code></td>
+            <td width="200">Vehículos disponibles cercanos</td>
+            <td>Parámetros: lat, lng, radius</td>
         </tr>
         <tr>
             <td><b>GET</b></td>
-            <td><code>/iot/devices/{id}</code></td>
-            <td>Obtener estado de dispositivo</td>
-            <td>Uso interno</td>
+            <td><code>/geo/route</code></td>
+            <td>Calcular ruta entre dos puntos</td>
+            <td>Parámetros: origin, destination</td>
         </tr>
         <tr>
-            <td><b>MQTT</b></td>
-            <td><code>mqtt/scooters/{id}/telemetry</code></td>
-            <td>Suscripción a telemetría</td>
-            <td>WebSocket en tiempo real</td>
+            <td><b>GET</b></td>
+            <td><code>/geo/zones</code></td>
+            <td>Obtener zonas operativas activas</td>
+            <td>Requiere autenticación</td>
         </tr>
         <tr>
-            <td colspan="4"><br><b>Integraciones Externas</b></td>
+            <td><b>GET</b></td>
+            <td><code>/geo/map-points</code></td>
+            <td>Puntos de interés en el mapa</td>
+            <td>Requiere autenticación</td>
         </tr>
         <tr>
-            <td colspan="4">Sensores GPS — Stream de ubicación • Sensores de Batería — Stream de carga • Sistema de Bloqueo — Comandos remotos</td>
+            <td><b>POST</b></td>
+            <td><code>/geo/geofence/check</code></td>
+            <td>Verificar cumplimiento de geocerca</td>
+            <td>Uso interno entre contextos</td>
+        </tr>
+        <tr>
+            <td colspan="4"><br><b>UI Components</b></td>
+        </tr>
+        <tr>
+            <td colspan="4">Map View (mapa interactivo) • Nearby Vehicles Layer • Route Preview Panel • GeoZone Overlay</td>
         </tr>
     </tbody>
 </table>
@@ -2514,88 +2530,91 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 
 | Componente | Responsabilidad |
 |---|---|
-| **IoTRepositoryImpl** |  Persistencia del registro de dispositivos IoT y su estado. |
-| **TelemetryRepositoryImpl** | Almacenamiento eficiente de series temporales de datos telemétricos (GPS, batería, velocidad). |
-| **MqttBrokerAdapter** | Suscripción y publicación de mensajes MQTT para la recepción de telemetría en tiempo real. |
-| **WebSocketPublisher** | Difusión de actualizaciones de telemetría a clientes conectados en tiempo real. |
-| **AlertNotificationAdapter**  | Envío de alertas push a operadores y usuarios afectados. |
-| **AnomalyDetectionAdapter** | Implementación de lógica de detección de anomalías sobre streams de datos. |
-| **LockCommandAdapter** | Publicación de comandos de bloqueo/desbloqueo remoto al dispositivo IoT correspondiente. |
+| **GeoZoneRepositoryImpl** | Persistencia y consulta de zonas operativas y geocercas definidas en el sistema. |
+| **RouteRepositoryImpl** | Almacenamiento y recuperación de rutas calculadas para viajes activos e históricos. |
+| **MapPointRepositoryImpl** | Gestión de puntos de interés en el mapa (estaciones virtuales, zonas de recarga). |
+| **MapsServiceAdapter** | Integración con el servicio de mapas externo (Google Maps / Mapbox) para cálculo de rutas y geocodificación. |
+| **GeospatialQueryAdapter** | Ejecución de consultas espaciales (búsqueda por radio, intersección de polígonos) sobre la base de datos geoespacial. |
+| **GeofenceEvaluatorAdapter** | Evaluación en tiempo real del cumplimiento de geocercas durante viajes activos. |
+| **TileCacheAdapter** | Caché de tiles de mapa para reducir llamadas repetitivas al servicio de mapas externo. |
 
-**Dependencias externas:** MQTT Broker (Mosquitto / AWS IoT Core), TimescaleDB, Firebase Cloud Messaging, Sistema de bloqueo IoT.
+**Dependencias externas:** Servicio de Mapas (Google Maps Platform / Mapbox), PostGIS (extensión geoespacial de PostgreSQL), Redis (caché de tiles y resultados de búsqueda).
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-![Component Diagram - IoT & Monitoring](assets/chapter02/component-diagram-iot.png)
+##Placeholder
 
 #### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context IoT & Monitoring, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
+**Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context Geolocation and Map, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
 
-![Class Diagram - IoT & Monitoring](assets/chapter02/class-diagram-iot.png)
+##Placeholder
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-**Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *IoT & Monitoring*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
-![Database Design Diagram - IoT & Monitoring](assets/chapter02/database-design-iot.png)
+**Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Geolocation and Map*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
 
-
+##Placeholder
 
 ---
 
-### 2.6.6. Bounded Context: Admin & Operations
+### 2.6.6. Bounded Context: Notifications
 
-**Propósito:** Proporcionar herramientas de administración, reportes y análisis para operadores del sistema.
+**Propósito:** Gestionar el envío de notificaciones push, SMS y mensajes en la aplicación dirigidos a los usuarios en respuesta a eventos generados por otros bounded contexts de WeRide.
 
 #### 2.6.6.1. Domain Layer
 
 <table>
     <thead>
         <tr>
-            <th colspan="3">Capa de Dominio - Admin & Operations</th>
+            <th colspan="3">Capa de Dominio - Notifications</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td rowspan="3" width="120"><b>Entities</b></td>
-            <td width="200"><b>Admin</b></td>
-            <td>Usuario administrador con permisos elevados.</td>
+            <td width="200"><b>Notification</b></td>
+            <td>Notificación generada con tipo, contenido, destinatario y estado de entrega.</td>
         </tr>
         <tr>
-            <td><b>Report</b></td>
-            <td>Reporte generado con métricas agregadas.</td>
+            <td><b>NotificationTemplate</b></td>
+            <td>Plantilla reutilizable con texto y variables parametrizables por tipo de evento.</td>
         </tr>
         <tr>
-            <td><b>KPI</b></td>
-            <td>Indicador clave de rendimiento monitoreado.</td>
+            <td><b>NotificationLog</b></td>
+            <td>Registro histórico del estado de entrega de cada notificación enviada.</td>
         </tr>
         <tr>
-            <td rowspan="2"><b>Value Objects</b></td>
-            <td><b>Metric</b></td>
-            <td>Métrica numérica con unidad y timestamp.</td>
+            <td rowspan="3"><b>Value Objects</b></td>
+            <td><b>NotificationType</b></td>
+            <td>Clasificación del canal: PUSH, SMS, IN_APP.</td>
         </tr>
         <tr>
-            <td><b>TimeRange</b></td>
-            <td>Rango de tiempo para consultas y reportes.</td>
+            <td><b>DeliveryStatus</b></td>
+            <td>Estado de la entrega: PENDING, SENT, DELIVERED, FAILED.</td>
+        </tr>
+        <tr>
+            <td><b>NotificationContent</b></td>
+            <td>Título y cuerpo del mensaje, ya renderizados con los datos del evento.</td>
         </tr>
         <tr>
             <td><b>Aggregate Root</b></td>
-            <td colspan="2"><b>Report</b> — Gestiona generación y almacenamiento.</td>
+            <td colspan="2"><b>Notification</b> — Gestiona el ciclo de vida completo de una notificación, desde su creación hasta la confirmación de entrega.</td>
         </tr>
         <tr>
             <td rowspan="2"><b>Domain Services</b></td>
-            <td><b>AnalyticsService</b></td>
-            <td>Cálculo de métricas y KPIs del sistema.</td>
+            <td><b>NotificationDispatchService</b></td>
+            <td>Selección del canal adecuado y despacho de la notificación al proveedor externo correspondiente.</td>
         </tr>
         <tr>
-            <td><b>ReportingService</b></td>
-            <td>Generación de reportes agregados.</td>
+            <td><b>TemplateRenderService</b></td>
+            <td>Renderizado de plantillas con los datos del evento para generar el contenido final.</td>
         </tr>
         <tr>
             <td><b>Repositories</b></td>
-            <td colspan="2"><b>ReportRepository</b></td>
+            <td colspan="2"><b>NotificationRepository</b>, <b>NotificationTemplateRepository</b>, <b>NotificationLogRepository</b></td>
         </tr>
     </tbody>
 </table>
@@ -2605,34 +2624,34 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 <table>
     <thead>
         <tr>
-            <th colspan="3">Capa de Aplicación - Admin & Operations</th>
+            <th colspan="3">Capa de Aplicación - Notifications</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td rowspan="4" width="150"><b>Use Cases</b></td>
-            <td width="200"><b>ViewDashboard</b></td>
-            <td>Mostrar dashboard con KPIs en tiempo real.</td>
+            <td width="200"><b>SendTripStartNotification</b></td>
+            <td>Notificar al usuario que su viaje ha comenzado tras el desbloqueo del vehículo.</td>
         </tr>
         <tr>
-            <td><b>GenerateReport</b></td>
-            <td>Generar reportes personalizados.</td>
+            <td><b>SendInvoiceNotification</b></td>
+            <td>Enviar comprobante de pago al finalizar un viaje y procesar la factura.</td>
         </tr>
         <tr>
-            <td><b>MonitorFleetHealth</b></td>
-            <td>Monitorear salud de la flota.</td>
+            <td><b>SendReservationAlert</b></td>
+            <td>Alertar al usuario sobre el inicio, expiración o cancelación de su reserva.</td>
         </tr>
         <tr>
-            <td><b>ViewRevenueMetrics</b></td>
-            <td>Visualizar métricas de ingresos.</td>
+            <td><b>SendSystemAlert</b></td>
+            <td>Enviar alertas operativas (batería baja, vehículo fuera de servicio) a operadores.</td>
         </tr>
         <tr>
             <td><b>Application Service</b></td>
-            <td colspan="2"><b>AdminAppService</b></td>
+            <td colspan="2"><b>NotificationAppService</b></td>
         </tr>
         <tr>
             <td><b>DTOs</b></td>
-            <td colspan="2"><b>ReportDTO</b>, <b>DashboardDTO</b>, <b>KPIMetricDTO</b></td>
+            <td colspan="2"><b>NotificationDTO</b>, <b>NotificationEventDTO</b>, <b>DeliveryStatusDTO</b></td>
         </tr>
     </tbody>
 </table>
@@ -2642,7 +2661,7 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 <table>
     <thead>
         <tr>
-            <th colspan="4">Capa de Interfaz - Admin & Operations</th>
+            <th colspan="4">Capa de Interfaz - Notifications</th>
         </tr>
     </thead>
     <tbody>
@@ -2650,69 +2669,283 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
             <td colspan="4"><b>API Endpoints</b></td>
         </tr>
         <tr>
-            <td width="80"><b>GET</b></td>
-            <td width="180"><code>/admin/dashboard</code></td>
-            <td width="200">Obtener datos del dashboard</td>
-            <td>Requiere rol Admin</td>
-        </tr>
-        <tr>
-            <td><b>POST</b></td>
-            <td><code>/admin/reports</code></td>
-            <td>Generar reporte personalizado</td>
-            <td>Requiere rol Admin</td>
+            <td width="80"><b>POST</b></td>
+            <td width="180"><code>/notifications/send</code></td>
+            <td width="200">Enviar notificación a un usuario</td>
+            <td>Uso interno entre contextos</td>
         </tr>
         <tr>
             <td><b>GET</b></td>
-            <td><code>/admin/kpis</code></td>
-            <td>Obtener KPIs del sistema</td>
-            <td>Requiere rol Admin</td>
+            <td><code>/notifications/user/{id}</code></td>
+            <td>Listar notificaciones de un usuario</td>
+            <td>Requiere autenticación</td>
+        </tr>
+        <tr>
+            <td><b>PATCH</b></td>
+            <td><code>/notifications/{id}/read</code></td>
+            <td>Marcar notificación como leída</td>
+            <td>Requiere autenticación</td>
         </tr>
         <tr>
             <td><b>GET</b></td>
-            <td><code>/admin/fleet/health</code></td>
-            <td>Obtener estado de salud de la flota</td>
-            <td>Requiere rol Admin</td>
+            <td><code>/notifications/{id}/status</code></td>
+            <td>Consultar estado de entrega</td>
+            <td>Uso interno / Admin</td>
+        </tr>
+        <tr>
+            <td colspan="4"><br><b>Suscripción a Eventos (Event Consumers)</b></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <code>TripStarted</code> (Reservations and Trips) •
+                <code>InvoiceGenerated</code> (Billing and Subscriptions) •
+                <code>ReservationCreated</code> (Reservations and Trips) •
+                <code>BatteryLow</code> / <code>VehicleOutOfService</code> (Fleet Management)
+            </td>
         </tr>
         <tr>
             <td colspan="4"><br><b>UI Components</b></td>
         </tr>
         <tr>
-            <td colspan="4">Admin Dashboard • Fleet Monitoring View • Reports Generator</td>
+            <td colspan="4">Notification Center (bandeja in-app) • Push Permission Prompt • Notification Settings Screen</td>
         </tr>
     </tbody>
 </table>
 
 #### 2.6.6.4. Infrastructure Layer
 
-| Componente |  Responsabilidad |
+| Componente | Responsabilidad |
 |---|---|
-| **ReportRepositoryImpl** | Persistencia de reportes generados y sus metadatos. |
-| **AnalyticsQueryAdapter** | Ejecución de consultas analíticas agregadas para KPIs y métricas del sistema. |
-| **ReportExportAdapter** |  Exportación de reportes en formatos PDF y XLSX. |
-| **DashboardCacheAdapter** |  Caché de datos del dashboard para minimizar latencia en consultas frecuentes de KPIs. |
-| **CrossContextDataAdapter** |  Consulta de datos agregados provenientes de otros bounded contexts (Fleet, Rides, Payments) mediante APIs internas. |
-| **AdminAuthMiddleware** |  Verificación de rol administrador en cada petición a endpoints del módulo. |
-| **MetricsCollectorAdapter** |  Recolección y exposición de métricas del sistema para monitoreo operativo. |
+| **NotificationRepositoryImpl** | Persistencia de notificaciones generadas y su historial de estado. |
+| **NotificationTemplateRepositoryImpl** | Almacenamiento y recuperación de plantillas de notificación por tipo de evento. |
+| **NotificationLogRepositoryImpl** | Registro detallado del resultado de cada intento de entrega. |
+| **PushNotificationAdapter** | Integración con Firebase Cloud Messaging (FCM) para envío de notificaciones push a dispositivos móviles. |
+| **SmsNotificationAdapter** | Integración con proveedor de SMS (Twilio / Amazon SNS) para mensajes de texto al número del usuario. |
+| **InAppNotificationPublisher** | Publicación de notificaciones en tiempo real a la sesión activa del usuario vía WebSocket. |
+| **EventConsumerAdapter** | Suscripción al bus de eventos para recibir y procesar eventos de otros bounded contexts. |
 
-**Dependencias externas:** Prometheus, Grafana (opcional), ClickHouse (analítica avanzada), herramientas de exportación de documentos.
+**Dependencias externas:** Firebase Cloud Messaging (FCM), Twilio / Amazon SNS (SMS), Redis (pub/sub WebSocket), Message Broker (RabbitMQ / Kafka).
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
-![Component Diagram - Admin & Operations](assets/chapter02/component-diagram-admin.png)
+##Placeholder
 
 #### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
 
-**Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context Admin & Operations, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
+**Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context Notifications, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
 
-![Class Diagram - Admin & Operations](assets/chapter02/class-diagram-admin.png)
+##Placeholder
 
 ##### 2.6.6.6.2. Bounded Context Database Design Diagram
 
-**Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Admin & Operations*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
-![Database Design Diagram - Admin & Operations](assets/chapter02/database-design-admin.png)
+**Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Notifications*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
 
+##Placeholder
 
 ---
 
+### 2.6.7. Bounded Context: Customer Support and Feedback
+
+**Propósito:** Gestionar la atención al cliente, el registro de incidencias y tickets de soporte, la recepción de calificaciones de viaje y la retroalimentación de los usuarios de WeRide.
+
+#### 2.6.7.1. Domain Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Dominio - Customer Support and Feedback</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="4" width="120"><b>Entities</b></td>
+            <td width="200"><b>SupportTicket</b></td>
+            <td>Incidencia o solicitud de soporte registrada por un usuario, con estado y prioridad.</td>
+        </tr>
+        <tr>
+            <td><b>TripRating</b></td>
+            <td>Calificación y comentario dejado por el usuario al finalizar un viaje.</td>
+        </tr>
+        <tr>
+            <td><b>FeedbackReport</b></td>
+            <td>Reporte de retroalimentación agregada sobre la experiencia de uso de la plataforma.</td>
+        </tr>
+        <tr>
+            <td><b>TicketComment</b></td>
+            <td>Respuesta o comentario añadido a un ticket por el usuario o el agente de soporte.</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><b>Value Objects</b></td>
+            <td><b>TicketStatus</b></td>
+            <td>Estado del ticket: OPEN, IN_PROGRESS, RESOLVED, CLOSED.</td>
+        </tr>
+        <tr>
+            <td><b>RatingScore</b></td>
+            <td>Puntuación numérica del viaje en escala de 1 a 5.</td>
+        </tr>
+        <tr>
+            <td><b>TicketCategory</b></td>
+            <td>Categoría del incidente: VEHICLE_ISSUE, PAYMENT_PROBLEM, APP_BUG, OTHER.</td>
+        </tr>
+        <tr>
+            <td><b>Aggregate Root</b></td>
+            <td colspan="2"><b>SupportTicket</b> — Gestiona el ciclo de vida completo del ticket, incluyendo comentarios, cambios de estado y resolución.</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Domain Services</b></td>
+            <td><b>TicketResolutionService</b></td>
+            <td>Lógica de asignación, escalado y cierre de tickets según reglas de negocio.</td>
+        </tr>
+        <tr>
+            <td><b>FeedbackAggregationService</b></td>
+            <td>Consolidación de calificaciones y retroalimentación para análisis de satisfacción.</td>
+        </tr>
+        <tr>
+            <td><b>Repositories</b></td>
+            <td colspan="2"><b>SupportTicketRepository</b>, <b>TripRatingRepository</b>, <b>FeedbackReportRepository</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.7.2. Application Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Capa de Aplicación - Customer Support and Feedback</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" width="150"><b>Use Cases</b></td>
+            <td width="200"><b>CreateSupportTicket</b></td>
+            <td>Registrar una nueva incidencia o solicitud de ayuda por parte del usuario.</td>
+        </tr>
+        <tr>
+            <td><b>UpdateTicketStatus</b></td>
+            <td>Cambiar el estado del ticket (asignación, resolución, cierre) por agente o sistema.</td>
+        </tr>
+        <tr>
+            <td><b>SubmitTripRating</b></td>
+            <td>Registrar la calificación y comentario del usuario al finalizar un viaje.</td>
+        </tr>
+        <tr>
+            <td><b>GetUserTickets</b></td>
+            <td>Consultar el historial de tickets de soporte de un usuario.</td>
+        </tr>
+        <tr>
+            <td><b>GenerateFeedbackReport</b></td>
+            <td>Producir un reporte agregado de calificaciones y retroalimentación para operadores.</td>
+        </tr>
+        <tr>
+            <td><b>Application Service</b></td>
+            <td colspan="2"><b>SupportAppService</b>, <b>FeedbackAppService</b></td>
+        </tr>
+        <tr>
+            <td><b>DTOs</b></td>
+            <td colspan="2"><b>SupportTicketDTO</b>, <b>TripRatingDTO</b>, <b>FeedbackReportDTO</b>, <b>TicketCommentDTO</b></td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.7.3. Interface Layer
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="4">Capa de Interfaz - Customer Support and Feedback</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="4"><b>API Endpoints</b></td>
+        </tr>
+        <tr>
+            <td width="80"><b>POST</b></td>
+            <td width="180"><code>/support/tickets</code></td>
+            <td width="200">Crear nuevo ticket de soporte</td>
+            <td>Requiere autenticación</td>
+        </tr>
+        <tr>
+            <td><b>GET</b></td>
+            <td><code>/support/tickets</code></td>
+            <td>Listar tickets del usuario autenticado</td>
+            <td>Requiere autenticación</td>
+        </tr>
+        <tr>
+            <td><b>GET</b></td>
+            <td><code>/support/tickets/{id}</code></td>
+            <td>Obtener detalle de un ticket</td>
+            <td>Requiere autenticación</td>
+        </tr>
+        <tr>
+            <td><b>PATCH</b></td>
+            <td><code>/support/tickets/{id}/status</code></td>
+            <td>Actualizar estado del ticket</td>
+            <td>Requiere rol Admin/Agente</td>
+        </tr>
+        <tr>
+            <td><b>POST</b></td>
+            <td><code>/feedback/ratings</code></td>
+            <td>Enviar calificación de un viaje</td>
+            <td>Requiere autenticación</td>
+        </tr>
+        <tr>
+            <td><b>GET</b></td>
+            <td><code>/feedback/reports</code></td>
+            <td>Obtener reporte de retroalimentación</td>
+            <td>Requiere rol Admin</td>
+        </tr>
+        <tr>
+            <td colspan="4"><br><b>Suscripción a Eventos (Event Consumers)</b></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <code>TripEnded</code> (Reservations and Trips) — dispara solicitud de calificación •
+                <code>VehicleOutOfService</code> (Fleet Management) — abre ticket automático
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4"><br><b>UI Components</b></td>
+        </tr>
+        <tr>
+            <td colspan="4">Support Center Screen • Create Ticket Form • Ticket Detail View • Trip Rating Modal • Feedback History</td>
+        </tr>
+    </tbody>
+</table>
+
+#### 2.6.7.4. Infrastructure Layer
+
+| Componente | Responsabilidad |
+|---|---|
+| **SupportTicketRepositoryImpl** | Persistencia y consulta de tickets de soporte con su historial de comentarios y cambios de estado. |
+| **TripRatingRepositoryImpl** | Almacenamiento de calificaciones de viaje asociadas a un usuario y un viaje específico. |
+| **FeedbackReportRepositoryImpl** | Gestión de reportes agregados de retroalimentación para análisis operativo. |
+| **TicketSearchAdapter** | Capacidad de búsqueda full-text y filtrado avanzado sobre tickets (por estado, categoría, fecha). |
+| **EventConsumerAdapter** | Suscripción al bus de eventos para escuchar `TripEnded` y `VehicleOutOfService` y generar acciones automáticas. |
+| **NotificationTriggerAdapter** | Envío de señales al contexto de Notifications cuando un ticket cambia de estado o es resuelto. |
+| **FeedbackAggregationAdapter** | Ejecución de consultas analíticas para consolidar métricas de satisfacción de usuarios. |
+
+**Dependencias externas:** Message Broker (RabbitMQ / Kafka), Elasticsearch (búsqueda de tickets), PostgreSQL (persistencia relacional).
+
+#### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
+
+##Placeholder
+
+#### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.7.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context Customer Support and Feedback, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
+
+##Placeholder
+
+##### 2.6.7.6.2. Bounded Context Database Design Diagram
+
+**Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Customer Support and Feedback*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
+
+##Placeholder
+
+---
