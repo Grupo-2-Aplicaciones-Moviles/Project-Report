@@ -72,14 +72,14 @@ Buscamos transformar la movilidad urbana en Lima  ofreciendo un transporte rápi
     </tr>
     <tr>
       <td style="padding: 10px; border: 1px solid #aaa;">
-        Bonifacio Jaramillo, Samuel Jesus<br>
-        <span style="font-size:11px; color:#555;">(U202317269)</span>
+        Berrocal Ramirez, Omar Christian<br>
+        <span style="font-size:11px; color:#555;">(U20201B529)</span>
       </td>
       <td style="padding: 10px; border: 1px solid #aaa; text-align:center;">
-        <img src="assets/Integrantes/Samuel.png" alt="Foto de Samuel" style="max-width:80px; border-radius:6px;">
+        <img src="assets/Integrantes/foto_Omar.jpg" alt="Foto de Omar" style="max-width:80px; border-radius:6px;">
       </td>
       <td style="padding: 10px; border: 1px solid #aaa; text-align: justify;">
-        Estudiante de Ingeniería de Software (5to ciclo). Cuenta con experiencia práctica en Javascript, C++, Typescript y React. Es apasionado por la inteligencia artificial, el ajedrez, la música y el fútbol, combinando habilidades técnicas con una perspectiva creativa e interdisciplinaria.
+        Soy estudiante de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Me considero una persona que le gusta asumir nuevos retos y muy capaz. Además considero importante la cualidad de saber escuchar y respetar la opinión de los demás, así se aprende algo nuevo siempre. Mis hoobies son el baile y los videojuegos, siendo este último que me hizo optar por una carrera relacionada a la tecnología y mis gustos.
       </td>
     </tr>
     <tr>
