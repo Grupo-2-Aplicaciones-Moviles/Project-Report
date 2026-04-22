@@ -244,7 +244,7 @@ EAC - Student Outcome 7.
 
 ---
 
-# Objsetivos SMART
+# Objetivos SMART
 
 **Berrocal Ramirez Omar Christian:**
 
@@ -258,8 +258,8 @@ EAC - Student Outcome 7.
 
 **Lang Nassi Werner Khalil:**
 
-- **Objetivo 1:** 
-- **Objetivo 2:** 
+- **Objetivo 1:** Obtener una certificacion en Deep Learning dentro de los próximos 4 meses, incrementando mis capacidades y dar lugar a una mejora en el portafolio.
+- **Objetivo 2:** Desarrollar y desplegar al menos 4 SAAS en el plazo de este ciclo académico con el fin de reforzar mis conocimientos y aprender a usar nuevas herramientas, así mismo mejorar con las ya conocidas. Lograr hacer deploys en servidores propios haciendo todo el proceso de deploy desde 0 sin uso de herramientas 3eras con el fin de practicar técnicas de seguridad de servidores y entender su funcionamiento a mayor nivel práctico y no solo teórico.
 
 **Jhimy Pool Romero Meza:**
 
