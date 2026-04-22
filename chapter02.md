@@ -609,9 +609,23 @@ Explorar necesidades operativas, casos de uso, disposición de pago por suscripc
   </table>
 </div>
 
-### 2.2.3. Análisis de entrevistas
+### 2.2.3. Análisis de entrevistas  
 
-falta  
+Segmento 1: Universitarios y Jóvenes Profesionales (B2C)  
+
+El análisis de este segmento evidencia una alta dependencia del transporte público para los desplazamientos diarios, lo cual genera una experiencia negativa caracterizada por la congestión, la inseguridad y la pérdida significativa de tiempo, que puede alcanzar hasta tres horas por día. Estos usuarios, en su mayoría nativos digitales, están acostumbrados al uso de aplicaciones móviles para resolver sus necesidades cotidianas, por lo que valoran soluciones rápidas, accesibles y completamente digitalizadas. En este contexto, la micromovilidad eléctrica se percibe como una alternativa atractiva debido a su rapidez y practicidad, especialmente para trayectos cortos.
+
+Sin embargo, la adopción de este tipo de soluciones se ve limitada por factores clave como el costo del servicio y la percepción de inseguridad vial. Asimismo, la experiencia de usuario dentro de la aplicación representa una barrera importante, ya que se identificaron problemas relacionados con la falta de claridad en la interfaz, botones poco visibles, procesos confusos y ausencia de información relevante sobre precios y políticas de uso. Estas deficiencias generan desconfianza y reducen la intención de uso.
+
+A partir de estos hallazgos, se concluye que existe una oportunidad significativa para el proyecto, siempre que se logre ofrecer una experiencia sencilla, transparente y económicamente accesible. La implementación de pagos digitales integrados, una interfaz intuitiva y la visibilidad clara de precios y condiciones son elementos fundamentales para lograr la adopción en este segmento. En este sentido, el usuario prioriza la conveniencia real, entendida como un proceso rápido, sin fricciones y con costos predecibles.
+  
+Segmento 2: Empresas y Planes Corporativos (B2B)  
+  
+El segmento empresarial presenta una problemática distinta, enfocada principalmente en la eficiencia operativa y la optimización de costos en actividades logísticas, como la mensajería. Actualmente, estas empresas enfrentan gastos elevados asociados al uso de vehículos a gasolina, así como dificultades relacionadas con el mantenimiento y los retrasos en las entregas. En este contexto, existe una apertura hacia soluciones de micromovilidad eléctrica, especialmente aquellas que incorporan tecnologías de monitoreo como GPS, debido a su potencial para reducir costos y mejorar la gestión de la flota.  
+  
+No obstante, el análisis revela que la decisión de adopción en este segmento está fuertemente influenciada por la claridad de la propuesta de valor y la confianza en el servicio. Durante la evaluación, se identificaron dudas relacionadas con la falta de información sobre precios, políticas de uso y condiciones del servicio, lo que genera incertidumbre. Además, se detectaron deficiencias en la interfaz de la aplicación, como llamadas a la acción poco visibles y procesos no intuitivos, lo cual afecta la percepción de profesionalismo y confiabilidad de la solución.  
+  
+En consecuencia, se concluye que, para lograr la adopción en el segmento B2B, es fundamental ofrecer una propuesta clara, transparente y respaldada por evidencia, como testimonios o casos de éxito. Asimismo, resulta clave implementar herramientas que permitan el monitoreo en tiempo real de la flota, así como planes de servicio estructurados y fáciles de entender. En este segmento, la decisión de uso no se basa únicamente en la innovación, sino en la capacidad de la solución para generar confianza y demostrar beneficios concretos en términos de ahorro y eficiencia.  
 
 ## 2.3. Needfinding
 ### 2.3.1. User Personas
