@@ -91,7 +91,7 @@ Buscamos transformar la movilidad urbana en Lima  ofreciendo un transporte rápi
         <img src="assets/Integrantes/JhimyRomeroMeza.jpg" alt="Foto de Jhimy" style="max-width:80px; border-radius:6px;">
       </td>
       <td style="padding: 10px; border: 1px solid #aaa; text-align: justify;">
-        Estudiante de Ingeniería de Software (5to ciclo). Se destaca por su responsabilidad, compromiso y disposición constante para colaborar. Cuenta con conocimientos previos en tecnología y en el desarrollo de proyectos, demostrando iniciativa y capacidad de aprendizaje autónomo.
+        Estudiante de Ingeniería de Software (6to ciclo). Se destaca por su responsabilidad, compromiso y disposición constante para colaborar. Cuenta con conocimientos previos en tecnología y en el desarrollo de proyectos, demostrando iniciativa y capacidad de aprendizaje autónomo.
       </td>
     </tr>
     <tr>
