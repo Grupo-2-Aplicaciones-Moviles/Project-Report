@@ -28,9 +28,9 @@
 
 <a href="https://www.youtube.com/watch?v=UVP-NVpaT6Y" target="_blank" rel="noopener">About The Product</a>
 
-<a href="https://github.com/OpenSource-Grupo-4" target="_blank" rel="noopener">Organización</a>
+<a href="https://github.com/Grupo-2-Aplicaciones-Moviles/Project-Report" target="_blank" rel="noopener">Organización</a>
 
-<a href="https://github.com/OpenSource-Grupo-4/ReportTB1" target="_blank" rel="noopener">Reporte del Proyecto</a>
+<a href="https://github.com/Grupo-2-Aplicaciones-Moviles/Project-Report" target="_blank" rel="noopener">Reporte del Proyecto</a>
 
 <a href="https://github.com/OpenSource-Grupo-4/Frontend-WeRide" target="_blank" rel="noopener">Repositorio de Frontend Web Application</a>
 
