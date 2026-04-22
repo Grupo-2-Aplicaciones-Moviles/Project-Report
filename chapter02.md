@@ -2003,7 +2003,7 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 
 ---
 
-### 2.6.3. Bounded Context: Reservation & Ride
+### 2.6.3. Bounded Context: Reservation & Trips
 
 **Propósito:** Gestionar el ciclo completo de reservas y viajes, desde la creación hasta la finalización del trayecto.
 
@@ -2188,7 +2188,7 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 
 ---
 
-### 2.6.4. Bounded Context: Payments & Subscriptions
+### 2.6.4. Bounded Context: Billing & Subscriptions
 
 **Propósito:** Gestionar planes de suscripción, procesamiento de pagos, facturación y penalizaciones.
 
