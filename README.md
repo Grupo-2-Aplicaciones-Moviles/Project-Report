@@ -196,7 +196,7 @@ logro del student outcome.
         Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.
       </td>
       <td style="border:1px solid #999; padding:8px; vertical-align:top;">
-        <strong>Bonifacio Jaramillo Samuel Jesus</strong>
+        <strong>Seijas Vásquez Diego Antonio</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
           <li><b>TB1:</b> Reuniones presenciales y virtuales para coordinar el desarrollo del proyecto.</li>
           <li><b>TP1:</b> Participación oral en planificación del frontend, bounded contexts y estructura del db.json.</li>
@@ -240,7 +240,7 @@ logro del student outcome.
         Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.
       </td>
       <td style="border:1px solid #999; padding:8px; vertical-align:top;">
-        <strong>Bonifacio Jaramillo Samuel Jesus</strong>
+        <strong>Seijas Vásquez Diego Antonio</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
           <li><b>TB1:</b> Documentación de capítulos I, II, IV y V.</li>
           <li><b>TP1:</b> Redacción de bounded contexts, criterios de aceptación y db.json.</li>
