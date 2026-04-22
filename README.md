@@ -55,27 +55,9 @@ El objetivo de esta sección es resumir las modificaciones relevantes que se rea
   <tbody>
     <tr>
       <td style="padding: 10px; border: 1px solid #ccc; font-weight: bold;">V1.0</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">10 Sep 2025</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">G4 WeTech</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">Versión inicial del informe: se completaron los 5 capítulos principales y se desplegó la primera versión del landing page.</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #ccc; font-weight: bold;">V2.0</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">21 Sep 2025</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">G4 WeTech</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">Despliegue de la primera versión de la Web Application y actualización de la documentación técnica asociada.</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #ccc; font-weight: bold;">V3.0</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">30 Oct 2025</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">G4 WeTech</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">Primer despliegue funcional de los Web Services; se añadieron diagramas y API spec en la documentación.</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #ccc; font-weight: bold;">V4.0</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">16 Nov 2025</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">G4 WeTech</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">Revisión y consolidación de la documentación final, correcciones de estilo y ajustes según retroalimentación del docente.</td>
+      <td style="padding: 10px; border: 1px solid #ccc;">22 de Abril 2025</td>
+      <td style="padding: 10px; border: 1px solid #ccc;">G2 WeTech</td>
+      <td style="padding: 10px; border: 1px solid #ccc;">Versión inicial del informe: se completaron los 2 primeros capítulos.</td>
     </tr>
   </tbody>
 </table>
@@ -89,18 +71,15 @@ Para la elaboración del informe del proyecto utilizamos GitHub como herramienta
 A través del repositorio del informe registramos cambios, realizamos revisiones continuas y mantenemos el historial de actualizaciones alineado con cada entrega del curso.
 
 ### Repositorios relevantes
-- https://github.com/orgs/OpenSource-Grupo-4/repositories  
-- https://github.com/OpenSource-Grupo-4/ReportTB1  
-- https://github.com/OpenSource-Grupo-4/Landing-Page  
-- https://github.com/OpenSource-Grupo-4/Frontend-WeRide  
-- https://github.com/OpenSource-Grupo-4/Backend-WeRide  
+- https://github.com/Grupo-2-Aplicaciones-Moviles/Project-Report
 
 ---
 
 ## Entrega TB1: V1.0
 
-Durante la entrega TB1 el equipo desarrolló el Sprint 1, donde se trabajaron las primeras historias de usuario asociadas al proyecto y se construyó la primera versión de la Landing Page.  
-En esta etapa también se inició la estructura del informe, estableciendo la base de contenidos y el orden de secciones.
+En esta primera entrega se redactó el informe del proyecto hasta el punto 2.6.3.6.2 (Bounded Context Domain Layer Class Diagrams). Durante este proceso se realizaron diversas actividades, siendo las más relevantes: la definición de los antecedentes y problematicas identificados, la implementación del Lean UX Canvas, analisis de competidores, creación de artefactos (User Personas, Task Matrix, etc), redacción de User Stories, Event Storming, diseño de los diagramas C4 Model (Contexto y Contenedores) y diagramas de los Bounded Context.
+
+Para evidenciar nuestros avances y la colaboración en el proyecto, se utilizó GitHub como plataforma principal de gestión de versiones y control de cambios. A continuación, se presentan algunos insights relevantes sobre la colaboración en el desarrollo del informe:
 
 ### Evidencias
 <img src="assets/chapter01/insigtTB1.png" alt="Insights TB1" style="max-width:800px; display:block; margin:12px auto;">
@@ -173,12 +152,15 @@ En esta etapa también se inició la estructura del informe, estableciendo la ba
 
 # Student Outcome
 
-### ABET - EAC - Student Outcome 3
+### ABET - EAC - Student Outcome 7
 
-Criterio: Capacidad de comunicarse efectivamente con un rango de audiencias. 
-En el siguiente cuadro, se indicarán las acciones realizadas y conclusiones 
-de los integrantes del grupo que evidencien y sustenten que se desarrolló el 
-logro del student outcome.
+Criterio: La capacidad de adquirir y aplicar nuevos conocimientos según sea
+necesario, utilizando estrategias de aprendizaje apropiadas.
+
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones
+por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET –
+EAC - Student Outcome 7.
+
 
 <table style="width:100%; border-collapse:collapse; text-align:left; font-size:14px;">
   <thead>
@@ -198,39 +180,28 @@ logro del student outcome.
       <td style="border:1px solid #999; padding:8px; vertical-align:top;">
         <strong>Seijas Vásquez Diego Antonio</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Reuniones presenciales y virtuales para coordinar el desarrollo del proyecto.</li>
-          <li><b>TP1:</b> Participación oral en planificación del frontend, bounded contexts y estructura del db.json.</li>
-          <li><b>TB2:</b> Coordinación en sesiones técnicas de backend para aplicar DDD y CQRS.</li>
-          <li><b>TF:</b> Reuniones de integración final y validación del informe.</li>
+          <li><b>TB1:</b> Repasé mis conceptos de Event Storming y como hacer los moledos de message flows y bounded context canvases.</li>
         </ul>
         <strong>Romero Meza Jhimy Pool</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Presentación clara de wireframes, mockups y requerimientos.</li>
-          <li><b>TP1:</b> Explicación del flujo de usuario y validación de pantallas del frontend.</li>
-          <li><b>TB2:</b> Coordinación oral para definir la arquitectura basada en DDD.</li>
-          <li><b>TF:</b> Reuniones de integración y explicación de correcciones del informe.</li>
+          <li><b>TB1:</b> Utilicé entrevistas y herramientas de needfinding (user personas, task matrix, journey mapping y empathy mapping) que me permitieron tener un mejor panorama de los usuarios para detectar oportunidades y afianzar la importancia de seguir aprendiendo.</li>
         </ul>
-        <strong>Morales Sosa Arnold Gabriel</strong>
+        <strong>Lang Nassi Werner Khalil</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Participación en Sprint Planning y presentación de avances.</li>
-          <li><b>TP1:</b> Explicación del flujo y requerimientos de US-24.</li>
-          <li><b>TB2:</b> Exposición del diseño del bounded context de Perfiles.</li>
-          <li><b>TF:</b> Coordinación de integración final y resolución de errores del informe.</li>
+          <li><b>TB1:</b> Repasé conceptos de las capas del desarrollo con Bounded context para poder documentar su implementación en nuestro proyecto.</li>
         </ul>
-        <strong>Castro Pariona Jefferson Ernesto</strong>
+        <strong>Berrocal Ramirez Omar Christian</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Coordinación de reuniones y presentación de propuestas de diseño.</li>
-          <li><b>TP1:</b> Participación en planificación del frontend y revisión del db.json.</li>
-          <li><b>TB2:</b> Reuniones técnicas para organización del backend.</li>
-          <li><b>TF:</b> Coordinación oral para validación del despliegue final.</li>
+          <li><b>TB1:</b> Repasé mis conceptos de la capa de infraestrutuca y diagramas c4, diagramas de clase y diagramas de base de datos, con la finalidad de realizarlos por cada bounded context identificado para el proyecto.</li>
+        </ul>
+        <strong>Gonzales Castillo Angel Martin</strong>
+        <ul style="margin:4px 0 10px; padding-left:20px;">
+          <li><b>TB1:</b> Utilicé mis conocimientos en diagramas de C4 para hacer los diagramas de nivel contexto.</li>
         </ul>
       </td>
       <td style="border:1px solid #999; padding:8px; vertical-align:top;">
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Comunicación clara permitió coordinar planificación, user stories y diseño inicial.</li>
-          <li><b>TP1:</b> Coordinación efectiva para construir la Web Application.</li>
-          <li><b>TB2:</b> Comunicación técnica precisa garantizó coherencia en el backend DDD/CQRS.</li>
-          <li><b>TF:</b> Comunicación fluida permitió integrar correctamente todas las funcionalidades.</li>
+            <p>Como equipo repasamos conceptos vistos anteriormente, como Event Storming de Scrum, patrones de diseño de software, Domain Driven Design, diagramas y métodos ágiles, demostrando así la necesidad de poner en práctica constantemente lo aprendido para su uso en proyectos de software.</p>
         </ul>
       </td>
     </tr>
@@ -242,42 +213,63 @@ logro del student outcome.
       <td style="border:1px solid #999; padding:8px; vertical-align:top;">
         <strong>Seijas Vásquez Diego Antonio</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Documentación de capítulos I, II, IV y V.</li>
-          <li><b>TP1:</b> Redacción de bounded contexts, criterios de aceptación y db.json.</li>
-          <li><b>TB2:</b> Documentación de backend y dominios DDD.</li>
-          <li><b>TF:</b> Ajustes finales al informe y redacción de anexos.</li>
+          <li><b>TB1:</b> Realizar los messages flows y bounded context canvases me dió un mejor panorama y comprensión del proyecto. Gracias a ello podré absorlver cualquier duda y apoyar a mis compañeros.</li>
         </ul>
         <strong>Romero Meza Jhimy Pool</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Documentación detallada de wireframes, mockups y análisis inicial.</li>
-          <li><b>TP1:</b> Redacción técnica del frontend y flujo de navegación.</li>
-          <li><b>TB2:</b> Documentación del diseño y lógica del backend.</li>
-          <li><b>TF:</b> Redacción final y correcciones del informe.</li>
+          <li><b>TB1:</b> Documentar de manera detallada las necesidades de los usuario y las historias de usuario me permitió compender que es lo que se necesita para que nuestro proyecto tenga éxito.</li>
         </ul>
-        <strong>Morales Sosa Arnold Gabriel</strong>
+        <strong>Lang Nassi Werner Khalil</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Documentación de US-05 y commits semánticos.</li>
-          <li><b>TP1:</b> Documentación de pagos y db.json.</li>
-          <li><b>TB2:</b> Documentación del bounded context de perfiles.</li>
-          <li><b>TF:</b> Documentación técnica final y mejoras del informe.</li>
+          <li><b>TB1:</b> Comprender el funcionamiento de cada capa y como estas se comunican entre sí en el desarrollo de software me ayuda a tener una mejor comprensión del flujo de nuestro producto de software.</li>
         </ul>
-        <strong>Castro Pariona Jefferson Ernesto</strong>
+        <strong>Berrocal Ramirez Omar Christian</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Redacción de capítulos I, III y V.</li>
-          <li><b>TP1:</b> Documentación del frontend y db.json.</li>
-          <li><b>TB2:</b> Documentación de APIs y arquitectura del dominio.</li>
-          <li><b>TF:</b> Revisión y consolidación del informe final.</li>
+          <li><b>TB1:</b> Volver a realizar diagramas me ayudó a comprender lo importante que es la planificación en un proyecto para seguir estandares de calidad y realizar un buen producto de software.</li>
+        </ul>
+        <strong>Gonzales Castillo Angel Martin</strong>
+        <ul style="margin:4px 0 10px; padding-left:20px;">
+          <li><b>TB1:</b> Revisar que nuevos conceptos surgieron en los ultimos años es importante para poder plantear una infraestructura que siga los estándares y sea seguro.</li>
         </ul>
       </td>
       <td style="border:1px solid #999; padding:8px; vertical-align:top;">
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Documentación base clara que sustentó el proyecto.</li>
-          <li><b>TP1:</b> Redacción técnica precisa para reproducir procesos y pruebas.</li>
-          <li><b>TB2:</b> Documentación sólida del backend y arquitectura.</li>
-          <li><b>TF:</b> Informe final coherente y completo.</li>
+          <p>Como equipo reconocemos que el aprendizaje permanente es fundamental para estar siempre a la vanguardia y mantener la calidad de nuestro producto. Identificar las nuevas tendencias de tecnologías y metodologías nos ayudará a elegir las mejores alternativas de desarrollo a lo largo del proyecto.</p>
         </ul>
       </td>
     </tr>
 
   </tbody>
 </table>
+
+---
+
+# Objsetivos SMART
+
+**Berrocal Ramirez Omar Christian:**
+
+- **Objetivo 1:** Obtener la certificación ISTQB Foundation Level dentro de los próximos 3 meses de egresado, estudiando almenos 6 horas semanales para potenciar mi perfil profesional y aumentar mis opotunidades laborales en el campo de pruebas de software.
+- **Objetivo 2:** Mejorar mis habilidades de comunicación en inglés técnico, alcanzando un nivel C1 en el examen Linguaskill dentro de los próximos 2 meses, mediante la práctica diaria de lectura y escritura de documentos técnicos y la participación en foros especializados.
+
+**Gonzales Castillo Angel Martin:**
+
+- **Objetivo 1:**
+- **Objetivo 2:** 
+
+**Lang Nassi Werner Khalil:**
+
+- **Objetivo 1:** 
+- **Objetivo 2:** 
+
+**Jhimy Pool Romero Meza:**
+
+- **Objetivo 1:** 
+- **Objetivo 2:** 
+
+**Seijas Vásquez Diego Antonio:**
+
+- **Objetivo 1:**
+- **Objetivo 2:**
+
+
+---
