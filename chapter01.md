@@ -108,14 +108,14 @@ Buscamos transformar la movilidad urbana en Lima  ofreciendo un transporte rápi
     </tr>
     <tr>
       <td style="padding: 10px; border: 1px solid #aaa;">
-        Morales Sosa, Arnold Gabriel<br>
-        <span style="font-size:11px; color:#555;">(U201822516)</span>
+        Lang Nassi, Werner Khalil<br>
+        <span style="font-size:11px; color:#555;">(u202310003)</span>
       </td>
       <td style="padding: 10px; border: 1px solid #aaa; text-align:center;">
-        <img src="assets/Integrantes/ArnoldProfile.png" alt="Foto de Arnold" style="max-width:80px; border-radius:6px;">
+        <img src="assets/Integrantes/WernerLang.jpg" alt="Foto de Werner" style="max-width:80px; border-radius:6px;">
       </td>
       <td style="padding: 10px; border: 1px solid #aaa; text-align: justify;">
-        Estudiante de Ingeniería de Software. Posee experiencia en ensamblaje, mantenimiento, conectividad y desarrollo de software. Maneja tecnologías como C++, Python, Javascript, SQL, NoSQL, Vue.js, Jenkins y metodologías ágiles. Se distingue por su responsabilidad, proactividad, creatividad y facilidad para el trabajo en equipo.
+        Estudiante de la Universidad Peruana de Ciencias Aplicadas (UPC), cursando en 7.º ciclo. Soy un estudiante que le gusta investigar cosas nuevas.
       </td>
     </tr>
   </tbody>
