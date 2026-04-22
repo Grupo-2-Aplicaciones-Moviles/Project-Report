@@ -1770,6 +1770,41 @@ El nivel táctico de Domain-Driven Design se enfoca en el modelado detallado den
     </tbody>
 </table>
 
+#### 2.6.1.4. Infrastructure Layer
+
+La capa de infraestructura del Bounded Context *Identity & Access* provee las implementaciones concretas de los contratos definidos en las capas de dominio y aplicación, abstrayendo los detalles tecnológicos del núcleo del sistema.
+
+| Componente | Responsabilidad |
+|---|---|
+| **UserRepository** | Persistencia y consulta de entidades `User` en base de datos relacional. |
+| **SessionRepository** | Almacenamiento en caché de sesiones activas con TTL configurable para gestión de expiración. |
+| **PasswordHashProvider**| Implementación de hashing y verificación segura de contraseñas mediante algoritmo BCrypt. |
+| **JwtTokenProvider** | Generación, firma y validación de tokens de autenticación. |
+| **SmsNotificationAdapter** | Envío de códigos de verificación por SMS al número de teléfono del usuario. |
+| **EmailNotificationAdapter** | Envío de correos de confirmación y recuperación de cuenta. |
+| **AuthMiddleware** | Interceptación de peticiones HTTP para validación de tokens y autorización. |
+| **DatabaseMigration** | Gestión de migraciones y versionado del esquema de base de datos. |
+
+**Dependencias externas:** Servicio de SMS (Twilio), proveedor de correo electrónico (SendGrid), base de datos relacional (PostgreSQL), almacén en caché (Redis).
+
+#### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Component Diagram - Identity & Access](assets/chapter02/component-diagram-iam.png)
+
+#### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context IAM, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
+
+![Class Diagram - Identity & Access](assets/chapter02/class-diagram-iam.png)
+
+##### 2.6.1.6.2. Bounded Context Database Design Diagram
+
+**Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Identity & Access*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
+
+![Database Design Diagram - Identity & Access](assets/chapter02/database-design-iam.png)
+
 ---
 
 ### 2.6.2. Bounded Context: Fleet Management
@@ -1916,6 +1951,41 @@ El nivel táctico de Domain-Driven Design se enfoca en el modelado detallado den
         </tr>
     </tbody>
 </table>
+
+
+#### 2.6.2.4. Infrastructure Layer
+
+| Componente                | Responsabilidad |
+|---------------------------|---|
+| **ScooterRepository**     | Persistencia de entidades `Scooter` con soporte para consultas geoespaciales. |
+| **FleetRepository**       | Persistencia y consulta de agrupaciones de flota. |
+| **MaintenanceRepository** | Almacenamiento del historial de mantenimientos. |
+| **GpsDataAdapter**        | Recepción de datos GPS provenientes de los sensores IoT mediante protocolo MQTT. |
+| **BatteryDataAdapter**    | Procesamiento del stream de datos de nivel de batería enviado por los dispositivos. |
+| **GeospatialQueryProvider** | Implementación de consultas de proximidad geoespacial para la búsqueda de scooters cercanos. |
+| **CacheProvider**         | Caché del estado operativo de scooters para reducir latencia en consultas frecuentes. |
+| **IoTCommandAdapter**     | Envío de comandos remotos a los dispositivos (desbloqueo/bloqueo). |
+
+**Dependencias externas:** MQTT Broker (IoT), PostGIS (extensión geoespacial), Redis, servicios IoT de AWS.
+
+#### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Component Diagram - Fleet Management](assets/chapter02/component-diagram-fleet.png)
+
+#### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context Fleet Management, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
+
+![Class Diagram - Fleet Management](assets/chapter02/class-diagram-fleet.png)
+
+##### 2.6.2.6.2. Bounded Context Database Design Diagram
+
+**Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Fleet Management*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
+
+![Database Design Diagram - Identity & Access](assets/chapter02/database-design-fleet.png)
+
 
 ---
 
@@ -2065,6 +2135,42 @@ El nivel táctico de Domain-Driven Design se enfoca en el modelado detallado den
         </tr>
     </tbody>
 </table>
+
+
+#### 2.6.3.4. Infrastructure Layer
+
+| Componente | Responsabilidad |
+|----|---|
+| **ReservationRepositoryImpl**  | Persistencia de reservas con soporte para consultas por estado y usuario. |
+| **RideRepositoryImpl** | Persistencia de viajes activos e históricos con datos de ruta. |
+| **ReservationExpiryScheduler** | Tarea programada que invalida reservas vencidas periódicamente. |
+| **QrCodeAdapter** | Generación y validación de códigos QR para desbloqueo de scooters. |
+| **ScooterUnlockAdapter** | Envío del comando de desbloqueo al sistema IoT del scooter correspondiente. |
+| **EventPublisher** | Publicación de eventos de dominio (`RideStarted`, `RideEnded`) hacia otros bounded contexts. |
+| **CacheProvider** | Caché del viaje activo por usuario para consultas de baja latencia. |
+
+**Dependencias externas:** Sistema IoT (desbloqueo de scooters), Message Broker (Kafka/RabbitMQ), PostgreSQL, Redis.
+
+
+#### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Component Diagram - Reservation & Ride](assets/chapter02/component-diagram-reservation.png)
+
+#### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context Reservation & Ride, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
+
+![Class Diagram - Reservation & Ride](assets/chapter02/class-diagram-reservation.png)
+
+##### 2.6.3.6.2. Bounded Context Database Design Diagram
+
+**Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Reservation & Ride*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
+
+![Database Design Diagram - Reservation & Ride](assets/chapter02/database-design-reservation.png)
+
+
 
 ---
 
@@ -2219,6 +2325,44 @@ El nivel táctico de Domain-Driven Design se enfoca en el modelado detallado den
     </tbody>
 </table>
 
+
+#### 2.6.4.4. Infrastructure Layer
+
+| Componente | Responsabilidad |
+|---|---|
+| **PaymentRepositoryImpl** | Persistencia de transacciones de pago con estado y metadatos de pasarela. |
+| **SubscriptionRepositoryImpl** | Persistencia de suscripciones activas e históricas. |
+| **InvoiceRepositoryImpl** | Almacenamiento y recuperación de facturas generadas. |
+| **CulqiPaymentAdapter** | Integración con pasarela Culqi para procesamiento de tarjetas de crédito/débito. |
+| **IzipayPaymentAdapter** | Integración alternativa con pasarela Izipay para procesamiento de tarjetas. |
+| **YapeQrAdapter** | Integración con Yape para generación de pagos QR. |
+| **PlinAdapter**  | Integración con Plin para pagos móviles. |
+| **SubscriptionRenewalScheduler**  | Tarea programada para renovación automática de suscripciones periódicas. |
+| **PdfInvoiceGenerator** | Generación de documentos PDF para facturas. |
+| **EventPublisher** | Publicación del evento `PaymentCompleted` para actualizar suscripciones y viajes. |
+
+**Dependencias externas:** Culqi, Izipay, Yape, Plin, servicio de generación de PDFs.
+
+
+#### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Component Diagram - Payments & Subscriptions](assets/chapter02/component-diagram-payments.png)
+
+#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context Payments & Subscriptions, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
+
+![Class Diagram - Payments & Subscriptions](assets/chapter02/class-diagram-payments.png)
+
+##### 2.6.4.6.2. Bounded Context Database Design Diagram
+
+**Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Payments & Subscriptions*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
+![Database Design Diagram - Payments & Subscriptions](assets/chapter02/database-design-payments.png)
+
+
+
 ---
 
 ### 2.6.5. Bounded Context: IoT & Monitoring
@@ -2351,6 +2495,39 @@ El nivel táctico de Domain-Driven Design se enfoca en el modelado detallado den
         </tr>
     </tbody>
 </table>
+
+#### 2.6.5.4. Infrastructure Layer
+
+| Componente | Responsabilidad |
+|---|---|
+| **IoTRepositoryImpl** |  Persistencia del registro de dispositivos IoT y su estado. |
+| **TelemetryRepositoryImpl** | Almacenamiento eficiente de series temporales de datos telemétricos (GPS, batería, velocidad). |
+| **MqttBrokerAdapter** | Suscripción y publicación de mensajes MQTT para la recepción de telemetría en tiempo real. |
+| **WebSocketPublisher** | Difusión de actualizaciones de telemetría a clientes conectados en tiempo real. |
+| **AlertNotificationAdapter**  | Envío de alertas push a operadores y usuarios afectados. |
+| **AnomalyDetectionAdapter** | Implementación de lógica de detección de anomalías sobre streams de datos. |
+| **LockCommandAdapter** | Publicación de comandos de bloqueo/desbloqueo remoto al dispositivo IoT correspondiente. |
+
+**Dependencias externas:** MQTT Broker (Mosquitto / AWS IoT Core), TimescaleDB, Firebase Cloud Messaging, Sistema de bloqueo IoT.
+
+#### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Component Diagram - IoT & Monitoring](assets/chapter02/component-diagram-iot.png)
+
+#### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context IoT & Monitoring, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
+
+![Class Diagram - IoT & Monitoring](assets/chapter02/class-diagram-iot.png)
+
+##### 2.6.5.6.2. Bounded Context Database Design Diagram
+
+**Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *IoT & Monitoring*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
+![Database Design Diagram - IoT & Monitoring](assets/chapter02/database-design-iot.png)
+
+
 
 ---
 
@@ -2490,6 +2667,38 @@ El nivel táctico de Domain-Driven Design se enfoca en el modelado detallado den
         </tr>
     </tbody>
 </table>
+
+#### 2.6.6.4. Infrastructure Layer
+
+| Componente |  Responsabilidad |
+|---|---|
+| **ReportRepositoryImpl** | Persistencia de reportes generados y sus metadatos. |
+| **AnalyticsQueryAdapter** | Ejecución de consultas analíticas agregadas para KPIs y métricas del sistema. |
+| **ReportExportAdapter** |  Exportación de reportes en formatos PDF y XLSX. |
+| **DashboardCacheAdapter** |  Caché de datos del dashboard para minimizar latencia en consultas frecuentes de KPIs. |
+| **CrossContextDataAdapter** |  Consulta de datos agregados provenientes de otros bounded contexts (Fleet, Rides, Payments) mediante APIs internas. |
+| **AdminAuthMiddleware** |  Verificación de rol administrador en cada petición a endpoints del módulo. |
+| **MetricsCollectorAdapter** |  Recolección y exposición de métricas del sistema para monitoreo operativo. |
+
+**Dependencias externas:** Prometheus, Grafana (opcional), ClickHouse (analítica avanzada), herramientas de exportación de documentos.
+
+#### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Component Diagram - Admin & Operations](assets/chapter02/component-diagram-admin.png)
+
+#### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.6.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context Admin & Operations, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
+
+![Class Diagram - Admin & Operations](assets/chapter02/class-diagram-admin.png)
+
+##### 2.6.6.6.2. Bounded Context Database Design Diagram
+
+**Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Admin & Operations*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
+![Database Design Diagram - Admin & Operations](assets/chapter02/database-design-admin.png)
+
 
 ---
 
