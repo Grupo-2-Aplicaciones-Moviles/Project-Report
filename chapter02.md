@@ -2542,7 +2542,7 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-##Placeholder
+![Component Diagram - Geolocation and Map](assets/chapter02/component-diagram-geolocation.png)
 
 #### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -2550,13 +2550,13 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 
 **Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context Geolocation and Map, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
 
-##Placeholder
+![Class Diagram - Geolocation and Map](assets/chapter02/class-diagram-geolocation.png)
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
 **Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Geolocation and Map*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
 
-##Placeholder
+![Database Design - Geolocation and Map](assets/chapter02/database-design-geolocation.png)
 
 ---
 
@@ -2728,7 +2728,7 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 
 #### 2.6.6.5. Bounded Context Software Architecture Component Level Diagrams
 
-##Placeholder
+![Component Diagram - Notifications](assets/chapter02/component-diagram-notification.png)
 
 #### 2.6.6.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -2736,14 +2736,13 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 
 **Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context Notifications, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
 
-##Placeholder
+![Class Diagram - Notifications](assets/chapter02/class-diagram-notification.png)
 
 ##### 2.6.6.6.2. Bounded Context Database Design Diagram
 
 **Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Notifications*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
 
-##Placeholder
-
+![Database Design - Notifications](assets/chapter02/database-design-notification.png)
 ---
 
 ### 2.6.7. Bounded Context: Customer Support and Feedback
@@ -2932,7 +2931,7 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 
 #### 2.6.7.5. Bounded Context Software Architecture Component Level Diagrams
 
-##Placeholder
+![Component Diagram - Customer Support and Feedback](assets/chapter02/component-diagram-customer.png)
 
 #### 2.6.7.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -2940,12 +2939,12 @@ La capa de infraestructura del Bounded Context *Identity & Access* provee las im
 
 **Propósito:** El siguiente diagrama de clases UML representa la estructura del modelo de dominio del Bounded Context Customer Support and Feedback, incluyendo entidades, value objects, agregados, servicios de dominio e interfaces de repositorio.
 
-##Placeholder
+![Class Diagram - Customer Support and Feedback](assets/chapter02/class-diagram-customer.png)
 
 ##### 2.6.7.6.2. Bounded Context Database Design Diagram
 
 **Propósito:** El siguiente diagrama representa el diseño físico de la base de datos correspondiente al Bounded Context *Customer Support and Feedback*, describiendo las tablas, atributos, tipos de datos, claves primarias, claves foráneas y restricciones de integridad.
 
-##Placeholder
+![Database Design - Customer Support and Feedback](assets/chapter02/database-design-customer.png)
 
 ---
