@@ -26,24 +26,26 @@
 
 ## Anexos.
 
-<a href="https://www.youtube.com/watch?v=UVP-NVpaT6Y" target="_blank" rel="noopener">About The Product</a>
+About The Product https://www.youtube.com/watch?v=UVP-NVpaT6Y
 
-<a href="https://github.com/Grupo-2-Aplicaciones-Moviles/Project-Report" target="_blank" rel="noopener">Organización</a>
+Organización https://github.com/Grupo-2-Aplicaciones-Moviles/Project-Report
 
-<a href="https://github.com/Grupo-2-Aplicaciones-Moviles/Project-Report" target="_blank" rel="noopener">Reporte del Proyecto</a>
+Reporte del Proyecto https://github.com/Grupo-2-Aplicaciones-Moviles/Project-Report
 
-<a href="https://github.com/OpenSource-Grupo-4/Frontend-WeRide" target="_blank" rel="noopener">Repositorio de Frontend Web Application</a>
+Repositorio de Frontend Web Application https://github.com/OpenSource-Grupo-4/Frontend-WeRide
 
-<a href="https://frontend-we-ride-lake.vercel.app" target="_blank" rel="noopener">Deploy de Frontend Web Application</a>
+Deploy de Frontend Web Application https://frontend-we-ride-lake.vercel.app
 
-<a href="https://github.com/OpenSource-Grupo-4/Backend-WeRide" target="_blank" rel="noopener">Repositorio de Backend Web Services</a>
+Repositorio de Backend Web Services https://github.com/OpenSource-Grupo-4/Backend-WeRide
 
-<a href="http://20.81.154.140:8080/swagger-ui/index.html" target="_blank" rel="noopener">Deploy de Backend Web Services</a>
+Deploy de Backend Web Services http://20.81.154.140:8080/swagger-ui/index.html
 
-<a href="https://github.com/OpenSource-Grupo-4/Landing-Page" target="_blank" rel="noopener">Repositorio de Landing Page</a>
+Repositorio de Landing Page https://github.com/OpenSource-Grupo-4/Landing-Page
 
-<a href="https://opensource-grupo-4.github.io/Landing-Page" target="_blank" rel="noopener">Deploy de Landing Page</a>
+Deploy de Landing Page https://opensource-grupo-4.github.io/Landing-Page
 
-<a href="https://www.canva.com/design/DAGzltc5qz0/jV9yXK8Nme4XSOk6AUhFgg/edit" target="_blank" rel="noopener">Presentación de Canvas</a>
+Presentación de Canvas https://www.canva.com/design/DAHHlyNbigI/kB2egwC0nMImotp-dfsxxQ/edit
 
-<a href="https://www.figma.com/design/6R0aWHPQEpwX8DyWLrCHmd/Open-Source-2025-2?t=moMeoEwSHQRhgL2O-0" target="_blank" rel="noopener">Figma</a>
+Figma https://www.figma.com/design/6R0aWHPQEpwX8DyWLrCHmd/Open-Source-2025-2?t=moMeoEwSHQRhgL2O-0"
+
+Video exposicion AV1 https://youtu.be/b5JeXdtnK_c
