@@ -180,7 +180,49 @@ En conjunto, este módulo no solo ofrece orientación geográfica en tiempo real
 
 #### 3.1.3.1. Landing Page Wireframes ####
 
+- Navbar  
+![Navbar](assets/Chapter04/WireframeLandingPage/Navbar.png)
+- Hero  
+![Hero](assets/Chapter04/WireframeLandingPage/Hero.png)
+- Disposable Vehicles Section.  
+![Vehicles](assets/Chapter04/WireframeLandingPage/Disposables_Vehicles_Section.png)
+- Application user manual section.  
+![Manual](assets/Chapter04/WireframeLandingPage/Application_user_manual_section.png)
+- Rates Section.  
+![Rates](assets/Chapter04/WireframeLandingPage/Rates_Section.png)
+- Locations section.  
+![Locations](assets/Chapter04/WireframeLandingPage/Locations_Section.png)
+- Who we are section.  
+![Wo we are](assets/Chapter04/WireframeLandingPage/Who_we_are_Section.png)
+- About section.  
+![About](assets/Chapter04/WireframeLandingPage/About_Section.png)
+- Application download section.  
+![Download app](assets/Chapter04/WireframeLandingPage/Download_Section.png)
+- Footer Section.  
+![Footer](assets/Chapter04/WireframeLandingPage/Footer_Section.png)
+
 #### 3.1.3.2. Landing Page Mock-ups ####
+
+- Navbar  
+![Navbar](assets/Chapter04/Mock-upLandingPage/Navbar_Section.png)
+- Hero  
+![Hero](assets/Chapter04/Mock-upLandingPage/Hero_Section.png)
+- Disposable Vehicles Section.  
+![Vehicles](assets/Chapter04/Mock-upLandingPage/Disposables_Vehicles_Section.png)
+- Application user manual section.  
+![Manual](assets/Chapter04/Mock-upLandingPage/Application_User_manual_Section.png)
+- Rates Section.  
+![Rates](assets/Chapter04/Mock-upLandingPage/Rates_Section.png)
+- Locations section.  
+![Locations](assets/Chapter04/Mock-upLandingPage/Locations_section.png)
+- Who we are section.  
+![Wo we are](assets/Chapter04/Mock-upLandingPage/Who_we_are_Section.png)
+- About section.  
+![About](assets/Chapter04/Mock-upLandingPage/About_section.png)
+- Application download section.  
+![Download app](assets/Chapter04/Mock-upLandingPage/Download_Section.png)
+- Footer Section.  
+![Footer](assets/Chapter04/Mock-upLandingPage/Footer_Section.png)
 
 ### 3.1.4. Mobile Applications UI/UX Design ###
 
