@@ -69,13 +69,112 @@ En conjunto, esta paleta crea una identidad moderna, ágil y ecológica, que mot
 
 #### 3.1.2.1. Organization Systems ####
 
+Para la **landing page** de WeRide, se ha optado por una estructura jerárquica para ambos segmentos de usuarios, ya que se cuenta con una barra de navegación superior que dirige a diferentes secciones, cada una encapsulando información relevante y relacionada.
+
+Para el proceso de inicio de sesión o creación de cuenta, se utiliza una organización lineal, permitiendo que el usuario avance paso a paso a medida que completa los datos requeridos hasta finalizar el registro o acceso.
+
+Dentro de la aplicación principal, se mantiene una organización jerárquica para separar y encapsular las distintas funcionalidades, independientemente del tipo de usuario. Esto asegura que, aunque los usuarios tengan diferentes necesidades y accesos, ****la estructura de la aplicación sea coherente y fácil de navegar.****
+
+
 #### 3.1.2.2. Labelling Systems ####
+
+Las etiquetas emplean un lenguaje claro y conciso, alineado con el tono casual y motivador de la marca:
+**Inicio:** Vista principal con mapa y scooters disponibles.
+**Reservar:** Flujo de reserva paso a paso.
+**Mis Viajes:** Historial de viajes y reservas activas.
+**Perfil:** Gestión de cuenta, método de pago y preferencias.
+**Ayuda:** Centro de soporte con preguntas frecuentes y contacto.
 
 #### 3.1.2.3. SEO Tags and Meta Tags ####
 
+**Titulo:**
+```html
+<title>WeRide</title>
+```
+
+**Codificación de carácteres:**
+```html
+<meta charset="utf-8">
+```
+
+**Descripción:**
+```html
+<meta name="description" content="WeRide is a mobile application focused on providing sustainable and smart urban mobility through electric scooters, bikes, and motorcycles.">
+```
+
+**Autor y Derechos de Autor:**
+```html
+<meta name="author" content="CultiConection">
+<meta name="copyright" content="Copyright WeTech team" />
+```
+
 #### 3.1.2.4. Searching Systems ####
 
+El sistema integral de micromovilidad eléctrica compartida incorporará un **módulo de búsqueda y localización en tiempo real**, que permitirá a los usuarios identificar la ubicación disponible de los vehículos más cercanos (scooters, bicicletas y motos eléctricas). Este sistema se sustenta en las siguientes características:  
+Geolocalización en tiempo real:  
+ Cada vehículo estará equipado con dispositivos GPS e IoT que transmitirán su ubicación de manera constante hacia la plataforma central.
+
+
+**Mapa interactivo en la aplicación móvil**:  
+ La app mostrará en un mapa la ubicación exacta de los vehículos disponibles, diferenciados por tipo (scooter, bicicleta o moto eléctrica).
+
+
+**Filtros de búsqueda avanzada**
+ Los usuarios podrán buscar vehículos según:
+
+
+- Tipo de unidad preferida.
+
+
+- Nivel de batería disponible.
+
+
+- Distancia a pie desde su ubicación actual.
+
+
+**Reserva inmediata**:
+ Una vez identificado el vehículo, el usuario podrá seleccionarlo en la aplicación, reservarlo y dirigirse a recogerlo.
+
+
+**Optimización para empresas**:
+ En el caso de suscripciones corporativas, los sistemas de búsqueda también permitirán a los empleados visualizar vehículos disponibles en zonas cercanas a sus oficinas o campus, garantizando disponibilidad en horas de mayor demanda.
+
+
+Con este enfoque, el sistema de búsqueda se convierte en un **componente esencial para la experiencia del usuario**, asegurando eficiencia en la localización y optimizando el uso de la flota.  
+
 #### 3.1.2.5. Navigation Systems ####
+
+El sistema integral de micromovilidad eléctrica compartida contará con un módulo de navegación inteligente que facilitará al usuario el uso de los vehículos y la planificación de sus desplazamientos. Dicho módulo se estructura en las siguientes funciones:  
+Guía hacia el vehículo seleccionado:  
+ Una vez realizada la reserva, la aplicación mostrará la ruta a pie más rápida desde la ubicación del usuario hasta el vehículo disponible, mediante mapas integrados en tiempo real.  
+
+
+**Navegación durante el viaje:**   
+ El sistema proporcionará indicaciones de ruta para que el usuario se desplace de manera eficiente hacia su destino, evitando zonas de alto tráfico cuando sea posible. Para ello, se integrarán APIs de mapas inteligentes como Google Maps o Mapbox, adaptadas a la movilidad ligera.  
+
+
+**Seguridad en la navegación:**  
+
+
+- Alertas en la aplicación respecto a calles restringidas o zonas con tráfico intenso.  
+
+
+- Recomendación de rutas seguras y sostenibles para bicicletas, scooters y motos eléctricas.  
+
+
+- Opciones de personalización (ruta más rápida, más segura o más ecológica).  
+
+
+**Gestión de estaciones y puntos de aparcamiento:**  
+ La navegación también incluirá la localización de zonas de parqueo autorizadas, estaciones de carga o puntos estratégicos de la empresa asociados a la suscripción corporativa.  
+
+
+**Soporte para empresas:**  
+ En el caso de planes empresariales, el sistema de navegación permitirá sugerir rutas entre las sedes de trabajo, facilitando la movilidad de los colaboradores.  
+
+
+En conjunto, este módulo no solo ofrece orientación geográfica en tiempo real, sino que también optimiza la experiencia de uso, mejorando la seguridad del viaje y reduciendo la incertidumbre del usuario en entornos urbanos congestionados.  
+
 
 ### 3.1.3. Landing Page UI Design ###
 
