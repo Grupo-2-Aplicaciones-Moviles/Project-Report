@@ -201,7 +201,7 @@ Los mock-ups de la aplicacion movil **WeRide** representan el diseno de alta fid
 
 La pantalla inicial muestra el logo de WeRide centrado sobre fondo negro, con el icono del scooter y el nombre de la marca. Refuerza el branding antes de redirigir al inicio de sesion.
 
-![Splash Screen](assets/chapter03/mockups/01_splash_screen.png)
+![Splash Screen](assets/chapter03/01_splash_screen.png)
 
 ---
 
@@ -209,7 +209,7 @@ La pantalla inicial muestra el logo de WeRide centrado sobre fondo negro, con el
 
 Vista dividida en dos pestanas superiores: *Iniciar Sesion* y *Registrarse*. El formulario de login solicita correo electronico y contrasena. El boton de accion principal (color `#18FA3A`) activa la autenticacion. Se incluye la opcion de acceso con Google.
 
-![Login & Register](assets/chapter03/mockups/02_login_register.png)
+![Login & Register](assets/chapter03/02_login_register.png)
 
 ---
 
@@ -217,7 +217,7 @@ Vista dividida en dos pestanas superiores: *Iniciar Sesion* y *Registrarse*. El 
 
 Pantalla de paso unico con indicador de progreso de 3 pasos. Campo de numero telefonico con prefijo de pais (+51 Peru) autodetectado. El boton *Continuar* se activa en verde al cumplir el formato (9 digitos).
 
-![Phone Number](assets/chapter03/mockups/03_phone_number.png)
+![Phone Number](assets/chapter03/03_phone_number.png)
 
 ---
 
@@ -225,7 +225,7 @@ Pantalla de paso unico con indicador de progreso de 3 pasos. Campo de numero tel
 
 Seis campos de entrada numerica individuales centrados en pantalla. Contador de reenvio en gris. Al completar el codigo correcto, la pantalla transiciona automaticamente con confirmacion visual en verde.
 
-![Verification Code](assets/chapter03/mockups/04_verification_code.png)
+![Verification Code](assets/chapter03/04_verification_code.png)
 
 ---
 
@@ -233,7 +233,7 @@ Seis campos de entrada numerica individuales centrados en pantalla. Contador de 
 
 Formulario de creacion de perfil con campo de foto (circular con icono de camara), nombre completo, fecha de nacimiento y genero. Boton *Guardar y Continuar* en verde al pie de la pantalla.
 
-![Profile Setup](assets/chapter03/mockups/05_profile_setup.png)
+![Profile Setup](assets/chapter03/05_profile_setup.png)
 
 ---
 
@@ -243,7 +243,7 @@ Formulario de creacion de perfil con campo de foto (circular con icono de camara
 
 Vista central con mapa interactivo (Google Maps / Mapbox) mostrando vehiculos disponibles en tiempo real. Barra de busqueda de direccion en la parte superior. Bottom navigation bar con iconos de *Inicio*, *Garaje*, *Viaje*, *Planes* y *Tu*. Tarjeta flotante deslizable con el vehiculo mas cercano y boton *Reservar ahora* en verde.
 
-![Home / Map](assets/chapter03/mockups/06_home_map.png)
+![Home / Map](assets/chapter03/06_home_map.png)
 
 ---
 
@@ -251,7 +251,7 @@ Vista central con mapa interactivo (Google Maps / Mapbox) mostrando vehiculos di
 
 Cabecera con foto y nombre del usuario sobre fondo negro. Lista de opciones: *Administrar cuenta*, *Personalizar perfil*, *Cartera*, *Mis Viajes*, *Centro de Seguridad*, *Ayuda* y *Ajustes*. Cada opcion tiene icono a la izquierda y flecha de navegacion a la derecha.
 
-![Profile Screen](assets/chapter03/mockups/07_profile_screen.png)
+![Profile Screen](assets/chapter03/07_profile_screen.png)
 
 ---
 
@@ -259,7 +259,7 @@ Cabecera con foto y nombre del usuario sobre fondo negro. Lista de opciones: *Ad
 
 Catalogo con tarjetas de cada vehiculo: imagen, nombre, tipo, nivel de bateria en barra de progreso, calificacion en estrellas, disponibilidad y icono de favoritos. Chips de filtro por tipo en la parte superior.
 
-![Garage List](assets/chapter03/mockups/08_garage_list.png)
+![Garage List](assets/chapter03/08_garage_list.png)
 
 ---
 
@@ -267,7 +267,7 @@ Catalogo con tarjetas de cada vehiculo: imagen, nombre, tipo, nivel de bateria e
 
 Bottom sheet deslizable con chips de seleccion para: tipo de vehiculo, nivel de bateria (slider), disponibilidad y calificacion minima. Boton *Aplicar filtros* en verde al pie.
 
-![Garage Filter](assets/chapter03/mockups/09_garage_filter.png)
+![Garage Filter](assets/chapter03/09_garage_filter.png)
 
 ---
 
@@ -277,7 +277,7 @@ Bottom sheet deslizable con chips de seleccion para: tipo de vehiculo, nivel de 
 
 Tres tarjetas de plan: *Basico*, *Estandar* y *Premium*. Cada tarjeta contiene precio mensual en soles, lista de beneficios con checks en verde y boton *Seleccionar*. El plan recomendado lleva etiqueta *POPULAR* con fondo verde.
 
-![Plans Screen](assets/chapter03/mockups/10_plans_screen.png)
+![Plans Screen](assets/chapter03/10_plans_screen.png)
 
 ---
 
@@ -285,7 +285,7 @@ Tres tarjetas de plan: *Basico*, *Estandar* y *Premium*. Cada tarjeta contiene p
 
 Formulario con tres metodos: *Tarjeta* (numero, vencimiento y CVV), *Yape* (numero de celular + QR) y *Plin* (numero de celular). Pestanas superiores para cambiar metodo. Resumen de compra fijo al pie con boton *Finalizar Pago* en verde e icono de seguridad SSL.
 
-![Payment Screen](assets/chapter03/mockups/11_payment_screen.png)
+![Payment Screen](assets/chapter03/11_payment_screen.png)
 
 ---
 
@@ -295,7 +295,7 @@ Formulario con tres metodos: *Tarjeta* (numero, vencimiento y CVV), *Yape* (nume
 
 Vista de mapa a pantalla completa con marcadores de vehiculos agrupados. Al tocar un vehiculo aparece tarjeta inferior con bateria, distancia y boton *Reservar* en verde. Leyenda de colores por tipo de vehiculo.
 
-![Map Nearby](assets/chapter03/mockups/12_map_nearby_vehicles.png)
+![Map Nearby](assets/chapter03/12_map_nearby_vehicles.png)
 
 ---
 
@@ -305,7 +305,7 @@ Vista de mapa a pantalla completa con marcadores de vehiculos agrupados. Al toca
 
 Mapa con ruta trazada. Panel inferior con nivel de bateria animado, tiempo transcurrido, distancia recorrida y velocidad. Boton *Finalizar Viaje* en rojo y boton secundario *Reportar problema*.
 
-![Active Trip](assets/chapter03/mockups/13_active_trip.png)
+![Active Trip](assets/chapter03/13_active_trip.png)
 
 ---
 
@@ -313,7 +313,7 @@ Mapa con ruta trazada. Panel inferior con nivel de bateria animado, tiempo trans
 
 Lista cronologica de viajes en tarjetas con: fecha, tipo de vehiculo, distancia, duracion, costo y calificacion. Filtro por mes en la parte superior.
 
-![Trip History](assets/chapter03/mockups/14_trip_history.png)
+![Trip History](assets/chapter03/14_trip_history.png)
 
 ---
 
@@ -321,7 +321,7 @@ Lista cronologica de viajes en tarjetas con: fecha, tipo de vehiculo, distancia,
 
 Modal post-viaje con resumen del trayecto y 5 estrellas interactivas. Campo opcional de comentario. Boton *Enviar Calificacion* (verde) y *Omitir* (gris). Animacion de confirmacion con check verde al enviar.
 
-![Trip Rating](assets/chapter03/mockups/15_trip_rating.png)
+![Trip Rating](assets/chapter03/15_trip_rating.png)
 
 ---
 
@@ -329,7 +329,7 @@ Modal post-viaje con resumen del trayecto y 5 estrellas interactivas. Campo opci
 
 Chips de categoria: *Falla mecanica*, *Bateria*, *Bloqueo*, *Accidente*, *App*. Campo de descripcion de texto libre y opcion de adjuntar foto. Confirmacion con numero de ticket asignado.
 
-![Report Problem](assets/chapter03/mockups/16_report_problem.png)
+![Report Problem](assets/chapter03/16_report_problem.png)
 
 ---
 
@@ -339,7 +339,7 @@ Chips de categoria: *Falla mecanica*, *Bateria*, *Bloqueo*, *Accidente*, *App*. 
 
 Imagen grande del vehiculo, nombre, tipo, modelo y nivel de bateria. Seccion de informacion con ubicacion exacta (mapa miniatura) y estacion virtual. Boton *Reservar ahora* en verde. Al confirmarse, contador regresivo de reserva activa.
 
-![Vehicle Detail & Reserve](assets/chapter03/mockups/17_vehicle_detail_reserve.png)
+![Vehicle Detail & Reserve](assets/chapter03/17_vehicle_detail_reserve.png)
 
 ---
 
@@ -347,7 +347,7 @@ Imagen grande del vehiculo, nombre, tipo, modelo y nivel de bateria. Seccion de 
 
 Temporizador circular de cuenta regresiva en verde, distancia y direccion al vehiculo, boton *Cancelar Reserva* y boton *Desbloquear Vehiculo*. Notificacion push visible cuando faltan 2 minutos para la expiracion.
 
-![Active Reservation](assets/chapter03/mockups/18_active_reservation.png)
+![Active Reservation](assets/chapter03/18_active_reservation.png)
 
 ---
 
@@ -357,7 +357,7 @@ Temporizador circular de cuenta regresiva en verde, distancia y direccion al veh
 
 Visor de camara con marco de escaneo animado en verde. Instruccion: *"Apunta al codigo QR del vehiculo"*. Al escanear: animacion de desbloqueo y mensaje *"Vehiculo desbloqueado!"* en verde. En error: mensaje en rojo con opcion de reintentar.
 
-![QR Unlock](assets/chapter03/mockups/19_qr_unlock.png)
+![QR Unlock](assets/chapter03/19_qr_unlock.png)
 
 ---
 
@@ -365,7 +365,7 @@ Visor de camara con marco de escaneo animado en verde. Instruccion: *"Apunta al 
 
 Estado en tiempo real del desbloqueo con icono de candado animado (cerrado → abriendo → abierto). Tres estados: *Procesando...* (gris), *Desbloqueando...* (amarillo) y *Desbloqueado!* (verde). Transicion automatica a Viaje Activo al confirmarse.
 
-![App Unlock](assets/chapter03/mockups/20_app_unlock_status.png)
+![App Unlock](assets/chapter03/20_app_unlock_status.png)
 
 ---
 
@@ -373,7 +373,7 @@ Estado en tiempo real del desbloqueo con icono de candado animado (cerrado → a
 
 Selector de fecha y hora nativo de Android. Listado de vehiculos disponibles en ese horario con indicador de disponibilidad. Boton *Confirmar Programacion* y opcion de agregar al calendario del dispositivo.
 
-![Scheduled Unlock](assets/chapter03/mockups/21_scheduled_unlock.png)
+![Scheduled Unlock](assets/chapter03/21_scheduled_unlock.png)
 
 ---
 
@@ -460,7 +460,7 @@ El prototipo cubre los **cinco flujos principales** de la aplicacion (registro, 
 
 Desde el Splash Screen, el usuario elige entre registrarse o iniciar sesion. El prototipo simula la validacion del codigo SMS y la transicion al formulario de perfil hasta llegar al Home.
 
-![Prototipo Flujo 1 - Acceso](assets/chapter03/prototyping/prototype_flow_01_acceso.png)
+![Prototipo Flujo 1 - Acceso](assets/chapter03/prototype_flow_01_acceso.png)
 
 ---
 
@@ -468,7 +468,7 @@ Desde el Splash Screen, el usuario elige entre registrarse o iniciar sesion. El 
 
 El mapa interactivo permite seleccionar un vehiculo y acceder a su detalle. El boton *Reservar ahora* activa el temporizador animado de 15 minutos y habilita las opciones de desbloqueo.
 
-![Prototipo Flujo 2 - Reserva y Desbloqueo](assets/chapter03/prototyping/prototype_flow_02_reserva_desbloqueo.png)
+![Prototipo Flujo 2 - Reserva y Desbloqueo](assets/chapter03/prototype_flow_02_reserva_desbloqueo.png)
 
 ---
 
@@ -476,7 +476,7 @@ El mapa interactivo permite seleccionar un vehiculo y acceder a su detalle. El b
 
 Simula el estado de viaje en tiempo real con mapa de ruta trazado. El boton *Finalizar Viaje* activa el flujo de resumen, calificacion y generacion de factura simulada.
 
-![Prototipo Flujo 3 - Viaje y Calificacion](assets/chapter03/prototyping/prototype_flow_03_viaje_rating.png)
+![Prototipo Flujo 3 - Viaje y Calificacion](assets/chapter03/prototype_flow_03_viaje_rating.png)
 
 ---
 
@@ -484,13 +484,13 @@ Simula el estado de viaje en tiempo real con mapa de ruta trazado. El boton *Fin
 
 Permite navegar entre los tres planes y simula el proceso de pago con los tres metodos (tarjeta, Yape y Plin), mostrando el estado de aprobacion y el mensaje de plan activado.
 
-![Prototipo Flujo 4 - Planes y Pago](assets/chapter03/prototyping/prototype_flow_04_planes_pago.png)
+![Prototipo Flujo 4 - Planes y Pago](assets/chapter03/prototype_flow_04_planes_pago.png)
 
 ---
 
 ##### Vista general del prototipo en Figma
 
-![Vista general Figma](assets/chapter03/prototyping/prototype_figma_overview.png)
+![Vista general Figma](assets/chapter03/prototype_figma_overview.png)
 
 ---
 
