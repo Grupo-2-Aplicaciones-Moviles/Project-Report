@@ -164,6 +164,22 @@ Para lograrlo, configuraremos un proyecto en Vercel y conectaremos nuestro repos
 
 #### 4.2.1.1. Sprint Planning 1 ####
 
+El Sprint Planning 1 es una reunión esencial para iniciar el primer sprint de un proyecto, donde el equipo define los objetivos y la estrategia para cumplirlos. En este caso, nuestro objetivo principal es implementar la landing page de la aplicación, asegurando una presentación efectiva del producto.
+
+| Sprint #                           | Sprint 1                                                                                                                                                                                                                                                                   |
+| ---------------------------------- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Date**                           | 2026-07-05                                                                                                                                                                                                                                                                 |
+| Time                               | 10:00 PM                                                                                                                                                                                                                                                                   |
+| Location                           | Virtual - Meet                                                                                                                                                                                                                                                             |
+| Prepared By                        | Gonzales Castillo Angel Martin                                                                                                                                                                                                                                             |
+| Attendees (to planning meeting)    | Berrocal Ramirez Omar, Lang Nassi Werner Khalil, Jhimy Pool Romero Meza, Seijas Vásquez Diego Antonio                                                                                                                                                                      |
+| Sprint n - 1 Review Summary        | sEste es el primer Sprint, por lo que ete campo no aplica.                                                                                                                                                                                                                 |
+| Sprint n - 1 Retrospective Summary | Este es el primer Sprint, por lo que este campo no aplica.                                                                                                                                                                                                                 |
+| Sprint 1 Goal                      | Implementar la landing page de WeRide, brindando una primera experiencia visual y funcional del producto. Este objetivo busca validar la propuesta de valor a través del diseño, estructura y navegabilidad. El éxito se medirá con el despliegue operativo de la página.  |
+| Sprint 1 Velocity                  | Nuestro equipo puede aceptar hasta 17 Story Points.                                                                                                                                                                                                                        |
+| Sum of Story Points                | La suma de Story Points atendidos es de 15.                                                                                                                                                                                                                                |
+
+
 #### 4.2.1.2. Sprint Backlog 1 ####
 
 #### 4.2.1.3. Development Evidence for Sprint Review 1 ####
