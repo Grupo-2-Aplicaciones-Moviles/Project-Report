@@ -166,21 +166,147 @@ Para lograrlo, configuraremos un proyecto en Vercel y conectaremos nuestro repos
 
 El Sprint Planning 1 es una reunión esencial para iniciar el primer sprint de un proyecto, donde el equipo define los objetivos y la estrategia para cumplirlos. En este caso, nuestro objetivo principal es implementar la landing page de la aplicación, asegurando una presentación efectiva del producto.
 
-| Sprint #                           | Sprint 1                                                                                                                                                                                                                                                                   |
-| ---------------------------------- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Date**                           | 2026-07-05                                                                                                                                                                                                                                                                 |
-| Time                               | 10:00 PM                                                                                                                                                                                                                                                                   |
-| Location                           | Virtual - Meet                                                                                                                                                                                                                                                             |
-| Prepared By                        | Gonzales Castillo Angel Martin                                                                                                                                                                                                                                             |
-| Attendees (to planning meeting)    | Berrocal Ramirez Omar, Lang Nassi Werner Khalil, Jhimy Pool Romero Meza, Seijas Vásquez Diego Antonio                                                                                                                                                                      |
-| Sprint n - 1 Review Summary        | sEste es el primer Sprint, por lo que ete campo no aplica.                                                                                                                                                                                                                 |
-| Sprint n - 1 Retrospective Summary | Este es el primer Sprint, por lo que este campo no aplica.                                                                                                                                                                                                                 |
-| Sprint 1 Goal                      | Implementar la landing page de WeRide, brindando una primera experiencia visual y funcional del producto. Este objetivo busca validar la propuesta de valor a través del diseño, estructura y navegabilidad. El éxito se medirá con el despliegue operativo de la página.  |
-| Sprint 1 Velocity                  | Nuestro equipo puede aceptar hasta 17 Story Points.                                                                                                                                                                                                                        |
-| Sum of Story Points                | La suma de Story Points atendidos es de 15.                                                                                                                                                                                                                                |
+| Sprint #                           | Sprint 1                                                                                                                                                                                                                                                                  |
+| ---------------------------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Date**                           | 2026-07-05                                                                                                                                                                                                                                                                |
+| Time                               | 10:00 PM                                                                                                                                                                                                                                                                  |
+| Location                           | Virtual - Meet                                                                                                                                                                                                                                                            |
+| Prepared By                        | Gonzales Castillo Angel Martin                                                                                                                                                                                                                                            |
+| Attendees (to planning meeting)    | Berrocal Ramirez Omar, Lang Nassi Werner Khalil, Jhimy Pool Romero Meza, Seijas Vásquez Diego Antonio                                                                                                                                                                     |
+| Sprint n - 1 Review Summary        | sEste es el primer Sprint, por lo que ete campo no aplica.                                                                                                                                                                                                                |
+| Sprint n - 1 Retrospective Summary | Este es el primer Sprint, por lo que este campo no aplica.                                                                                                                                                                                                                |
+| Sprint 1 Goal                      | Implementar la landing page de WeRide, brindando una primera experiencia visual y funcional del producto. Este objetivo busca validar la propuesta de valor a través del diseño, estructura y navegabilidad. El éxito se medirá con el despliegue operativo de la página. |
+| Sprint 1 Velocity                  | 19                                                                                                                                                                                                                                                                        |
+| Sum of Story Points                | La suma de Story Points atendidos es de 15.                                                                                                                                                                                                                               |
 
 
 #### 4.2.1.2. Sprint Backlog 1 ####
+
+<table>
+  <tr>
+    <td> <strong>Sprint #</strong></td>
+    <td align="center" colspan="7"> <strong>Sprint 1</strong> </td>
+  </tr>
+
+   <tr>
+    <td align="center" colspan="2"> <strong>User Story</strong></td>
+    <td align="center" colspan="6"> <strong>Work-item/Task</strong></td>
+  </tr>
+  <tr>
+    <td align="center"> <strong>ID</strong> </td>
+    <td align="center"> <strong>Title</strong></td>
+    <td align="center"> <strong>ID</strong> </td>
+    <td align="center"> <strong>Title</strong></td>
+    <td align="center"> <strong>Description</strong></td>
+    <td align="center"> <strong>Estimation (Hours)</strong></td>
+    <td align="center"> <strong>Assigned To</strong></td>
+    <td align="center"> <strong> Status (To-do/In-Process/To-Review/Done)  </strong></td>
+  </tr>
+  <!---------------------------------------------------------------------- -->
+  <tr>
+    <td rowspan="2" align="center"> ID </td>
+    <td rowspan="2" align="center"> US23 Navegación sencilla</td>
+    <td align="center"> TA01 </td>
+     <td align="center"> Menú con hipervínculos</td>
+    <td align="center">Cada Hipervínculo debe de redirigirte a una sección específica de la landing page </td>
+    <td align="center"> 2</td>
+    <td align="center"> Gonzales Castillo Angel Martin</td>
+    <td align="center">Done</td>
+  </tr>
+    <tr>
+    <td align="center"> TA02 </td>
+    <td align="center"> Hero</td>
+    <td align="center"> Se debe desarrollar un banner que represente a la aplicación.</td>
+    <td align="center"> 1 </td>
+    <td align="center"> Gonzales Castillo Angel Martin</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!----------------------------------------------->
+  <tr>
+    <td rowspan="1" align="center"> ID </td>
+    <td rowspan="1" align="center"> US24 Descargas</td>
+    <td align="center"> TA01 </td>
+    <td align="center"> Call to action</td>
+    <td align="center"> Se debe desarrollar un botón call to action que redirija a la descarga de la aplicación</td>
+    <td align="center">2</td>
+    <td align="center"> Omar Christian Berrocal Ramirez</td>
+    <td align="center">Done</td>
+  </tr>
+
+
+<!-------------------------------------------------->
+  <tr>
+    <td rowspan="2" align="center"> ID </td>
+    <td rowspan="2" align="center"> US25 Funcionalidades de la aplicación</td>
+    <td align="center"> TA01 </td>
+    <td align="center"> Vehicles</td>
+    <td align="center"> crea la seccion que muestra los vehíuclos disponibles de la apliación mobile.</td>
+    <td align="center"> 2</td>
+    <td align="center"> Lang Nassi Werner Khalil </td>
+    <td align="center"> Done</td>
+  </tr>
+  <tr>
+    <td align="center"> TA02 </td>
+    <td align="center"> Maps</td>
+    <td align="center"> crea la seccion que muestra las estaciones y los mapas.</td>
+    <td align="center"> 2</td>
+    <td align="center">  Omar Christian Berrocal Ramirez </td>
+    <td align="center"> Done</td>
+  </tr>
+
+  <!----------------------------------------------->
+  <tr>
+    <td rowspan="1" align="center"> ID </td>
+    <td rowspan="1" align="center"> US26 Manual de la aplicación</td>
+    <td align="center"> TA01 </td>
+    <td align="center"> Manual</td>
+    <td align="center"> Se debe desarrollar una sección con un manual de uso de la aplicación mobile.</td>
+    <td align="center"> 2</td>
+    <td align="center"> Jhimy Pool Romero Meza </td>
+    <td align="center">Done</td>
+  </tr>
+  <!------------------------------------------------>
+  <tr>
+    <td rowspan="3" align="center"> ID </td>
+    <td rowspan="3" align="center"> US27 Confianza y seguridad.</td>
+    <td align="center"> TA01 </td>
+    <td align="center"> About us</td>
+    <td align="center"> Debe presentar una sección con la información del equipo de trabajo.</td>
+    <td align="center"> 2 </td>
+    <td align="center"> Seijas Vásquez Diego Antonio </td>
+    <td align="center"> Done</td>
+  </tr>
+  <tr>
+    <td align="center"> TA02 </td>
+    <td align="center"> About the product</td>
+    <td align="center"> crea la seccion del producto.</td>
+    <td align="center"> 2</td>
+    <td align="center">  Seijas Vásquez Diego Antonio </td>
+    <td align="center"> Done</td>
+  </tr>
+  <tr>
+    <td align="center"> TA03 </td>
+    <td align="center"> Footer</td>
+    <td align="center"> crea la sección de footer con información de contacto.</td>
+    <td align="center"> 2</td>
+    <td align="center">  Lang Nassi Werner Khalil </td>
+    <td align="center"> Done</td>
+  </tr>
+  <!------------------------------------------------>
+   <tr>
+    <td rowspan="1" align="center"> ID </td>
+    <td rowspan="1" align="center"> US28 Visualización de precios.</td>
+    <td align="center"> TA01 </td>
+    <td align="center"> Subscriptions</td>
+    <td align="center"> Debe presentar la información de los precios de cada plan de suscripción.</td>
+    <td align="center"> 2</td>
+    <td align="center"> Jhimy Pool Romero Meza </td>
+    <td align="center"> Done</td>
+  </tr>
+
+
+</table>
 
 #### 4.2.1.3. Development Evidence for Sprint Review 1 ####
 
