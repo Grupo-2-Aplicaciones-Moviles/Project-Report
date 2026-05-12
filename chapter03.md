@@ -187,6 +187,64 @@ El sistema integral de micromovilidad electrica compartida contara con un modulo
 
 #### 3.1.4.1. Mobile Applications Wireframes ####
 
+- Login
+En esta pantalla el usuario puede iniciar sesión en la aplicación mediante diferentes métodos de acceso, como Google, número de celular o correo empresarial. Esto permite un acceso rápido y seguro a las funcionalidades de la plataforma.
+
+![Login](assets/chapter04/Login.png)
+
+- Numero Celular
+En esta pantalla el usuario debe ingresar su número de celular para continuar con el proceso de autenticación. Posteriormente, recibirá un código de verificación que permitirá validar su identidad y acceder a la aplicación.
+
+![Numero](assets/chapter04/Numero.png)
+
+![Codigo](assets/chapter04/Codigo.png)
+
+- Datos
+Esta interfaz permite al usuario registrar sus datos personales, como nombres y apellidos. La información ingresada será utilizada para crear y personalizar su cuenta dentro de la aplicación.
+
+![Datos](assets/chapter04/Datos.png)
+
+- Principal
+En esta seccion el usuario puede visualizar las opciones de movilidad disponibles, como motos eléctricas, scooters y bicicletas eléctricas. Además, se muestra información básica de cada vehículo, como el rango estimado, y botones para conducir o reservar, facilitando la selección rápida del medio de transporte deseado.
+
+![Principal1](assets/chapter04/Principal1.png)
+
+![Principal2](assets/chapter04/Principal2.png)
+
+![Principal3](assets/chapter04/Principal3.png)
+
+- Perfil.
+En esta pantalla el usuario puede acceder a la información y configuraciones de su cuenta. Además, cuenta con opciones como cartera, historial, centro de seguridad, ayuda y ajustes, permitiendo gestionar de manera rápida distintos aspectos de la aplicación.
+
+![Perfil](assets/chapter04/Perfil.png)
+
+- Garaje.
+En esta sección se muestran los vehículos disponibles, organizados por categorías como scooters, motos y bicicletas. Cada tarjeta presenta información básica del producto, permitiendo al usuario explorar y seleccionar opciones de movilidad.
+  
+![Garaje](assets/chapter04/Garaje.png)
+
+- Planes.
+Esta pantalla muestra los diferentes tipos de planes disponibles dentro de la aplicación, como normal, estudiantil y empresarial. El usuario puede seleccionar el plan que mejor se adapte a sus necesidades para acceder a beneficios específicos.
+
+![Planes](assets/chapter04/Planes.png)
+
+- Tarifas.
+En esta pantalla se muestran los distintos pases o tarifas disponibles dentro de la aplicación. Cada opción incluye una breve descripción de sus beneficios, como viajes ilimitados durante un periodo determinado, además de un botón de pago para adquirir el plan seleccionado.
+
+![Tarifas](assets/chapter04/Tarifas.png)
+
+- Pago.
+En esta pantalla el usuario puede realizar el pago del servicio o plan seleccionado. Además, permite visualizar el monto a pagar, seleccionar un método de pago y confirmar la transacción de manera rápida y segura.
+
+![Pago](assets/chapter04/Pago.png)
+
+- Reserva.
+En esta pantalla se muestra una animación que indica que la reserva fue realizada exitosamente. Su objetivo es brindar una confirmación visual rápida al usuario sobre la finalización correcta del proceso.
+
+![Reserva](assets/chapter04/Reserva.png)
+
+
+
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams ####
 
 #### 3.1.4.3. Mobile Applications Mock-ups ####
