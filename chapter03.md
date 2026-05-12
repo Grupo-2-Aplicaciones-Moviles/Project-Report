@@ -244,8 +244,34 @@ En esta pantalla se muestra una animación que indica que la reserva fue realiza
 ![Reserva](assets/chapter04/Reserva.png)
 
 
-
 #### 3.1.4.2. Mobile Applications Wireflow Diagrams ####
+
+##### Wireflow 1 — Registro e inicio de sesion
+
+Este wireflow representa el proceso de acceso del usuario a la aplicación. Incluye las etapas de inicio de sesión, validación mediante número celular o correo, verificación de código e ingreso de datos personales para completar la autenticación.
+
+![1](assets/chapter04/sesion.png)
+
+##### Wireflow 2 — Suscripcion a planes
+
+Este wireflow representa el proceso de selección y adquisición de planes o pases disponibles en la aplicación. El usuario puede visualizar las opciones, realizar el pago y confirmar la activación del plan seleccionado.
+
+
+![2](assets/chapter04/planessus.png)
+
+##### Wireflow 3 — Exploración de vehículos
+
+Este wireflow muestra cómo el usuario puede explorar los distintos medios de transporte disponibles en la aplicación, como scooters, motos y bicicletas, permitiendo visualizar información básica antes de realizar una reserva.
+
+
+![3](assets/chapter04/exp.png)
+
+##### Wireflow 4 — Reserva de vehiculo
+
+Este wireflow muestra el proceso que sigue el usuario para reservar un vehículo dentro de la aplicación. Inicia desde la pantalla principal, continúa con la selección del vehículo y la tarifa, y finaliza con el pago y la confirmación de la reserva.
+
+![4](assets/chapter04/reserva.png)
+
 
 #### 3.1.4.3. Mobile Applications Mock-ups ####
 
