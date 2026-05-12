@@ -389,7 +389,7 @@ Este flujo cubre el acceso completo a la aplicacion, desde la apertura hasta el 
 
 **Pantallas:** Splash → Login/Registro → Nro. Celular → Codigo SMS → Datos de Perfil → Home.
 
-![Userflow 1 - Registro e Inicio de Sesion](assets/chapter03/userflows/userflow_01_registro_login.png)
+![Userflow 1 - Registro e Inicio de Sesion](assets/chapter03/userflow_01_registro_login.png)
 
 ---
 
@@ -399,7 +399,7 @@ Flujo principal de uso: desde localizar un vehiculo hasta iniciar el viaje. Incl
 
 **Pantallas:** Home → Mapa → Detalle Vehiculo → (Planes → Pago →) Reserva Activa → QR/Desbloqueo → Viaje Activo.
 
-![Userflow 2 - Reserva y Desbloqueo](assets/chapter03/userflows/userflow_02_reserva_desbloqueo.png)
+![Userflow 2 - Reserva y Desbloqueo](assets/chapter03/userflow_02_reserva_desbloqueo.png)
 
 ---
 
@@ -409,7 +409,7 @@ Flujo de la experiencia de viaje desde el inicio hasta la retroalimentacion post
 
 **Pantallas:** Viaje Activo → (Reporte Problema →) Finalizar → Resumen → Rating → Factura → Home.
 
-![Userflow 3 - Viaje y Calificacion](assets/chapter03/userflows/userflow_03_viaje_calificacion.png)
+![Userflow 3 - Viaje y Calificacion](assets/chapter03/userflow_03_viaje_calificacion.png)
 
 ---
 
@@ -419,7 +419,7 @@ Flujo de contratacion de plan de suscripcion. El usuario navega entre los tres p
 
 **Pantallas:** Planes → Detalle Plan → Pago → Resumen → Confirmacion → Home.
 
-![Userflow 4 - Seleccion de Plan](assets/chapter03/userflows/userflow_04_planes_pago.png)
+![Userflow 4 - Seleccion de Plan](assets/chapter03/userflow_04_planes_pago.png)
 
 ---
 
@@ -429,7 +429,7 @@ Flujo para usuarios que planifican su viaje con anticipacion. Permite selecciona
 
 **Pantallas:** Garaje → Detalle Vehiculo → Programar Desbloqueo → Confirmacion → (Notificacion automatica) → Viaje Activo.
 
-![Userflow 5 - Desbloqueo Programado](assets/chapter03/userflows/userflow_05_desbloqueo_programado.png)
+![Userflow 5 - Desbloqueo Programado](assets/chapter03/userflow_05_desbloqueo_programado.png)
 
 ---
 
