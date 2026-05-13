@@ -31,7 +31,7 @@ Seijas Vásquez Diego Antonio - U202210167 </p>
 
 </div>
 
-<p align="center"><strong>Abril 2026</strong></p>
+<p align="center"><strong>Mayo 2026</strong></p>
 
 <!-- salto de hoja-->
 <div style="page-break-before: always;"></div>
@@ -55,11 +55,20 @@ El objetivo de esta sección es resumir las modificaciones relevantes que se rea
   <tbody>
     <tr>
       <td style="padding: 10px; border: 1px solid #ccc; font-weight: bold;">V1.0</td>
-      <td style="padding: 10px; border: 1px solid #ccc;">22 de Abril 2025</td>
+      <td style="padding: 10px; border: 1px solid #ccc;">23 de Abril 2026</td>
       <td style="padding: 10px; border: 1px solid #ccc;">G2 WeTech</td>
       <td style="padding: 10px; border: 1px solid #ccc;">Versión inicial del informe: se completaron los 2 primeros capítulos.</td>
     </tr>
   </tbody>
+   <tbody>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ccc; font-weight: bold;">V2.0</td>
+      <td style="padding: 10px; border: 1px solid #ccc;">13 de Mayo 2026</td>
+      <td style="padding: 10px; border: 1px solid #ccc;">G2 WeTech</td>
+      <td style="padding: 10px; border: 1px solid #ccc;">Segunda Version del informe: se completaron los capitulos 3 y 4.</td>
+    </tr>
+  </tbody>
+  
 </table>
 
 </div>
@@ -75,7 +84,7 @@ A través del repositorio del informe registramos cambios, realizamos revisiones
 
 ---
 
-## Entrega TB1: V1.0
+## Entrega AV1: V1.0
 
 En esta primera entrega se redactó el informe del proyecto hasta el punto 2.6.3.6.2 (Bounded Context Domain Layer Class Diagrams). Durante este proceso se realizaron diversas actividades, siendo las más relevantes: la definición de los antecedentes y problematicas identificados, la implementación del Lean UX Canvas, analisis de competidores, creación de artefactos (User Personas, Task Matrix, etc), redacción de User Stories, Event Storming, diseño de los diagramas C4 Model (Contexto y Contenedores) y diagramas de los Bounded Context.
 
@@ -87,6 +96,21 @@ Para evidenciar nuestros avances y la colaboración en el proyecto, se utilizó 
 <img src="assets/chapter01/contribucion.png" alt="Contribuciones TB1" style="max-width:800px; display:block; margin:12px auto;">
 
 ---
+
+## Entrega TB1: V2.0
+
+En esta segunda entrega se redactó el informe del proyecto hasta el punto correspondiente al desarrollo y validación de la solución propuesta. Durante este proceso se realizaron diversas actividades relevantes, entre ellas: la planificación y organización del Sprint 1 mediante el Sprint Planning y Sprint Backlog, el diseño de la interfaz de la Landing Page y de la aplicación móvil (Wireflows, Wireframes, Mock-Ups, Userflows y Prototyping), la definición de la arquitectura de información y lineamientos de estilo, así como la gestión de configuración del software. Además, se documentaron las evidencias de desarrollo, testing, ejecución, despliegue y documentación de servicios para el Sprint Review 1. Finalmente, se llevaron a cabo actividades de validación de la solución, incluyendo el diseño y registro de entrevistas de validación, evaluaciones heurísticas y el análisis de colaboración del equipo durante el Sprint 1.
+
+Para evidenciar nuestros avances y la colaboración en el proyecto, se utilizó GitHub como plataforma principal de gestión de versiones y control de cambios. A continuación, se presentan algunos insights relevantes sobre la colaboración en el desarrollo del informe:
+
+### Evidencias
+<img src="https://i.imgur.com/FPoI1vz.png" alt="Insights TB1" style="max-width:800px; display:block; margin:12px auto;">
+<img src="https://i.imgur.com/jN7DQ2w.png" alt="Commits TB1" style="max-width:800px; display:block; margin:12px auto;">
+<img src="https://i.imgur.com/5o7Bqqd.png" alt="Contribuciones TB1" style="max-width:800px; display:block; margin:12px auto;">
+
+---
+
+
 
 
 ## Contenido
@@ -180,28 +204,34 @@ EAC - Student Outcome 7.
       <td style="border:1px solid #999; padding:8px; vertical-align:top;">
         <strong>Seijas Vásquez Diego Antonio</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Repasé mis conceptos de Event Storming y como hacer los moledos de message flows y bounded context canvases.</li>
+          <li><b>AV1:</b> Repasé mis conceptos de Event Storming y como hacer los moledos de message flows y bounded context canvases.</li>
+          <li><b>TB1:</b> Reforcé mis conocimientos en diseño UI/UX mediante la elaboración de mockups, userflows y prototipos para la aplicación móvil, considerando principios de usabilidad y experiencia de usuario.</li>
         </ul>
         <strong>Romero Meza Jhimy Pool</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Utilicé entrevistas y herramientas de needfinding (user personas, task matrix, journey mapping y empathy mapping) que me permitieron tener un mejor panorama de los usuarios para detectar oportunidades y afianzar la importancia de seguir aprendiendo.</li>
+          <li><b>AV1:</b> Utilicé entrevistas y herramientas de needfinding (user personas, task matrix, journey mapping y empathy mapping) que me permitieron tener un mejor panorama de los usuarios para detectar oportunidades y afianzar la importancia de seguir aprendiendo.</li>
+          <li><b>TB1:</b> Profundicé mis conocimientos sobre validación de soluciones digitales aplicando entrevistas y evaluaciones heurísticas para identificar problemas de usabilidad y oportunidades de mejora.</li>
         </ul>
         <strong>Lang Nassi Werner Khalil</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Repasé conceptos de las capas del desarrollo con Bounded context para poder documentar su implementación en nuestro proyecto.</li>
+          <li><b>AV1:</b> Repasé conceptos de las capas del desarrollo con Bounded context para poder documentar su implementación en nuestro proyecto.</li>
+          <li><b>TB1:</b> Reforcé conceptos relacionados con testing, despliegue y documentación de servicios para evidenciar correctamente el desarrollo y funcionamiento de la solución implementada.</li>
         </ul>
         <strong>Berrocal Ramirez Omar Christian</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Repasé mis conceptos de la capa de infraestrutuca y diagramas c4, diagramas de clase y diagramas de base de datos, con la finalidad de realizarlos por cada bounded context identificado para el proyecto.</li>
+          <li><b>AV1:</b> Repasé mis conceptos de la capa de infraestrutuca y diagramas c4, diagramas de clase y diagramas de base de datos, con la finalidad de realizarlos por cada bounded context identificado para el proyecto.</li>
+           <li><b>TB1:</b> Actualicé mis conocimientos sobre metodologías ágiles y planificación Scrum mediante la elaboración del Sprint Planning, Sprint Backlog y el diseño visual inicial de la Landing Page.</li>
         </ul>
         <strong>Gonzales Castillo Angel Martin</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Utilicé mis conocimientos en diagramas de C4 para hacer los diagramas de nivel contexto.</li>
+          <li><b>AV1:</b> Utilicé mis conocimientos en diagramas de C4 para hacer los diagramas de nivel contexto.</li>
+          <li><b>TB1:</b> Reforcé mis conocimientos en arquitectura de información, lineamientos de diseño y elaboración de wireflows y wireframes para mejorar la organización y navegación de la aplicación móvil.</li>
         </ul>
       </td>
       <td style="border:1px solid #999; padding:8px; vertical-align:top;">
         <ul style="margin:4px 0 10px; padding-left:20px;">
-            <p>Como equipo repasamos conceptos vistos anteriormente, como Event Storming de Scrum, patrones de diseño de software, Domain Driven Design, diagramas y métodos ágiles, demostrando así la necesidad de poner en práctica constantemente lo aprendido para su uso en proyectos de software.</p>
+            <p><b>AV1:</b> Como equipo repasamos conceptos vistos anteriormente, como Event Storming, Scrum, patrones de diseño de software, Domain Driven Design, diagramas y métodos ágiles, demostrando así la necesidad de poner en práctica constantemente lo aprendido para su uso en proyectos de software.</p>
+      <p><b>TB1:</b> Como equipo reforzamos conocimientos relacionados con metodologías ágiles, diseño UI/UX, arquitectura de información, validación de soluciones, testing y despliegue de software, aplicando estos conceptos en el desarrollo y documentación del Sprint 1 del proyecto.</p>
         </ul>
       </td>
     </tr>
@@ -213,28 +243,34 @@ EAC - Student Outcome 7.
       <td style="border:1px solid #999; padding:8px; vertical-align:top;">
         <strong>Seijas Vásquez Diego Antonio</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Realizar los messages flows y bounded context canvases me dió un mejor panorama y comprensión del proyecto. Gracias a ello podré absorlver cualquier duda y apoyar a mis compañeros.</li>
+          <li><b>AV1:</b> Realizar los messages flows y bounded context canvases me dió un mejor panorama y comprensión del proyecto. Gracias a ello podré absorlver cualquier duda y apoyar a mis compañeros.</li>
+          <li><b>TB1:</b> Elaborar mockups, userflows y prototipos me permitió comprender la importancia de mantenerse actualizado en tendencias de diseño UI/UX para desarrollar aplicaciones más intuitivas y funcionales.</li>
         </ul>
         <strong>Romero Meza Jhimy Pool</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Documentar de manera detallada las necesidades de los usuario y las historias de usuario me permitió compender que es lo que se necesita para que nuestro proyecto tenga éxito.</li>
+          <li><b>AV1:</b> Documentar de manera detallada las necesidades de los usuario y las historias de usuario me permitió compender que es lo que se necesita para que nuestro proyecto tenga éxito.</li>
+          <li><b>TB1:</b> Realizar entrevistas de validación y evaluaciones heurísticas me ayudó a reconocer la importancia de aprender continuamente nuevas técnicas de evaluación para mejorar la experiencia de usuario.</li>
         </ul>
         <strong>Lang Nassi Werner Khalil</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Comprender el funcionamiento de cada capa y como estas se comunican entre sí en el desarrollo de software me ayuda a tener una mejor comprensión del flujo de nuestro producto de software.</li>
+          <li><b>AV1:</b> Comprender el funcionamiento de cada capa y como estas se comunican entre sí en el desarrollo de software me ayuda a tener una mejor comprensión del flujo de nuestro producto de software.</li>
+          <li><b>TB1:</b> Trabajar en evidencias de testing, despliegue y documentación de servicios me permitió reconocer la necesidad de seguir aprendiendo herramientas y buenas prácticas para garantizar la calidad del software.</li>
         </ul>
         <strong>Berrocal Ramirez Omar Christian</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Volver a realizar diagramas me ayudó a comprender lo importante que es la planificación en un proyecto para seguir estandares de calidad y realizar un buen producto de software.</li>
+          <li><b>AV1:</b> Volver a realizar diagramas me ayudó a comprender lo importante que es la planificación en un proyecto para seguir estandares de calidad y realizar un buen producto de software.</li>
+          <li><b>TB1:</b> Participar en la planificación del Sprint y en el diseño de la Landing Page reforzó la importancia de seguir aprendiendo metodologías ágiles y herramientas de diseño para organizar eficientemente el trabajo del equipo.</li>
         </ul>
         <strong>Gonzales Castillo Angel Martin</strong>
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <li><b>TB1:</b> Revisar que nuevos conceptos surgieron en los ultimos años es importante para poder plantear una infraestructura que siga los estándares y sea seguro.</li>
+          <li><b>AV1:</b> Revisar que nuevos conceptos surgieron en los ultimos años es importante para poder plantear una infraestructura que siga los estándares y sea seguro.</li>
+          <li><b>TB1:</b> Desarrollar wireflows, wireframes y lineamientos de diseño me permitió reconocer la importancia de actualizar constantemente conocimientos en arquitectura de información y experiencia de usuario.</li>
         </ul>
       </td>
       <td style="border:1px solid #999; padding:8px; vertical-align:top;">
         <ul style="margin:4px 0 10px; padding-left:20px;">
-          <p>Como equipo reconocemos que el aprendizaje permanente es fundamental para estar siempre a la vanguardia y mantener la calidad de nuestro producto. Identificar las nuevas tendencias de tecnologías y metodologías nos ayudará a elegir las mejores alternativas de desarrollo a lo largo del proyecto.</p>
+                <p><b>AV1:</b> Como equipo reconocemos que el aprendizaje permanente es fundamental para estar siempre a la vanguardia y mantener la calidad de nuestro producto. Identificar las nuevas tendencias de tecnologías y metodologías nos ayudará a elegir las mejores alternativas de desarrollo a lo largo del proyecto.</p>
+      <p><b>TB1:</b> Como equipo comprendimos que el aprendizaje continuo es clave para adaptarnos a nuevas herramientas, metodologías ágiles y tendencias de diseño y validación, permitiéndonos mejorar constantemente la calidad y funcionalidad de nuestra solución de software.</p>
         </ul>
       </td>
     </tr>
