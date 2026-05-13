@@ -906,7 +906,7 @@ El **Event Storming** modela de forma secuencial el ciclo completo de uso de la 
       <td>Página Principal</td>
       <td>
         <ul style="margin:0; padding-left:18px;">
-          <li>Como usuario quiero poder ver una pantalla principal estética que me atraiga a usar el servicio.</li>
+          <li>Como usuario quiero poder ver una pantalla principal estética para que me atraiga a usar el servicio.</li>
         </ul>
       </td>
       <td>
@@ -960,7 +960,7 @@ El **Event Storming** modela de forma secuencial el ciclo completo de uso de la 
       <td>Filtrado de vehículos en Garaje</td>
       <td>
         <ul style="margin:0; padding-left:18px;">
-          <li>Como usuario quiero filtrar los vehículos disponibles en el Garaje por tipo.</li>
+          <li>Como usuario quiero filtrar los vehículos disponibles para verlos por tipo en el Garaje.</li>
         </ul>
       </td>
       <td>
@@ -978,7 +978,7 @@ El **Event Storming** modela de forma secuencial el ciclo completo de uso de la 
       <td>Selección y pago de planes</td>
       <td>
         <ul style="margin:0; padding-left:18px;">
-          <li>Como usuario quiero visualizar los diferentes planes disponibles.</li>
+          <li>Como usuario quiero visualizar los diferentes planes disponibles para tener diferentes alternativas a elegir.</li>
         </ul>
       </td>
       <td>
@@ -1014,7 +1014,7 @@ El **Event Storming** modela de forma secuencial el ciclo completo de uso de la 
       <td>Seleccionar ubicación para ver vehículos cercanos disponibles</td>
       <td>
         <ul style="margin:0; padding-left:18px;">
-          <li>Como usuario, al seleccionar una ubicación del mapa quiero ver los vehículos cercanos disponibles.</li>
+          <li>Como usuario quiero seleccionar una ubicación del mapa para ver los vehículos cercanos disponibles.</li>
         </ul>
       </td>
       <td>
@@ -1032,7 +1032,7 @@ El **Event Storming** modela de forma secuencial el ciclo completo de uso de la 
       <td>Visualización de viaje en mapa</td>
       <td>
         <ul style="margin:0; padding-left:18px;">
-          <li>Como usuario quiero ver mi trayecto actual en el mapa, junto con información relevante del vehículo.</li>
+          <li>Como usuario quiero ver mi trayecto actual en el mapa, para tener información relevante del vehículo.</li>
         </ul>
       </td>
       <td>
@@ -1101,7 +1101,7 @@ El **Event Storming** modela de forma secuencial el ciclo completo de uso de la 
       <td>Notificación de fin de reserva</td>
       <td>
         <ul style="margin:0; padding-left:18px;">
-          <li>Como usuario, quiero recibir una notificación antes de que finalice mi reserva.</li>
+          <li>Como usuario, quiero recibir una notificación antes de que finalice mi reserva para evitar dificultades.</li>
         </ul>
       </td>
       <td>
