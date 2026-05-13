@@ -310,15 +310,72 @@ El Sprint Planning 1 es una reunión esencial para iniciar el primer sprint de u
 
 #### 4.2.1.3. Development Evidence for Sprint Review 1 ####
 
+En esta sección se demuestran los commits relacionados con los principales avances en la implementación. 
+Estos commits provienen del repositorio de la landing de la organización de GitHub.
+
+**Enlace al repositorio de la Landing Page: https://github.com/Grupo-2-Aplicaciones-Moviles/Landing-Page
+
+| Repository                                  | Branch | Commit Id | Commit Message                                                                | Commit Message Body | Commited on (Date) |
+|---------------------------------------------|--------|-----------|-------------------------------------------------------------------------------|---------------------|--------------------|
+| Grupo-2-Aplicaciones-Moviles / Landing-Page | main   | b9d458f   | feat: add sections home about our services                                    |                     | 12/05/2026         |
+| Grupo-2-Aplicaciones-Moviles / Landing-Page | main   | 9b4d743   | Create CNAME                                                                  |                     | 12/05/2026         |
+| Grupo-2-Aplicaciones-Moviles / Landing-Page | main   | 7df0dce   | Delete CNAME                                                                  |                     | 12/05/2026         |
+| Grupo-2-Aplicaciones-Moviles / Landing-Page | main   | d5004c3   | fix: change link of video from hero                                           |                     | 12/05/2026         |
+| Grupo-2-Aplicaciones-Moviles / Landing-Page | main   | 0922c5e   | Merge branch 'main' of github.com:Grupo-2-Aplicaciones-Moviles/Landing-Page   |                     | 12/05/2026         |
+
 #### 4.2.1.4. Testing Suite Evidence for Sprint Review 1 ####
 
 #### 4.2.1.5. Execution Evidence for Sprint Review 1 ####
 
+Este sprint estuvo únicamente enfocado en el desarrollo de la Landing Page. 
+La landing page fue desarrollada utilizando HTML, CSS y JavaScript; y fue diseñada para ser 
+responsiva y adaptarse a diferentes dispositivos. El diseño se basó en los wireframes y mock-ups 
+creados durante la fase de diseño UX/UI y fue desplegada utilizando GitHub Pages.
+
+![Landing1.gif](assets/chapter05/Landing/Landing1.gif)
+
+![Landing2.png](assets/chapter05/Landing/Landing2.png)
+
+![Landing3.png](assets/chapter05/Landing/Landing3.png)
+
+![Landing4.png](assets/chapter05/Landing/Landing4.png)
+
+![Landing5.jpg](assets/chapter05/Landing/Landing5.jpg)
+
+![Landing6.png](assets/chapter05/Landing/Landing6.png)
+
+![Landing7.png](assets/chapter05/Landing/Landing7.png)
+
 #### 4.2.1.6. Services Documentation Evidence for Sprint Review 1 ####
+
+Debido a que el sprint estuvo únicamente enfocado en el desarrollo de la Landing Page, 
+no se desarrollaron servicios adicionales. Aunque no se implementaron servicios en este sprint, 
+la landing page sirve como una plataforma informativa crucial para atraer y convertir usuarios potenciales. 
+El desarrollo de servicios backend y funcionalidades adicionales está planificado para futuros sprints, donde 
+se detallará la documentación correspondiente.
 
 #### 4.2.1.7. Software Deployment Evidence for Sprint Review 1 ####
 
+La landing page fue desplegada utilizando **Github Pages**, un servicio de alojamiento web estático proporcionado por GitHub. El proceso de despliegue fue el siguiente:
+
+1. Creación del repositorio: Se creó un repositorio en la organización de GitHub: https://github.com/Grupo-2-Aplicaciones-Moviles/Landing-Page
+2. Desarrollo del sitio: El código fuente de la landing page se desarrolló y organizó en el repositorio.
+3. Configuración de GitHub Pages: En la configuración del repositorio, se habilitó GitHub Pages seleccionando la rama main como fuente.
+4. Verificación del despliegue: Se verificó que la landing page estuviera accesible públicamente y funcionara correctamente en diferentes dispositivos y navegadores en la siguiente URL:
+
+**Landing Page desplegada:** https://grupo-2-aplicaciones-moviles.github.io/Landing-Page/
+
+**Evidencia de despliegue:**
+
+![Evidence.png](assets/chapter05/Landing/Evidence.png)
+
 #### 4.2.1.8. Team Collaboration Insights during Sprint 1 ####
+
+En esta sección se presentan las evidencias de colaboración del equipo durante el sprint 1 para el desarrollo de la landing page.
+
+Cada miembro del equipo tuvo roles específicos, pero todos colaboraron en la planificación, desarrollo y revisión del trabajo. A continuación, se muestran algunos insights del repositorio de GitHub:
+
+![Collaboration.png](assets/chapter05/Landing/Collaboration.png)
 
 ## _4.3. Entrevistas de validación
 
