@@ -112,10 +112,8 @@ En esta sección, se explica los entornos en donde se decidió llevar a cabo el 
 
 Hemos optado por crear un repositorio en GitHub para nuestro proyecto, tanto para el informe como para la landing page. Esto facilitó la colaboración entre los miembros del equipo,aprovechando las herramientas útiles que esta plataforma ofrece para el manejo del código fuente y sus versiones.
 
-- URL del repositorio Report en GitHub: https://github.com/OpenSource-Grupo-4/ReportTB1
-- URL del repositorio Landing Page en GitHub: https://github.com/OpenSource-Grupo-4/Landing-Page
-- URL del repositorio de la Web Application en GitHub:https://github.com/OpenSource-Grupo-4/Frontend-WeRide
-- URL del respositorio de los Web Services en GitHub:https://github.com/OpenSource-Grupo-4/Backend-WeRide
+- URL del repositorio Report en GitHub: https://github.com/Grupo-2-Aplicaciones-Moviles/Project-Report
+- URL del repositorio Landing Page en GitHub: https://github.com/Grupo-2-Aplicaciones-Moviles/Landing-Page
 
 ### 4.1.3. Source Code Style Guide & Conventions ###
 
