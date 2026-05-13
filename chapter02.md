@@ -1219,6 +1219,73 @@ El **Event Storming** modela de forma secuencial el ciclo completo de uso de la 
   </tbody>
 </table>  
 
+### Spyke Stories
+
+### SPIKE-01 — Integración de pagos locales (Yape/Plin) + pasarela de tarjetas
+
+**Como** equipo de desarrollo de WeRide, **quiero** investigar la integración de métodos de pago locales (Yape/Plin) y una pasarela para tarjetas (Culqi/Izipay u otra), **para** definir un flujo de pago seguro y viable para planes (US-09/US-10) y cobros por viaje.
+
+**Timebox:** 2 días
+
+**Criterios de Aceptación**
+
+1. **Pago de plan con método local (Yape/Plin)**
+   - **Given** un usuario autenticado selecciona un plan
+   - **When** la app inicia el pago con **Yape/Plin** y envía la solicitud al backend
+   - **Then** el backend registra una **orden/intención de pago** con estado `PENDING`
+   - **And** queda definido el mecanismo de confirmación (webhook, polling o validación controlada)
+
+2. **Pago de plan con tarjeta**
+   - **Given** un usuario selecciona un plan y elige pago con tarjeta
+   - **When** la app envía los datos/tokens necesarios a `POST /payments/process`
+   - **Then** el backend procesa el pago mediante la pasarela elegida
+   - **And** retorna `PaymentProcessed` o `PaymentFailed` con un mensaje claro para la UI
+
+3. **Conciliación, idempotencia y seguridad**
+   - **Given** el backend recibe una confirmación de pago (callback/webhook)
+   - **When** valida firma/secret del proveedor y el estado real de la transacción
+   - **Then** se activa la suscripción y se evita el doble cobro (idempotencia por `paymentId`/`orderId`)
+   - **And** se registran intentos fallidos para auditoría
+
+**Definition of Done (DoD)**
+- Informe técnico con comparación de al menos 2 proveedores y decisión final.
+- Diagrama del flujo de pago (plan + viaje) y eventos mínimos sugeridos.
+- Lista de endpoints/payload mínimo + riesgos + estimación para historias derivadas.
+
+---
+
+### SPIKE-02 — Desbloqueo del vehículo con QR + comunicación con IoT
+
+**Como** equipo de WeRide, **quiero** investigar el flujo de desbloqueo de vehículo usando QR y comunicación con el sistema IoT, **para** asegurar un inicio de viaje confiable y seguro (US-19/US-20/US-21).
+
+**Timebox:** 3 días
+
+**Criterios de Aceptación**
+
+1. **Validación de QR y reserva**
+   - **Given** un usuario tiene una reserva activa
+   - **When** escanea el QR del vehículo y la app envía `POST /rides/start` con `qrToken` y `reservationId`
+   - **Then** el backend valida que la reserva pertenece al usuario y está vigente
+   - **And** valida que el `qrToken` no esté expirado ni reutilizado
+
+2. **Envío de comando de desbloqueo**
+   - **Given** una validación exitosa
+   - **When** el backend solicita `UnlockVehicle(vehicleId)` al contexto de Fleet Management
+   - **Then** Fleet envía la señal al IoT Gateway (según el protocolo definido)
+   - **And** se recibe confirmación (éxito/falla) con trazabilidad
+
+3. **Estado en tiempo real y manejo de fallos**
+   - **Given** el usuario espera confirmación
+   - **When** el sistema recibe el evento `VehicleUnlocked`
+   - **Then** se actualiza el estado del vehículo a `IN_USE` y se emite `TripStarted`
+   - **And** si ocurre timeout/falla, se responde con error controlado y se registra incidencia para soporte
+
+**Definition of Done (DoD)**
+- Documento con alternativas evaluadas (HTTP/MQTT/BLE u otra) y decisión.
+- Reglas de seguridad para QR (expiración, anti-reuso, firma).
+- Diagrama del flujo end-to-end (Reservations ↔ Fleet ↔ IoT) + historias derivadas.
+
+
 ### 2.4.2. Impact Mapping  
 
 Un mapa de impacto es una técnica colaborativa y visual de planificación estratégica que alinea los objetivos de un proyecto con las acciones necesarias para alcanzarlos. En esta sección , el equipo presenta los mapas de impacto realizados.
