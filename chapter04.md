@@ -325,6 +325,177 @@ Estos commits provienen del repositorio de la landing de la organización de Git
 
 #### 4.2.1.4. Testing Suite Evidence for Sprint Review 1 ####
 
+En esta sección se explica y presenta el conjunto de pruebas automatizadas para la Landing Page de WeRide, relacionadas con los User Stories especificados en el Sprint 1. Las pruebas BDD se desarrollaron con Gherkin para validar las funcionalidades implementadas en la landing page.
+
+**Repositorio de Testing:** https://github.com/Grupo-2-Aplicaciones-Moviles/Landing-Page
+
+A continuación se presentan los archivos .feature correspondientes:
+
+---
+
+**US23 - Navegación Sencilla**
+```gherkin
+Como usuario potencial
+Quiero navegar fácilmente por la landing page
+Para encontrar la información que necesito de forma rápida e intuitiva
+
+**Feature: Menú de navegación con hipervínculos**
+
+Scenario: Navegación por el menú principal
+  Given que estoy en la landing page de WeRide
+  When observo el menú de navegación principal
+  Then debo ver opciones de navegación claras y visibles
+  And cada opción debe ser un hipervínculo funcional
+
+Scenario: Redirección a secciones específicas
+  Given que estoy en la landing page de WeRide
+  When hago clic en una opción del menú de navegación
+  Then la página debe desplazarse suavemente hacia la sección correspondiente
+  And la URL debe actualizar el ancla de la sección
+
+**Feature: Hero Banner**
+
+Scenario: Visualización del banner principal
+  Given que accedo a la landing page de WeRide
+  When la página carga completamente
+  Then debo ver un banner principal (Hero) atractivo
+  And el banner debe representar visualmente la aplicación WeRide
+  And debe incluir un llamado a la acción claro
+```
+---
+
+**US24 - Descargas**
+```gherkin
+Como usuario potencial
+Quiero acceder fácilmente a la descarga de la aplicación
+Para instalarla en mi dispositivo móvil
+
+**Feature: Call to Action de Descarga**
+
+Scenario: Botón de descarga visible
+  Given que estoy en la landing page de WeRide
+  When reviso la sección principal
+  Then debo ver un botón destacado de "Call to Action"
+  And el botón debe indicar claramente la acción de descargar la aplicación
+
+Scenario: Redirección a tienda de aplicaciones
+  Given que estoy en la landing page de WeRide
+  When hago clic en el botón de descarga
+  Then debo ser redirigido a la tienda de aplicaciones correspondiente
+  And el enlace debe ser válido y accesible
+```
+---
+
+**US25 - Funcionalidades de la Aplicación**
+```gherkin
+Como usuario potencial
+Quiero ver las funcionalidades principales de la aplicación
+Para entender qué servicios ofrece WeRide
+
+**Feature: Sección de Vehículos**
+
+Scenario: Visualización de vehículos disponibles
+  Given que navego por la landing page de WeRide
+  When llego a la sección de funcionalidades
+  Then debo ver una sección que muestra los vehículos disponibles
+  And deben mostrarse imágenes o representaciones de los tipos de vehículos
+  And debe incluir información sobre categorías de vehículos disponibles
+
+**Feature: Sección de Mapas y Estaciones**
+
+Scenario: Visualización de mapas y estaciones
+  Given que estoy explorando las funcionalidades de WeRide
+  When reviso la sección de mapas
+  Then debo ver información sobre las estaciones disponibles
+  And debe haber representaciones visuales de mapas
+  And la información debe ser clara sobre la ubicación de estaciones
+```
+---
+
+**US26 - Manual de la Aplicación**
+```gherkin
+Como usuario potencial
+Quiero acceder a un manual de uso de la aplicación
+Para entender cómo utilizarla antes de descargarla
+
+**Feature: Manual de Uso**
+
+Scenario: Acceso al manual de usuario
+  Given que estoy en la landing page de WeRide
+  When navego a la sección de manual
+  Then debo encontrar una sección con instrucciones de uso
+  And el manual debe explicar las funcionalidades principales de la aplicación móvil
+  And debe incluir pasos claros para el uso de la aplicación
+```
+---
+
+**US27 - Confianza y Seguridad**
+```gherkin
+Como usuario potencial
+Quiero conocer información sobre el equipo y el producto
+Para generar confianza en la plataforma
+
+**Feature: Sección About Us**
+
+Scenario: Información del equipo de trabajo
+  Given que estoy en la landing page de WeRide
+  When navego a la sección "About Us"
+  Then debo ver información sobre el equipo de desarrollo
+  And deben mostrarse los roles o responsabilidades de los miembros
+  And la información debe generar confianza en el proyecto
+
+**Feature: Sección About the Product**
+
+Scenario: Información del producto WeRide
+  Given que estoy explorando la landing page
+  When reviso la sección "About the Product"
+  Then debo ver una descripción clara de qué es WeRide
+  And deben explicarse los beneficios principales del servicio
+  And la información debe ser relevante para el usuario potencial
+
+**Feature: Footer con Información de Contacto**
+
+Scenario: Visualización del footer
+  Given que estoy en cualquier parte de la landing page
+  When me desplazo hasta el final de la página
+  Then debo ver un footer con información de contacto
+  And debe incluir enlaces a redes sociales de la organización
+  And debe haber información adicional de contacto si está disponible
+```
+---
+
+**US28 - Visualización de Precios**
+```gherkin
+Como usuario potencial
+Quiero ver información clara sobre los precios y planes
+Para evaluar si el servicio se ajusta a mi presupuesto
+
+**Feature: Sección de Suscripciones**
+
+Scenario: Visualización de planes y precios
+  Given que estoy en la landing page de WeRide
+  When navego a la sección de suscripciones
+  Then debo ver la información de precios de cada plan de suscripción
+  And deben presentarse de forma clara los diferentes planes disponibles
+  And cada plan debe incluir su costo y características principales
+
+Scenario: Comparación de planes
+  Given que estoy revisando la sección de suscripciones
+  When observo los diferentes planes presentados
+  Then debo poder comparar fácilmente las características de cada plan
+  And los precios deben estar claramente diferenciados
+  And la información debe ayudar al usuario a tomar una decisión informada
+```
+---
+
+**Commits Relacionados con Testing**
+
+| Repository                                  | Branch | Commit Id | Commit Message                             | Date        |
+|---------------------------------------------|--------|-----------|--------------------------------------------|-------------|
+| Grupo-2-Aplicaciones-Moviles / Landing-Page | main   | b9d458f   | feat: add sections home about our services | 12/05/2026  |
+| Grupo-2-Aplicaciones-Moviles / Landing-Page | main   | 9b4d743   | Create CNAME                               | 12/05/2026  |
+| Grupo-2-Aplicaciones-Moviles / Landing-Page | main   | d5004c3   | fix: change link of video from hero        | 12/05/2026  |
+
 #### 4.2.1.5. Execution Evidence for Sprint Review 1 ####
 
 Este sprint estuvo únicamente enfocado en el desarrollo de la Landing Page. 
