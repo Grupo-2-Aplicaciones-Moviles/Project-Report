@@ -40,12 +40,14 @@ Repositorio de Backend Web Services https://github.com/OpenSource-Grupo-4/Backen
 
 Deploy de Backend Web Services http://20.81.154.140:8080/swagger-ui/index.html
 
-Repositorio de Landing Page https://github.com/OpenSource-Grupo-4/Landing-Page
+Repositorio de Landing Page https://github.com/Grupo-2-Aplicaciones-Moviles/Landing-Page
 
-Deploy de Landing Page https://opensource-grupo-4.github.io/Landing-Page
+Deploy de Landing Page https://grupo-2-aplicaciones-moviles.github.io/Landing-Page/
 
 Presentación de Canvas https://www.canva.com/design/DAHHlyNbigI/kB2egwC0nMImotp-dfsxxQ/edit
 
 Figma https://www.figma.com/design/6R0aWHPQEpwX8DyWLrCHmd/Open-Source-2025-2?t=moMeoEwSHQRhgL2O-0"
 
 Video exposicion AV1 https://youtu.be/b5JeXdtnK_c
+
+Video exposicion TB1 https://youtu.be/lMq_iWSk1OE
