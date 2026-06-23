@@ -546,6 +546,24 @@ Cada miembro del equipo tuvo roles específicos, pero todos colaboraron en la pl
 
 ![Collaboration.png](assets/chapter05/Landing/Collaboration.png)
 
+### 4.2.2. Sprint 2 ###
+
+#### 4.2.2.1. Sprint Planning 2 ####
+
+#### 4.2.2.2. Sprint Backlog 2 ####
+
+#### 4.2.2.3. Development Evidence for Sprint Review 2 ####
+
+#### 4.2.2.4. Testing Suite Evidence for Sprint Review 2 ####
+
+#### 4.2.2.5. Execution Evidence for Sprint Review 2 ####
+
+#### 4.2.2.6. Services Documentation Evidence for Sprint Review 2 ####
+
+#### 4.2.2.7. Software Deployment Evidence for Sprint Review 2 ####
+
+#### 4.2.2.8. Team Collaboration Insights during Sprint 2 ####
+
 ## _4.3. Entrevistas de validación
 
 ### 4.3.1. Diseño de entrevistas de validación  
