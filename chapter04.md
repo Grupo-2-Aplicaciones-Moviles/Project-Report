@@ -550,7 +550,194 @@ Cada miembro del equipo tuvo roles específicos, pero todos colaboraron en la pl
 
 #### 4.2.2.1. Sprint Planning 2 ####
 
+El Sprint Planning 2 es una reunión esencial para iniciar el segundo sprint de un proyecto, donde el equipo define los objetivos y la estrategia para cumplirlos. En este caso, nuestro objetivo principal es implementar el backend y la app movil
+
+| Sprint #                           | Sprint 2                                                                                                                                                                                                                                                                  |
+| ---------------------------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Date**                           | 2026-15-06                                                                                                                                                                                                                                                                |
+| Time                               | 10:00 PM                                                                                                                                                                                                                                                                  |
+| Location                           | Virtual - Meet                                                                                                                                                                                                                                                            |
+| Prepared By                        | Gonzales Castillo Angel Martin                                                                                                                                                                                                                                            |
+| Attendees (to planning meeting)    | Berrocal Ramirez Omar, Lang Nassi Werner Khalil, Jhimy Pool Romero Meza, Seijas Vásquez Diego Antonio                                                                                                                                                                     |
+| Sprint 1 Review Summary        | Durante el Sprint 1 se completó exitosamente el desarrollo y despliegue de la Landing Page de WeRide. Se implementaron las secciones de navegación, funcionalidades, manual de uso, precios, información del producto y contacto. Todas las User Stories planificadas fueron completadas y validadas.                                                                                                                                                                                                                |
+| Sprint 1 Retrospective Summary | El equipo mantuvo una adecuada distribución de tareas y logró cumplir los objetivos establecidos. Como oportunidad de mejora, se identificó la necesidad de incrementar la frecuencia de integración del código y mejorar la trazabilidad mediante commits más específicos para cada funcionalidad desarrollada.                                                                                                                                                                                                                |
+| Sprint 2 Goal                      | Implementar la primera versión funcional de la aplicación móvil de WeRide en Kotlin junto con los servicios backend de autenticación y gestión de usuarios. Al finalizar el sprint, los usuarios podrán registrarse, verificar su identidad, iniciar sesión, administrar su perfil y acceder a la pantalla principal de la aplicación. |
+| Sprint 2 Velocity                  | 35                                                                                                                                                                                                                                                                        |
+| Sum of Story Points                | La suma de Story Points atendidos es de 33.                                                                                                                                                                                                                               |
+
 #### 4.2.2.2. Sprint Backlog 2 ####
+
+<table>
+  <tr>
+    <td><strong>Sprint #</strong></td>
+    <td align="center" colspan="7"><strong>Sprint 2</strong></td>
+  </tr>
+
+  <tr>
+    <td align="center" colspan="2"><strong>User Story</strong></td>
+    <td align="center" colspan="6"><strong>Work-item/Task</strong></td>
+  </tr>
+
+  <tr>
+    <td align="center"><strong>ID</strong></td>
+    <td align="center"><strong>Title</strong></td>
+    <td align="center"><strong>ID</strong></td>
+    <td align="center"><strong>Title</strong></td>
+    <td align="center"><strong>Description</strong></td>
+    <td align="center"><strong>Estimation (Hours)</strong></td>
+    <td align="center"><strong>Assigned To</strong></td>
+    <td align="center"><strong>Status</strong></td>
+  </tr>
+
+  <!-- US01 -->
+  <tr>
+    <td rowspan="2" align="center">US01</td>
+    <td rowspan="2" align="center">Inicio de sesión y registro</td>
+    <td align="center">TA01</td>
+    <td align="center">Pantalla de autenticación</td>
+    <td align="center">Desarrollar las interfaces de inicio de sesión y registro en la aplicación móvil.</td>
+    <td align="center">3</td>
+    <td align="center">Gonzales Castillo Angel Martin</td>
+    <td align="center">Done</td>
+  </tr>
+  <tr>
+    <td align="center">TA02</td>
+    <td align="center">API de autenticación</td>
+    <td align="center">Implementar los servicios backend para registro e inicio de sesión de usuarios.</td>
+    <td align="center">4</td>
+    <td align="center">Berrocal Ramirez Omar</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US02 -->
+  <tr>
+    <td align="center">US02</td>
+    <td align="center">Introducir Número de Celular</td>
+    <td align="center">TA01</td>
+    <td align="center">Registro de celular</td>
+    <td align="center">Implementar el formulario para capturar y validar el número telefónico del usuario.</td>
+    <td align="center">2</td>
+    <td align="center">Jhimy Pool Romero Meza</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US03 -->
+  <tr>
+    <td align="center">US03</td>
+    <td align="center">Introducir código de verificación</td>
+    <td align="center">TA01</td>
+    <td align="center">Validación de código</td>
+    <td align="center">Desarrollar la pantalla y lógica para ingresar y validar el código de verificación.</td>
+    <td align="center">2</td>
+    <td align="center">Jhimy Pool Romero Meza</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US04 -->
+  <tr>
+    <td rowspan="2" align="center">US04</td>
+    <td rowspan="2" align="center">Datos de usuario</td>
+    <td align="center">TA01</td>
+    <td align="center">Formulario de perfil</td>
+    <td align="center">Desarrollar la interfaz para registrar y editar los datos personales del usuario.</td>
+    <td align="center">2</td>
+    <td align="center">Seijas Vásquez Diego Antonio</td>
+    <td align="center">Done</td>
+  </tr>
+  <tr>
+    <td align="center">TA02</td>
+    <td align="center">Persistencia de datos</td>
+    <td align="center">Implementar los endpoints y almacenamiento de la información del usuario.</td>
+    <td align="center">3</td>
+    <td align="center">Berrocal Ramirez Omar</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US05 -->
+  <tr>
+    <td align="center">US05</td>
+    <td align="center">Página Principal</td>
+    <td align="center">TA01</td>
+    <td align="center">Home Screen</td>
+    <td align="center">Desarrollar la pantalla principal de la aplicación mostrando las funcionalidades principales.</td>
+    <td align="center">3</td>
+    <td align="center">Gonzales Castillo Angel Martin</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US06 -->
+  <tr>
+    <td rowspan="2" align="center">US06</td>
+    <td rowspan="2" align="center">Gestión y personalización de perfil</td>
+    <td align="center">TA01</td>
+    <td align="center">Visualización de perfil</td>
+    <td align="center">Implementar la pantalla de perfil del usuario.</td>
+    <td align="center">2</td>
+    <td align="center">Seijas Vásquez Diego Antonio</td>
+    <td align="center">Done</td>
+  </tr>
+  <tr>
+    <td align="center">TA02</td>
+    <td align="center">Edición de perfil</td>
+    <td align="center">Permitir la actualización de la información personal desde la aplicación.</td>
+    <td align="center">3</td>
+    <td align="center">Seijas Vásquez Diego Antonio</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US07 -->
+  <tr>
+    <td rowspan="2" align="center">US07</td>
+    <td rowspan="2" align="center">Gestión y visualización de vehículos en Garaje</td>
+    <td align="center">TA01</td>
+    <td align="center">Listado de vehículos</td>
+    <td align="center">Desarrollar la vista de vehículos disponibles en el garaje.</td>
+    <td align="center">3</td>
+    <td align="center">Lang Nassi Werner Khalil</td>
+    <td align="center">Done</td>
+  </tr>
+  <tr>
+    <td align="center">TA02</td>
+    <td align="center">Servicio de vehículos</td>
+    <td align="center">Implementar el backend para consulta de vehículos disponibles.</td>
+    <td align="center">3</td>
+    <td align="center">Berrocal Ramirez Omar</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US08 -->
+  <tr>
+    <td align="center">US08</td>
+    <td align="center">Filtrado de vehículos en Garaje</td>
+    <td align="center">TA01</td>
+    <td align="center">Filtros por categoría</td>
+    <td align="center">Implementar filtros para visualizar vehículos según su tipo.</td>
+    <td align="center">2</td>
+    <td align="center">Lang Nassi Werner Khalil</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US11 -->
+  <tr>
+    <td rowspan="2" align="center">US11</td>
+    <td rowspan="2" align="center">Seleccionar ubicación para ver vehículos cercanos disponibles</td>
+    <td align="center">TA01</td>
+    <td align="center">Integración de mapa</td>
+    <td align="center">Implementar la visualización de mapas y ubicación actual del usuario.</td>
+    <td align="center">3</td>
+    <td align="center">Gonzales Castillo Angel Martin</td>
+    <td align="center">Done</td>
+  </tr>
+  <tr>
+    <td align="center">TA02</td>
+    <td align="center">Vehículos cercanos</td>
+    <td align="center">Mostrar los vehículos disponibles próximos a la ubicación seleccionada.</td>
+    <td align="center">3</td>
+    <td align="center">Lang Nassi Werner Khalil</td>
+    <td align="center">Done</td>
+  </tr>
+
+</table>
 
 #### 4.2.2.3. Development Evidence for Sprint Review 2 ####
 
@@ -564,7 +751,7 @@ Cada miembro del equipo tuvo roles específicos, pero todos colaboraron en la pl
 
 #### 4.2.2.8. Team Collaboration Insights during Sprint 2 ####
 
-## _4.3. Entrevistas de validación
+## 4.3. Entrevistas de validación
 
 ### 4.3.1. Diseño de entrevistas de validación  
 **Segmento 1: Universitarios y Jóvenes Profesionales (B2C)**
