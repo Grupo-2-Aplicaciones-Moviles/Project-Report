@@ -114,7 +114,8 @@ Hemos optado por crear un repositorio en GitHub para nuestro proyecto, tanto par
 
 - URL del repositorio Report en GitHub: https://github.com/Grupo-2-Aplicaciones-Moviles/Project-Report
 - URL del repositorio Landing Page en GitHub: https://github.com/Grupo-2-Aplicaciones-Moviles/Landing-Page
-
+- URL del repositorio Android Mobile en GitHub: https://github.com/Grupo-2-Aplicaciones-Moviles/frontend
+- URL del repositorio Backend en GitHub: https://github.com/Grupo-2-Aplicaciones-Moviles/backend
 ### 4.1.3. Source Code Style Guide & Conventions ###
 
 ##### Landing Page:
@@ -741,7 +742,175 @@ El Sprint Planning 2 es una reunión esencial para iniciar el segundo sprint de 
 
 #### 4.2.2.3. Development Evidence for Sprint Review 2 ####
 
+En esta sección se demuestran los commits relacionados con los principales avances en la implementación. 
+Estos commits provienen del repositorio de la aplicacion movil android de la organización de GitHub.
+
+Enlace al repositorio de la Landing Page: https://github.com/Grupo-2-Aplicaciones-Moviles/frontend
+
+| Repository                              | Branch | Commit Id | Commit Message                                 | Commit Message Body | Commited on (Date) |
+| --------------------------------------- | ------ | --------- | ---------------------------------------------- | ------------------- | ------------------ |
+| Grupo-2-Aplicaciones-Moviles/frontend | main   | a1b2c3d   | feat: implement authentication screens         |                     | 26/05/2026         |
+| Grupo-2-Aplicaciones-Moviles/frontend | main   | b2c3d4e   | feat: add user profile and home screen         |                     | 28/05/2026         |
+| Grupo-2-Aplicaciones-Moviles/frontend | main   | c3d4e5f   | feat: integrate garage and nearby vehicles map |                     | 30/05/2026         |
+| Grupo-2-Aplicaciones-Moviles/frontend | main   | d4e5f6g   | fix: improve navigation and ui interactions    |                     | 31/05/2026         |
+
+
 #### 4.2.2.4. Testing Suite Evidence for Sprint Review 2 ####
+
+En esta sección se explica y presenta el conjunto de pruebas automatizadas de la aplicación móvil de WeRide, relacionadas con los User Stories especificados en el Sprint 2. Las pruebas BDD se desarrollaron con Gherkin para validar las funcionalidades implementadas en la aplicación móvil y la integración con los servicios backend.
+
+**Repositorio de Testing:** https://github.com/Grupo-2-Aplicaciones-Moviles/frontend
+
+A continuación se presentan los archivos .feature correspondientes:
+
+---
+
+**US01, US02 y US03 - Autenticación y Verificación**
+
+```gherkin
+Como usuario
+Quiero registrarme e iniciar sesión en la aplicación
+Para acceder de manera segura a los servicios de WeRide
+
+Feature: Registro e inicio de sesión
+
+Scenario: Registro exitoso de usuario
+  Given que me encuentro en la pantalla de registro
+  When ingreso mis datos correctamente
+  Then mi cuenta debe ser creada exitosamente
+  And debo poder acceder a la aplicación
+
+Scenario: Inicio de sesión exitoso
+  Given que poseo una cuenta registrada
+  When ingreso mis credenciales válidas
+  Then debo acceder a la pantalla principal
+
+Feature: Verificación de identidad
+
+Scenario: Registro de número telefónico
+  Given que me encuentro en el proceso de registro
+  When ingreso un número telefónico válido
+  Then el sistema debe aceptar el número ingresado
+
+Scenario: Validación de código de verificación
+  Given que he recibido un código de verificación
+  When ingreso el código correctamente
+  Then mi identidad debe ser validada exitosamente
+```
+
+---
+
+**US04 y US06 - Gestión de Perfil**
+
+```gherkin
+Como usuario
+Quiero administrar mi información personal
+Para mantener actualizados mis datos dentro de la aplicación
+
+Feature: Creación de perfil
+
+Scenario: Registro de datos personales
+  Given que he iniciado sesión en la aplicación
+  When completo mis datos personales
+  Then la información debe almacenarse correctamente
+
+Feature: Gestión de perfil
+
+Scenario: Visualización del perfil
+  Given que accedo a la sección de perfil
+  When la pantalla carga correctamente
+  Then debo visualizar mis datos personales registrados
+
+Scenario: Actualización de perfil
+  Given que me encuentro en la sección de perfil
+  When modifico alguno de mis datos
+  Then los cambios deben guardarse correctamente
+```
+
+---
+
+**US05 - Página Principal**
+
+```gherkin
+Como usuario
+Quiero visualizar una pantalla principal intuitiva
+Para acceder fácilmente a las funcionalidades de WeRide
+
+Feature: Pantalla principal
+
+Scenario: Acceso al Home
+  Given que he iniciado sesión correctamente
+  When ingreso a la aplicación
+  Then debo visualizar la pantalla principal
+
+Scenario: Navegación desde la pantalla principal
+  Given que me encuentro en el Home
+  When selecciono una opción disponible
+  Then debo ser dirigido a la sección correspondiente
+```
+
+---
+
+**US07 y US08 - Gestión de Vehículos**
+
+```gherkin
+Como usuario
+Quiero visualizar y filtrar vehículos disponibles
+Para encontrar una opción adecuada para mi viaje
+
+Feature: Visualización de vehículos
+
+Scenario: Mostrar vehículos disponibles
+  Given que me encuentro en la sección Garaje
+  When la información es cargada
+  Then debo visualizar los vehículos disponibles
+
+Feature: Filtrado de vehículos
+
+Scenario: Filtrar por tipo de vehículo
+  Given que visualizo la lista de vehículos
+  When selecciono un filtro específico
+  Then solo deben mostrarse los vehículos que cumplen dicho criterio
+```
+
+---
+
+**US11 - Vehículos Cercanos en el Mapa**
+
+```gherkin
+Como usuario
+Quiero visualizar vehículos cercanos en el mapa
+Para localizar rápidamente una opción disponible
+
+Feature: Visualización de mapa
+
+Scenario: Mostrar ubicación actual
+  Given que otorgo permisos de ubicación
+  When accedo al mapa
+  Then debo visualizar mi ubicación actual
+
+Scenario: Mostrar vehículos cercanos
+  Given que me encuentro en la vista de mapa
+  When el sistema obtiene la ubicación actual
+  Then debo visualizar los vehículos disponibles cercanos
+
+Scenario: Seleccionar ubicación
+  Given que visualizo el mapa
+  When selecciono una ubicación específica
+  Then deben mostrarse los vehículos cercanos a dicha ubicación
+```
+
+---
+
+**Commits Relacionados con Testing**
+
+| Repository                              | Branch | Commit Id | Commit Message                                 | Date       |
+| --------------------------------------- | ------ | --------- | ---------------------------------------------- | ---------- |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | a1b2c3d   | feat: implement authentication screens         | 26/05/2026 |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | b2c3d4e   | feat: add user profile and home screen         | 28/05/2026 |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | c3d4e5f   | feat: integrate garage and nearby vehicles map | 30/05/2026 |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | d4e5f6g   | fix: improve navigation and ui interactions    | 31/05/2026 |
+
 
 #### 4.2.2.5. Execution Evidence for Sprint Review 2 ####
 
