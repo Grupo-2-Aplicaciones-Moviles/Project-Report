@@ -912,6 +912,25 @@ Scenario: Seleccionar ubicación
 
 #### 4.2.2.5. Execution Evidence for Sprint Review 2 ####
 
+
+Este Sprint fue dedicado al desarrollo de la aplicación movil Android de WeRide, incluyendo la implementación de la interfaz de usuario y la integración con los servicios backend. A continuación se presentan capturas de pantalla que evidencian la ejecución y funcionamiento de las funcionalidades desarrolladas durante el Sprint 2.
+
+Para la aplicación móvil, se utilizó **Kotlin con Jetpack Compose** para el desarrollo de la interfaz de usuario, asegurando una experiencia fluida y moderna. La aplicación se conectó al backend desarrollado en **Spring Boot**, permitiendo la gestión de usuarios, autenticación, visualización de vehículos, viajes, y perfil de usuario.
+
+- Registro e inicio de sesión
+
+[![Registro e inicio de sesión](assets/Chapter04/login-android.png)
+
+[![Registro e inicio de sesión](assets/Chapter04/registro-android.png)
+
+- planes
+
+[![Planes](assets/Chapter04/Planes-android.png)
+
+- perfil
+
+[![Perfil](assets/Chapter04/Perfil-android.png)
+
 #### 4.2.2.6. Services Documentation Evidence for Sprint Review 2 ####
 
 
@@ -945,14 +964,6 @@ Para verificar que la optención de datos se realice correctamente, utilizamos S
 ![authLogin](assets/chapter05/backend/authPost.png)
 
 ![authRegister](assets/chapter05/backend/authRegister.png)
-
-##### Reservations:
-
-![reservations](assets/chapter05/backend/reservationsGet.png)
-
-![reservationsPost](assets/chapter05/backend/reservationsPost.png)
-
-![reservationsPost2](assets/chapter05/backend/reservationsPost2.png)
 
 ##### Profiles:
 
