@@ -745,14 +745,12 @@ El Sprint Planning 2 es una reunión esencial para iniciar el segundo sprint de 
 En esta sección se demuestran los commits relacionados con los principales avances en la implementación. 
 Estos commits provienen del repositorio de la aplicacion movil android de la organización de GitHub.
 
-Enlace al repositorio de la Landing Page: https://github.com/Grupo-2-Aplicaciones-Moviles/frontend
+Enlace al repositorio de aplicacion movil android: https://github.com/Grupo-2-Aplicaciones-Moviles/frontend
 
 | Repository                              | Branch | Commit Id | Commit Message                                 | Commit Message Body | Commited on (Date) |
 | --------------------------------------- | ------ | --------- | ---------------------------------------------- | ------------------- | ------------------ |
-| Grupo-2-Aplicaciones-Moviles/frontend | main   | a1b2c3d   | feat: implement authentication screens         |                     | 26/05/2026         |
-| Grupo-2-Aplicaciones-Moviles/frontend | main   | b2c3d4e   | feat: add user profile and home screen         |                     | 28/05/2026         |
-| Grupo-2-Aplicaciones-Moviles/frontend | main   | c3d4e5f   | feat: integrate garage and nearby vehicles map |                     | 30/05/2026         |
-| Grupo-2-Aplicaciones-Moviles/frontend | main   | d4e5f6g   | fix: improve navigation and ui interactions    |                     | 31/05/2026         |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | ec2422e   | Initial WeRide Android app implementation      |                     | 22/06/2026         |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | fdb596b   | Delete docs directory                          |                     | 22/06/2026         |
 
 
 #### 4.2.2.4. Testing Suite Evidence for Sprint Review 2 ####
