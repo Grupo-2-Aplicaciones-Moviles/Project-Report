@@ -916,7 +916,129 @@ Scenario: Seleccionar ubicación
 
 #### 4.2.2.7. Software Deployment Evidence for Sprint Review 2 ####
 
+Durante el Sprint 2, el despliegue se concentró en dos componentes: la Landing Page (ya desplegada desde el Sprint 1) y la aplicación móvil Android, la cual fue ejecutada y validada en entorno local mediante Android Studio con emulador.
+
+**Landing Page — Despliegue continuo en GitHub Pages**
+
+La landing page de WeRide mantiene su despliegue activo en GitHub Pages, accesible públicamente desde el Sprint 1:
+
+- **URL:** https://grupo-2-aplicaciones-moviles.github.io/Landing-Page/
+- **Repositorio:** https://github.com/Grupo-2-Aplicaciones-Moviles/Landing-Page
+- **Rama de despliegue:** `main`
+
+No se realizaron cambios estructurales en la landing page durante este sprint; el despliegue se mantuvo operativo y accesible.
+
+---
+
+**Aplicación Móvil Android — Ejecución en entorno local**
+
+La aplicación móvil fue desarrollada en **Kotlin con Jetpack Compose** y ejecutada localmente mediante **Android Studio** con emulador Android. El backend de la aplicación (`Spring Boot`, expuesto en `http://10.0.2.2:8080/api/v1/`) fue levantado en entorno local durante las sesiones de desarrollo y prueba.
+
+El repositorio de la aplicación móvil se encuentra en:
+- **URL:** https://github.com/Grupo-2-Aplicaciones-Moviles/frontend
+
+**Proceso de ejecución local:**
+
+1. **Clonación del repositorio:** Se clonó el repositorio `frontend` desde la organización de GitHub.
+2. **Apertura en Android Studio:** El proyecto fue abierto en Android Studio, donde Gradle resolvió automáticamente todas las dependencias declaradas en `build.gradle.kts`.
+3. **Configuración del emulador:** Se utilizó un emulador Android con API level compatible para ejecutar la aplicación. La URL base del backend fue configurada en `Constants.kt` apuntando a `http://10.0.2.2:8080/api/v1/`, dirección estándar para acceder al host desde el emulador de Android.
+4. **Levantamiento del backend:** El servicio backend fue ejecutado localmente en paralelo para permitir la comunicación con los endpoints de autenticación, vehículos y reservas.
+5. **Verificación funcional:** Se verificó el flujo completo de la aplicación: splash screen, autenticación, configuración de perfil, pantalla principal con mapa, garaje de vehículos y gestión de perfil.
+
+**Evidencia de ejecución — Pantallas de la aplicación móvil:**
+
+*Flujo de autenticación:*
+
+![Login](assets/chapter04/Login.png)
+*Figura: Pantalla de inicio de sesión y registro de WeRide.*
+
+![Numero](assets/chapter04/Numero.png)
+*Figura: Pantalla de ingreso de número telefónico.*
+
+![Codigo](assets/chapter04/Codigo.png)
+*Figura: Pantalla de verificación de código.*
+
+![Datos](assets/chapter04/Datos.png)
+*Figura: Formulario de datos de usuario (ProfileSetup).*
+
+*Pantalla principal y navegación:*
+
+![Principal1](assets/chapter04/Principal1.png)
+*Figura: Pantalla principal (Home) con mapa y vehículos cercanos — vista general.*
+
+![Principal2](assets/chapter04/Principal2.png)
+*Figura: Pantalla principal (Home) — detalle de vehículos disponibles.*
+
+![Principal3](assets/chapter04/Principal3.png)
+*Figura: Pantalla principal (Home) — filtros y búsqueda.*
+
+*Garaje y vehículos:*
+
+![Garaje](assets/chapter04/Garaje.png)
+*Figura: Pantalla de Garaje con listado y filtrado de vehículos disponibles.*
+
+*Perfil de usuario:*
+
+![Perfil](assets/chapter04/Perfil.png)
+*Figura: Pantalla de visualización y edición de perfil de usuario.*
+
+*Planes y pagos:*
+
+![Planes](assets/chapter04/Planes.png)
+*Figura: Pantalla de planes de suscripción.*
+
+![Pago](assets/chapter04/Pago.png)
+*Figura: Pantalla de pago.*
+
+*Reservas:*
+
+![Reserva](assets/chapter04/Reserva.png)
+*Figura: Pantalla de reserva de vehículo.*
+
+> **Nota:** El despliegue del backend en un servicio en la nube (Railway, Render u otro) está previsto para el Sprint 3. En este sprint, la validación se realizó íntegramente en entorno local.
+
+---
+
 #### 4.2.2.8. Team Collaboration Insights during Sprint 2 ####
+
+En esta sección se presentan las evidencias de colaboración del equipo durante el Sprint 2, correspondiente al desarrollo de la aplicación móvil Android de WeRide.
+
+El equipo estuvo conformado por cinco integrantes, cada uno con responsabilidades específicas dentro del sprint, aunque colaborando de manera transversal en revisión, integración y pruebas:
+
+| Integrante | Principales contribuciones en Sprint 2 |
+|---|---|
+| Gonzales Castillo, Angel Martin | Pantalla de autenticación (Login/Registro), pantalla principal (Home Screen) con integración de mapa y vehículos cercanos |
+| Berrocal Ramirez, Omar | API de autenticación (backend), persistencia de datos de usuario, servicio de consulta de vehículos |
+| Romero Meza, Jhimy Pool | Pantalla de registro de número telefónico y pantalla de validación de código de verificación |
+| Seijas Vásquez, Diego Antonio | Formulario de datos de usuario (ProfileSetup), pantalla de visualización de perfil y pantalla de edición de perfil |
+| Lang Nassi, Werner Khalil | Pantalla de listado de vehículos en Garaje, filtrado por categoría y vehículos cercanos en el mapa |
+
+**Evidencia de commits en el repositorio de la aplicación móvil:**
+
+| Repository | Branch | Commit Id | Commit Message | Commited on (Date) |
+|---|---|---|---|---|
+| Grupo-2-Aplicaciones-Moviles / frontend | main | ec2422e | Initial WeRide Android app implementation | 22/06/2026 |
+| Grupo-2-Aplicaciones-Moviles / frontend | main | fdb596b | Delete docs directory | 22/06/2026 |
+
+**Evidencia de colaboración en GitHub:**
+
+> 📸 **Reemplaza las siguientes imágenes con capturas reales del repositorio:**
+> - Ve a https://github.com/Grupo-2-Aplicaciones-Moviles/frontend/graphs/contributors
+> - Guarda la captura como `assets/chapter04/contributors.png`
+> - Ve a https://github.com/Grupo-2-Aplicaciones-Moviles/frontend/network
+> - Guarda la captura como `assets/chapter04/networkgraph.png`
+
+![Contributors](assets/chapter04/contributors.png)
+*Figura: Gráfico de contribuciones por integrante del equipo en el repositorio de la aplicación móvil (GitHub Insights → Contributors).*
+
+![Network Graph](assets/chapter04/networkgraph.png)
+*Figura: Network graph del repositorio frontend mostrando el flujo de ramas y commits del equipo durante el Sprint 2.*
+
+**Coordinación del equipo:**
+
+La coordinación del equipo durante el Sprint 2 se realizó a través de **WhatsApp** para comunicación diaria y **GitHub** como plataforma de control de versiones y seguimiento del código. Las decisiones técnicas se tomaron de manera colaborativa durante reuniones virtuales por **Google Meet**.
+
+La distribución de tareas siguió el Sprint Backlog definido en la sección 4.2.2.2, asegurando que cada integrante tuviera asignadas user stories completas para mantener la cohesión funcional de cada módulo.
 
 ## 4.3. Entrevistas de validación
 
