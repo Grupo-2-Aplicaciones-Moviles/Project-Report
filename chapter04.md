@@ -914,6 +914,84 @@ Scenario: Seleccionar ubicación
 
 #### 4.2.2.6. Services Documentation Evidence for Sprint Review 2 ####
 
+
+Para los servicios, hemos desarrollado nuestro API utilizando Java con el framework Spring Boot. Este backend se conecta a una base de datos MySQL Workbench para gestionar el inicio de sesión, gestión de perfiles, reservas, historial de viajes y garage de autos.
+
+Para verificar que la optención de datos se realice correctamente, utilizamos Swagger UI, una herramienta que nos permite interactuar con nuestra API de manera visual y probar los diferentes endpoints que hemos creado.
+
+
+*Swagger:*
+
+##### Accounts
+
+![accounts](assets/chapter05/backend/accounts-endpoint.png)
+
+![accountsGet](assets/chapter05/backend/accountsGet.png)
+
+##### Authentication
+
+![auth](assets/chapter05/backend/auth-endpoint.png)
+
+##### SignUp:
+
+![authenticationPost](assets/chapter05/backend/authenticationPost.png)
+
+##### SignIn:
+
+![authenticationPostSignIn](assets/chapter05/backend/authenticationPostSignIn.png)
+
+##### Auth:
+
+![authLogin](assets/chapter05/backend/authPost.png)
+
+![authRegister](assets/chapter05/backend/authRegister.png)
+
+##### Reservations:
+
+![reservations](assets/chapter05/backend/reservationsGet.png)
+
+![reservationsPost](assets/chapter05/backend/reservationsPost.png)
+
+![reservationsPost2](assets/chapter05/backend/reservationsPost2.png)
+
+##### Profiles:
+
+![profiles](assets/chapter05/backend/profiles-endpoint.png)
+
+![profilesPut](assets/chapter05/backend/profilesPut.png)
+
+![profilesGet](assets/chapter05/backend/profilesGet.png)
+
+##### Bookings:
+
+![booking](assets/chapter05/backend/bookincontroller-endpoint.png)
+
+![bookingGet](assets/chapter05/backend/boookingGet.png)
+
+![bookingsPost](assets/chapter05/backend/bookingsPost.png)
+
+![bookingsDraftPost](assets/chapter05/backend/bookingsDraftPost.png)
+
+![bookingsIdGet](assets/chapter05/backend/bookingsIdGet.png)
+
+![bookingsDraftGet](assets/chapter05/backend/bookingsDraftGet.png)
+
+##### Vehicles:
+
+![vehiclesGet](assets/chapter05/backend/vehiclesGet.png)
+
+![vehiclesPost](assets/chapter05/backend/vehiclesPost.png)
+
+##### Travel History:
+
+![travelhistory](assets/chapter05/backend/travelhistorycontroller-endpoint.png)
+
+##### Users:
+
+![usersGet](assets/chapter05/backend/usersGet.png)
+
+--- 
+
 #### 4.2.2.7. Software Deployment Evidence for Sprint Review 2 ####
 
 Durante el Sprint 2, el despliegue se concentró en dos componentes: la Landing Page (ya desplegada desde el Sprint 1) y la aplicación móvil Android, la cual fue ejecutada y validada en entorno local mediante Android Studio con emulador.
