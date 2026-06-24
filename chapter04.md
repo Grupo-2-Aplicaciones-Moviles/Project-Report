@@ -1111,17 +1111,7 @@ El equipo estuvo conformado por cinco integrantes, cada uno con responsabilidade
 
 **Evidencia de colaboración en GitHub:**
 
-> 📸 **Reemplaza las siguientes imágenes con capturas reales del repositorio:**
-> - Ve a https://github.com/Grupo-2-Aplicaciones-Moviles/frontend/graphs/contributors
-> - Guarda la captura como `assets/chapter04/contributors.png`
-> - Ve a https://github.com/Grupo-2-Aplicaciones-Moviles/frontend/network
-> - Guarda la captura como `assets/chapter04/networkgraph.png`
-
-![Contributors](assets/chapter04/contributors.png)
-*Figura: Gráfico de contribuciones por integrante del equipo en el repositorio de la aplicación móvil (GitHub Insights → Contributors).*
-
-![Network Graph](assets/chapter04/networkgraph.png)
-*Figura: Network graph del repositorio frontend mostrando el flujo de ramas y commits del equipo durante el Sprint 2.*
+![Contributors](assets/Chapter04/Contributors_Sprint2.png)
 
 **Coordinación del equipo:**
 
