@@ -1125,7 +1125,234 @@ La distribución de tareas siguió el Sprint Backlog definido en la sección 4.2
 
 #### 4.2.3.1. Sprint Planning 3 ####
 
+El Sprint Planning 3 tiene como objetivo planificar el desarrollo de la versión final de la aplicación móvil utilizando Flutter. Durante este sprint se implementarán las funcionalidades restantes del sistema, integrando los servicios desarrollados previamente para ofrecer una experiencia completa al usuario.
+
+| Sprint #                           | Sprint 3 |
+|------------------------------------|----------|
+| **Date**                           | 2026-08-02 |
+| Time                               | 10:00 PM |
+| Location                           | Virtual - Meet |
+| Prepared By                        | Gonzales Castillo Angel Martin |
+| Attendees (to planning meeting)    | Berrocal Ramirez Omar, Lang Nassi Werner Khalil, Jhimy Pool Romero Meza, Seijas Vásquez Diego Antonio |
+| Sprint 2 Review Summary        | Durante el Sprint 2 se desarrolló la aplicación móvil y los servicios backend correspondientes. Se implementaron las funcionalidades de autenticación, gestión de perfil, visualización de vehículos, filtrado de vehículos y consulta de vehículos cercanos mediante mapas. |
+| Sprint 2 Retrospective Summary | El equipo logró integrar correctamente los componentes desarrollados durante el Sprint 2. Como mejora para este sprint, se acordó optimizar la experiencia de usuario, completar las funcionalidades principales pendientes y reforzar la integración de todos los módulos de la aplicación. |
+| Sprint 3 Goal                      | Desarrollar la versión final de la aplicación móvil utilizando Flutter, implementando las funcionalidades de reservas, planes de suscripción, pagos, historial de viajes, notificaciones y desbloqueo de vehículos, asegurando la integración completa del sistema. |
+| Sprint 3 Velocity                  | 47 |
+| Sum of Story Points                | La suma de Story Points atendidos es de 47. |
+
 #### 4.2.3.2. Sprint Backlog 3 ####
+
+<table>
+  <tr>
+    <td><strong>Sprint #</strong></td>
+    <td align="center" colspan="7"><strong>Sprint 3</strong></td>
+  </tr>
+
+  <tr>
+    <td align="center" colspan="2"><strong>User Story</strong></td>
+    <td align="center" colspan="6"><strong>Work-item/Task</strong></td>
+  </tr>
+
+  <tr>
+    <td align="center"><strong>ID</strong></td>
+    <td align="center"><strong>Title</strong></td>
+    <td align="center"><strong>ID</strong></td>
+    <td align="center"><strong>Title</strong></td>
+    <td align="center"><strong>Description</strong></td>
+    <td align="center"><strong>Estimation (Hours)</strong></td>
+    <td align="center"><strong>Assigned To</strong></td>
+    <td align="center"><strong>Status (To-do/In-Process/To-Review/Done)</strong></td>
+  </tr>
+
+  <!-- US09 -->
+  <tr>
+    <td rowspan="2" align="center">US09</td>
+    <td rowspan="2" align="center">Selección y pago de planes</td>
+    <td align="center">TA01</td>
+    <td align="center">Visualización de planes</td>
+    <td align="center">Implementar la pantalla con los planes de suscripción disponibles.</td>
+    <td align="center">3</td>
+    <td align="center">Gonzales Castillo Angel Martin</td>
+    <td align="center">Done</td>
+  </tr>
+  <tr>
+    <td align="center">TA02</td>
+    <td align="center">Selección de plan</td>
+    <td align="center">Permitir al usuario seleccionar el plan que desea adquirir.</td>
+    <td align="center">2</td>
+    <td align="center">Gonzales Castillo Angel Martin</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US10 -->
+  <tr>
+    <td align="center">US10</td>
+    <td align="center">Proceso de pago de planes</td>
+    <td align="center">TA01</td>
+    <td align="center">Formulario de pago</td>
+    <td align="center">Implementar el formulario para registrar los datos de la tarjeta.</td>
+    <td align="center">3</td>
+    <td align="center">Berrocal Ramirez Omar</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US12 -->
+  <tr>
+    <td rowspan="2" align="center">US12</td>
+    <td rowspan="2" align="center">Visualización de viaje en mapa</td>
+    <td align="center">TA01</td>
+    <td align="center">Mapa del recorrido</td>
+    <td align="center">Mostrar el trayecto del viaje sobre el mapa.</td>
+    <td align="center">3</td>
+    <td align="center">Lang Nassi Werner Khalil</td>
+    <td align="center">Done</td>
+  </tr>
+  <tr>
+    <td align="center">TA02</td>
+    <td align="center">Información del viaje</td>
+    <td align="center">Visualizar la información del vehículo y del recorrido.</td>
+    <td align="center">2</td>
+    <td align="center">Lang Nassi Werner Khalil</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US13 -->
+  <tr>
+    <td align="center">US13</td>
+    <td align="center">Historial de viajes</td>
+    <td align="center">TA01</td>
+    <td align="center">Historial</td>
+    <td align="center">Mostrar los viajes realizados por el usuario.</td>
+    <td align="center">2</td>
+    <td align="center">Seijas Vásquez Diego Antonio</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US14 -->
+  <tr>
+    <td align="center">US14</td>
+    <td align="center">Calificación de viaje</td>
+    <td align="center">TA01</td>
+    <td align="center">Calificación</td>
+    <td align="center">Permitir calificar la experiencia al finalizar el viaje.</td>
+    <td align="center">2</td>
+    <td align="center">Jhimy Pool Romero Meza</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US15 -->
+  <tr>
+    <td align="center">US15</td>
+    <td align="center">Reportar problema con vehículo</td>
+    <td align="center">TA01</td>
+    <td align="center">Reporte de incidencias</td>
+    <td align="center">Desarrollar el formulario para reportar problemas del vehículo.</td>
+    <td align="center">2</td>
+    <td align="center">Jhimy Pool Romero Meza</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US16 -->
+  <tr>
+    <td align="center">US16</td>
+    <td align="center">Notificación de fin de reserva</td>
+    <td align="center">TA01</td>
+    <td align="center">Recordatorio de reserva</td>
+    <td align="center">Notificar al usuario antes de finalizar su reserva.</td>
+    <td align="center">2</td>
+    <td align="center">Berrocal Ramirez Omar</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US17 -->
+  <tr>
+    <td rowspan="2" align="center">US17</td>
+    <td rowspan="2" align="center">Crear una reserva</td>
+    <td align="center">TA01</td>
+    <td align="center">Reserva de vehículo</td>
+    <td align="center">Permitir seleccionar un vehículo y registrar la reserva.</td>
+    <td align="center">3</td>
+    <td align="center">Lang Nassi Werner Khalil</td>
+    <td align="center">Done</td>
+  </tr>
+  <tr>
+    <td align="center">TA02</td>
+    <td align="center">Confirmación de reserva</td>
+    <td align="center">Mostrar el resumen y confirmación de la reserva realizada.</td>
+    <td align="center">2</td>
+    <td align="center">Lang Nassi Werner Khalil</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US18 -->
+  <tr>
+    <td align="center">US18</td>
+    <td align="center">Notificación de inicio y vencimiento</td>
+    <td align="center">TA01</td>
+    <td align="center">Notificaciones</td>
+    <td align="center">Enviar notificaciones cuando la reserva inicia y está por vencer.</td>
+    <td align="center">2</td>
+    <td align="center">Berrocal Ramirez Omar</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US19 -->
+  <tr>
+    <td align="center">US19</td>
+    <td align="center">Desbloqueo de vehículo con QR</td>
+    <td align="center">TA01</td>
+    <td align="center">Escaneo QR</td>
+    <td align="center">Implementar el escaneo del código QR para desbloquear el vehículo.</td>
+    <td align="center">3</td>
+    <td align="center">Gonzales Castillo Angel Martin</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US20 -->
+  <tr>
+    <td align="center">US20</td>
+    <td align="center">Desbloqueo de vehículo desde la app</td>
+    <td align="center">TA01</td>
+    <td align="center">Desbloqueo remoto</td>
+    <td align="center">Permitir desbloquear el vehículo directamente desde la aplicación.</td>
+    <td align="center">3</td>
+    <td align="center">Gonzales Castillo Angel Martin</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US21 -->
+  <tr>
+    <td align="center">US21</td>
+    <td align="center">Ver estado de desbloqueo</td>
+    <td align="center">TA01</td>
+    <td align="center">Estado del vehículo</td>
+    <td align="center">Mostrar el estado actual del proceso de desbloqueo.</td>
+    <td align="center">2</td>
+    <td align="center">Seijas Vásquez Diego Antonio</td>
+    <td align="center">Done</td>
+  </tr>
+
+  <!-- US22 -->
+  <tr>
+    <td rowspan="2" align="center">US22</td>
+    <td rowspan="2" align="center">Desbloqueo programado</td>
+    <td align="center">TA01</td>
+    <td align="center">Programación</td>
+    <td align="center">Permitir programar el desbloqueo para una fecha y hora determinadas.</td>
+    <td align="center">3</td>
+    <td align="center">Seijas Vásquez Diego Antonio</td>
+    <td align="center">Done</td>
+  </tr>
+  <tr>
+    <td align="center">TA02</td>
+    <td align="center">Confirmación</td>
+    <td align="center">Mostrar la confirmación del desbloqueo programado.</td>
+    <td align="center">2</td>
+    <td align="center">Seijas Vásquez Diego Antonio</td>
+    <td align="center">Done</td>
+  </tr>
+
+</table>
 
 #### 4.2.3.3. Development Evidence for Sprint Review 3 ####
 
