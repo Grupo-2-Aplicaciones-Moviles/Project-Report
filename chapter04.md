@@ -116,6 +116,8 @@ Hemos optado por crear un repositorio en GitHub para nuestro proyecto, tanto par
 - URL del repositorio Landing Page en GitHub: https://github.com/Grupo-2-Aplicaciones-Moviles/Landing-Page
 - URL del repositorio Android Mobile en GitHub: https://github.com/Grupo-2-Aplicaciones-Moviles/frontend
 - URL del repositorio Backend en GitHub: https://github.com/Grupo-2-Aplicaciones-Moviles/backend
+- URL del repositorio Multiplatform Mobile en Github: https://github.com/Grupo-2-Aplicaciones-Moviles/Frontend-Flutter
+
 ### 4.1.3. Source Code Style Guide & Conventions ###
 
 ##### Landing Page:
@@ -919,17 +921,17 @@ Para la aplicación móvil, se utilizó **Kotlin con Jetpack Compose** para el d
 
 - Registro e inicio de sesión
 
-[![Registro e inicio de sesión](assets/Chapter04/login-android.png)
+![Registro e inicio de sesión](assets/Chapter04/login-android.png)
 
-[![Registro e inicio de sesión](assets/Chapter04/registro-android.png)
+![Registro e inicio de sesión](assets/Chapter04/registro-android.png)
 
 - planes
 
-[![Planes](assets/Chapter04/Planes-android.png)
+![Planes](assets/Chapter04/planes-android.png)
 
 - perfil
 
-[![Perfil](assets/Chapter04/Perfil-android.png)
+![Perfil](assets/Chapter04/perfil-android.png)
 
 #### 4.2.2.6. Services Documentation Evidence for Sprint Review 2 ####
 
@@ -1118,6 +1120,25 @@ El equipo estuvo conformado por cinco integrantes, cada uno con responsabilidade
 La coordinación del equipo durante el Sprint 2 se realizó a través de **WhatsApp** para comunicación diaria y **GitHub** como plataforma de control de versiones y seguimiento del código. Las decisiones técnicas se tomaron de manera colaborativa durante reuniones virtuales por **Google Meet**.
 
 La distribución de tareas siguió el Sprint Backlog definido en la sección 4.2.2.2, asegurando que cada integrante tuviera asignadas user stories completas para mantener la cohesión funcional de cada módulo.
+
+### 4.2.3. Sprint 3 ###
+
+#### 4.2.3.1. Sprint Planning 3 ####
+
+#### 4.2.3.2. Sprint Backlog 3 ####
+
+#### 4.2.3.3. Development Evidence for Sprint Review 3 ####
+
+#### 4.2.3.4. Testing Suite Evidence for Sprint Review 3 ####
+
+#### 4.2.3.5. Execution Evidence for Sprint Review 3 ####
+
+#### 4.2.3.6. Services Documentation Evidence for Sprint Review 3 ####
+
+#### 4.2.3.7. Software Deployment Evidence for Sprint Review 3 ####
+
+#### 4.2.3.8. Team Collaboration Insights during Sprint 3 ####
+
 
 ## 4.3. Entrevistas de validación
 
