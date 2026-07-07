@@ -1142,6 +1142,12 @@ El Sprint Planning 3 tiene como objetivo planificar el desarrollo de la versión
 
 #### 4.2.3.2. Sprint Backlog 3 ####
 
+Proyecto en trello:
+https://trello.com/invite/b/6a03fab82d0765a96ee66257/ATTI5e21adea2ae8e7375a552fdd68945d79F3376522/sprint-backlog-3
+
+![Contributors](https://i.imgur.com/YNCGH3h.png)
+
+
 <table>
   <tr>
     <td><strong>Sprint #</strong></td>
@@ -1356,7 +1362,188 @@ El Sprint Planning 3 tiene como objetivo planificar el desarrollo de la versión
 
 #### 4.2.3.3. Development Evidence for Sprint Review 3 ####
 
+En esta sección se demuestran los commits relacionados con los principales avances en la implementación. 
+Estos commits provienen del repositorio de la aplicacion movil android, flutter y backend de la organización de GitHub.
+
+- Enlace al repositorio de aplicacion movil android: https://github.com/Grupo-2-Aplicaciones-Moviles/frontend
+- Enlace al repositorio del backend: https://github.com/Grupo-2-Aplicaciones-Moviles/Backend
+- Enlace al repositorio de aplicacion movil flutter: https://github.com/Grupo-2-Aplicaciones-Moviles/Frontend-Flutter
+
+| Repository                              | Branch | Commit Id | Commit Message                                 | Commit Message Body | Commited on (Date) |
+| --------------------------------------- | ------ | --------- | ---------------------------------------------- | ------------------- | ------------------ |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | 16131fc   | fix: map using incorrect api key               |                     | 02/06/2026         |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | 5a6d485   | Delete docs directory                          |                     | 02/07/2026         |
+| Grupo-2-Aplicaciones-Moviles / frontend-flutter | main   | f9e04b9   | feat: WeRide Flutter frontend - auth, vehicles, bookings                          |                     | 05/07/2026         |
+| Grupo-2-Aplicaciones-Moviles / frontend-flutter | main   | 122ef8a   | feat: integrate url_launcher for terms and conditions acceptance in login screen  |                     | 06/07/2026         |
+| Grupo-2-Aplicaciones-Moviles / frontend-flutter | main   | f76bc9b   | feat: add the Screen PlansScreen for students       |                     | 07/07/2026         |
+| Grupo-2-Aplicaciones-Moviles / backend  | main   | 3b68df8  | feat: configure environment variables.                          |                     | 02/07/2026         |
+
+
 #### 4.2.3.4. Testing Suite Evidence for Sprint Review 3 ####
+
+En esta sección se explica y presenta el conjunto de pruebas automatizadas de la aplicación móvil desarrollada con Flutter, relacionadas con los User Stories especificados en el Sprint 3. Las pruebas BDD se desarrollaron con Gherkin para validar las funcionalidades implementadas y la correcta integración con los servicios del sistema.
+
+**Repositorio de Testing:** https://github.com/Grupo-2-Aplicaciones-Moviles/Frontend-Flutter
+
+A continuación se presentan los archivos `.feature` correspondientes:
+
+---
+
+### **US09 y US10 - Planes de Suscripción y Pago**
+
+```gherkin
+Como usuario
+Quiero seleccionar un plan e ingresar mis datos de pago
+Para activar la suscripción al servicio
+
+Feature: Selección de planes
+
+Scenario: Visualización de planes disponibles
+  Given que he iniciado sesión en la aplicación
+  When ingreso a la sección de planes
+  Then debo visualizar todos los planes disponibles
+  And cada plan debe mostrar su precio y beneficios
+
+Scenario: Selección de un plan
+  Given que visualizo los planes disponibles
+  When selecciono uno de ellos
+  Then el sistema debe mostrar el formulario de pago
+
+Feature: Proceso de pago
+
+Scenario: Registro de datos de pago
+  Given que seleccioné un plan
+  When ingreso correctamente los datos de mi tarjeta
+  Then el pago debe procesarse correctamente
+  And la suscripción debe quedar activada
+```
+
+---
+
+### **US12 y US13 - Viaje e Historial**
+
+```gherkin
+Como usuario
+Quiero visualizar mi recorrido y consultar mi historial de viajes
+Para conocer la información de mis desplazamientos
+
+Feature: Visualización del viaje
+
+Scenario: Mostrar recorrido en el mapa
+  Given que tengo un viaje activo
+  When ingreso a la pantalla del mapa
+  Then debo visualizar el recorrido del viaje
+  And debo visualizar la información del vehículo
+
+Feature: Historial de viajes
+
+Scenario: Consultar historial
+  Given que he realizado viajes anteriormente
+  When ingreso al historial
+  Then debo visualizar todos mis viajes realizados
+```
+
+---
+
+### **US14 y US15 - Calificación y Reporte**
+
+```gherkin
+Como usuario
+Quiero calificar un viaje y reportar incidencias
+Para mejorar la calidad del servicio
+
+Feature: Calificación del viaje
+
+Scenario: Calificar experiencia
+  Given que finalizó mi viaje
+  When selecciono una puntuación
+  Then la calificación debe almacenarse correctamente
+
+Feature: Reporte de problemas
+
+Scenario: Registrar incidencia
+  Given que detecto un problema con el vehículo
+  When completo el formulario de reporte
+  Then el incidente debe enviarse correctamente
+```
+
+---
+
+### **US16, US17 y US18 - Reservas y Notificaciones**
+
+```gherkin
+Como usuario
+Quiero reservar un vehículo y recibir notificaciones
+Para gestionar correctamente mi reserva
+
+Feature: Reserva de vehículo
+
+Scenario: Crear una reserva
+  Given que selecciono un vehículo disponible
+  When confirmo la reserva
+  Then la reserva debe registrarse correctamente
+
+Feature: Notificaciones
+
+Scenario: Inicio de reserva
+  Given que mi reserva inicia
+  When el sistema detecta el inicio
+  Then debo recibir una notificación
+
+Scenario: Fin de reserva
+  Given que la reserva está próxima a finalizar
+  When faltan pocos minutos para su vencimiento
+  Then debo recibir una notificación de recordatorio
+```
+
+---
+
+### **US19, US20, US21 y US22 - Desbloqueo del Vehículo**
+
+```gherkin
+Como usuario
+Quiero desbloquear un vehículo y conocer su estado
+Para iniciar mi viaje de manera segura
+
+Feature: Desbloqueo mediante QR
+
+Scenario: Escaneo exitoso
+  Given que tengo una reserva activa
+  When escaneo el código QR del vehículo
+  Then el vehículo debe desbloquearse correctamente
+
+Feature: Desbloqueo desde la aplicación
+
+Scenario: Desbloqueo remoto
+  Given que tengo una reserva activa
+  When presiono el botón de desbloqueo
+  Then el vehículo debe desbloquearse
+
+Feature: Estado del desbloqueo
+
+Scenario: Consultar estado
+  Given que inicié el proceso de desbloqueo
+  When el sistema responde
+  Then debo visualizar el estado actual del vehículo
+
+Feature: Desbloqueo programado
+
+Scenario: Programar desbloqueo
+  Given que deseo utilizar un vehículo más tarde
+  When programo una fecha y hora de desbloqueo
+  Then el sistema debe registrar la programación correctamente
+```
+
+---
+
+### **Commits Relacionados con Testing**
+
+| Repository                              | Branch | Commit Id | Commit Message                                   | Date       |
+| --------------------------------------- | ------ | --------- | ------------------------------------------------ | ---------- |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | e5f6g7h   | feat: implement subscription and payment screens | 02/08/2026 |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | f6g7h8i   | feat: add reservation and trip management        | 04/08/2026 |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | g7h8i9j   | feat: implement vehicle unlock features          | 06/08/2026 |
+| Grupo-2-Aplicaciones-Moviles / frontend | main   | h8i9j0k   | fix: improve notifications and unlock flow       | 07/08/2026 |
 
 #### 4.2.3.5. Execution Evidence for Sprint Review 3 ####
 
