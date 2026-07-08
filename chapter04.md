@@ -1551,6 +1551,21 @@ Scenario: Programar desbloqueo
 
 #### 4.2.3.7. Software Deployment Evidence for Sprint Review 3 ####
 
+| repository       | url                                                              |
+|------------------|------------------------------------------------------------------|
+| frontend kotlin  | https://github.com/Grupo-2-Aplicaciones-Moviles/Frontend         |
+| frontend flutter | https://github.com/Grupo-2-Aplicaciones-Moviles/Frontend-Flutter |
+| backend         | https://github.com/Grupo-2-Aplicaciones-Moviles/Backend           |
+
+
+Despliegue de backend en Render: https://backend-moviles-vseq.onrender.com/swagger-ui/index.html
+
+Durante el proceso de despliegue del backend en Render, se configuraron las variables de entorno necesarias para la conexión con la base de datos y la correcta ejecución de los servicios. Se verificó que todos los endpoints estuvieran accesibles y funcionando correctamente mediante pruebas con Swagger UI.
+La base de datos MySQL fue configurada en aiven, asegurando la persistencia de datos y la integridad de la información. Se realizaron pruebas de integración para garantizar que las operaciones CRUD funcionaran según lo esperado.
+![Backend Render](assets/Chapter04/backend_render.png)
+![Backend Render](assets/Chapter04/backend_render2.png)
+
+
 #### 4.2.3.8. Team Collaboration Insights during Sprint 3 ####
 
 Frontend kotlin:
