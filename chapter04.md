@@ -1549,6 +1549,23 @@ Scenario: Programar desbloqueo
 
 #### 4.2.3.6. Services Documentation Evidence for Sprint Review 3 ####
 
+Se presentan la documentación de los endpoints del backend desarrollados con Spring Boot, los cuales permiten la gestión de las funcionalidades implementadas en la aplicación móvil y web. Estos endpoints están documentados y accesibles mediante Swagger UI, facilitando la interacción y prueba de los servicios.
+
+
+| End Point              | Funciones                      |
+|------------------------|--------------------------------|
+| /api/v1/travel-history | Gestión de historial de viajes |
+| /api/v1/accounts       | Gestión de cuentas de usuario  |
+| /api/v1/authentication | Gestión de autenticación       |
+| /api/v1/booking        | Gestión de reservas            |
+| /api/v1/notifications  | Gestión de notificaciones      |
+| /api/v1/vehicles       | Gestión de vehículos           |
+| /api/v1/trips          | Gestión de viajes              |
+| /api/v1/profiles       | Gestión de perfiles            |
+| /api/v1/plans          | Gestión de planes              |
+| /api/v1/locations      | Gestión de ubicaciones         |
+
+
 #### 4.2.3.7. Software Deployment Evidence for Sprint Review 3 ####
 
 | repository       | url                                                              |
