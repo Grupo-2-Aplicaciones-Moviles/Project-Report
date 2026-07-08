@@ -1553,6 +1553,15 @@ Scenario: Programar desbloqueo
 
 #### 4.2.3.8. Team Collaboration Insights during Sprint 3 ####
 
+Frontend kotlin:
+![Contributors](assets/Chapter04/Contributors_kotlin_Sprint3.png)
+
+Frontend flutter:
+![Contributors](assets/Chapter04/Contributors_flutter_Sprint3.png)
+
+Backend:
+![Contributors](assets/Chapter04/Contributors_backend_Sprint3.png)
+
 
 ## 4.3. Entrevistas de validación
 
