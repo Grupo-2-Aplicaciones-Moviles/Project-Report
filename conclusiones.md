@@ -51,3 +51,5 @@ Figma https://www.figma.com/design/6R0aWHPQEpwX8DyWLrCHmd/Open-Source-2025-2?t=m
 Video exposicion AV1 https://youtu.be/b5JeXdtnK_c
 
 Video exposicion TB1 https://youtu.be/lMq_iWSk1OE
+
+Video about the team https://youtu.be/f6gusBXHYTE
